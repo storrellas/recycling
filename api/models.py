@@ -10,8 +10,8 @@ class RecyclableComponent(models.Model):
 class RecyclableSpot(models.Model):
     name = models.CharField(max_length=500, null=True)
     address = models.CharField(max_length=500, null=True)
-    latitude = models.DecimalField(max_digits=5, null=True, decimal_places=2)
-    longitude = models.DecimalField(max_digits=5, null=True, decimal_places=2)
+    latitude = models.DecimalField(max_digits=20, null=True, decimal_places=18)
+    longitude = models.DecimalField(max_digits=20, null=True, decimal_places=18)
     recyclable_component = models.ForeignKey(RecyclableComponent, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
