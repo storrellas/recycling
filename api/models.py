@@ -15,7 +15,7 @@ class RecyclableSpot(models.Model):
     recyclable_component = models.ForeignKey(RecyclableComponent, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
-        return self.name
+        return self.name + " - " + self.address
 
 class Component(models.Model):
     name = models.CharField(max_length=500, null=True)
