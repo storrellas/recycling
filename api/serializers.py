@@ -23,3 +23,14 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = '__all__'
+
+
+class RecyclableSpotDistanceSerializer(serializers.ModelSerializer):
+    distance = serializers.SerializerMethodField()
+
+    def get_distance(self, obj):
+        return self.context.get('distance_list')[obj.id]
+
+    class Meta:
+        model = RecyclableSpot
+        fields = '__all__'

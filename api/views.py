@@ -98,17 +98,18 @@ class ProductViewSet(viewsets.ModelViewSet):
         # Get RecyclableSpot List
         recyclable_spot_queryset = RecyclableSpot.objects.filter(pk__in=recyclable_spot_list)
 
-        # serializer = RecyclableSpotSerializer(recyclable_spot_queryset, many=True)
-        # return Response(serializer.data, status=status.HTTP_200_OK)
-
-        recyclable_spot = recyclable_spot_queryset.first()
-        print(recyclable_spot.latitude)
-        print(recyclable_spot.longitude)
-
-        # distance = calculate_distance(lat1=52.2296756, lon1=21.0122287,
-        #                                lat2=52.406374, lon2=16.9251681)
 
         # Calculate distance
-        distance = calculate_distance(lat1=user_latitude, lon1=user_longitude,
-                                      lat2=recyclable_spot.latitude, lon2=recyclable_spot.longitude)
-        return Response({'distance':distance}, status=status.HTTP_200_OK)
+        recyclable_spot_distance_list = {}
+        for recyclable_spot in recyclable_spot_queryset:
+            distance = calculate_distance(lat1=user_latitude, lon1=user_longitude,
+                                          lat2=recyclable_spot.latitude, lon2=recyclable_spot.longitude)
+            recyclable_spot_distance_list[recyclable_spot.id] = distance
+
+
+        # Generate serializer
+        serializer = RecyclableSpotDistanceSerializer(recyclable_spot_queryset,
+                                                      context={'distance_list': recyclable_spot_distance_list},
+                                                      many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+        
