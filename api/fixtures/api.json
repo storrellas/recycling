@@ -1,67 +1,166 @@
 [
 {
-  "model": "api.recyclableproduct",
+  "model": "api.recyclablecomponent",
   "pk": 1,
   "fields": {
-    "name": "Plastic",
-    "description": "Plastic description"
+    "name": "plastic-can",
+    "description": "plastic-can description"
   }
 },
 {
-  "model": "api.recyclableproduct",
+  "model": "api.recyclablecomponent",
   "pk": 2,
   "fields": {
-    "name": "Paper",
-    "description": "Paper description"
+    "name": "glass",
+    "description": "glass description"
   }
 },
 {
-  "model": "api.recyclableproduct",
+  "model": "api.recyclablecomponent",
   "pk": 3,
   "fields": {
-    "name": "Glass",
-    "description": "Glass Description"
+    "name": "textiles",
+    "description": "textiles description"
   }
 },
 {
-  "model": "api.recyclableproduct",
+  "model": "api.recyclablecomponent",
   "pk": 4,
   "fields": {
-    "name": "Other",
-    "description": "Other Description"
+    "name": "paper",
+    "description": "paper description"
   }
 },
 {
-  "model": "api.product",
-  "pk": 1,
+  "model": "api.recyclablecomponent",
+  "pk": 5,
   "fields": {
-    "barcode": "123456789",
-    "name": "Milk",
-    "description": "Milk with Brik"
+    "name": "organic",
+    "description": "organic description"
+  }
+},
+{
+  "model": "api.recyclablecomponent",
+  "pk": 6,
+  "fields": {
+    "name": "electronics",
+    "description": "electronics description"
+  }
+},
+{
+  "model": "api.recyclablecomponent",
+  "pk": 7,
+  "fields": {
+    "name": "other",
+    "description": "other description"
   }
 },
 {
   "model": "api.component",
   "pk": 1,
   "fields": {
-    "name": "Plastic",
-    "description": "Plastic description",
-    "recyclable_product": 1,
-    "product_set": [
-      1
-    ]
+    "name": "glass",
+    "description": "glass description",
+    "recyclable_component": 2
   }
 },
 {
   "model": "api.component",
   "pk": 2,
   "fields": {
-    "name": "Paper",
-    "description": "Paper description",
-    "recyclable_product": 2,
-    "product_set": [
-      1
-    ]
+    "name": "wood",
+    "description": "wood description",
+    "recyclable_component": 4
+  }
+},
+{
+  "model": "api.component",
+  "pk": 3,
+  "fields": {
+    "name": "PET - plastic",
+    "description": "PET soft drink bottles etc",
+    "recyclable_component": 1
+  }
+},
+{
+  "model": "api.component",
+  "pk": 4,
+  "fields": {
+    "name": "HDPE - plastic",
+    "description": "high density polyethylene - milk, coffee cream, juice and shampoo bottles",
+    "recyclable_component": 1
+  }
+},
+{
+  "model": "api.component",
+  "pk": 5,
+  "fields": {
+    "name": "PS - plastic",
+    "description": "polystyrene - yogurt containers, CD cases",
+    "recyclable_component": 1
+  }
+},
+{
+  "model": "api.component",
+  "pk": 6,
+  "fields": {
+    "name": "electronics",
+    "description": "electronics description",
+    "recyclable_component": 7
+  }
+},
+{
+  "model": "api.component",
+  "pk": 7,
+  "fields": {
+    "name": "batteries",
+    "description": "batteries description",
+    "recyclable_component": 7
+  }
+},
+{
+  "model": "api.component",
+  "pk": 8,
+  "fields": {
+    "name": "paper",
+    "description": "paper description",
+    "recyclable_component": 5
+  }
+},
+{
+  "model": "api.component",
+  "pk": 9,
+  "fields": {
+    "name": "aluminium",
+    "description": "aluminium description",
+    "recyclable_component": 1
+  }
+},
+{
+  "model": "api.component",
+  "pk": 10,
+  "fields": {
+    "name": "tins",
+    "description": "tins description",
+    "recyclable_component": 1
+  }
+},
+{
+  "model": "api.component",
+  "pk": 11,
+  "fields": {
+    "name": "food",
+    "description": "food description",
+    "recyclable_component": 6
+  }
+},
+{
+  "model": "api.component",
+  "pk": 12,
+  "fields": {
+    "name": "vegetables",
+    "description": "vegetables description",
+    "recyclable_component": 6
   }
 }
 ]
