@@ -25,7 +25,7 @@ class RecyclableSpot(models.Model):
     def __str__(self):
         return self.name
 
-class Components(models.Model):
+class Component(models.Model):
     name = models.CharField(max_length=500, null=True)
     description = models.CharField(max_length=500, null=True)
     product_set = models.ManyToManyField(Product, related_name="components_set", blank=True)

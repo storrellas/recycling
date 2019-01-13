@@ -39,108 +39,108 @@
   "model": "auth.permission",
   "pk": 5,
   "fields": {
-    "name": "Can add permission",
+    "name": "Can add group",
     "content_type": 2,
-    "codename": "add_permission"
+    "codename": "add_group"
   }
 },
 {
   "model": "auth.permission",
   "pk": 6,
   "fields": {
-    "name": "Can change permission",
+    "name": "Can change group",
     "content_type": 2,
-    "codename": "change_permission"
+    "codename": "change_group"
   }
 },
 {
   "model": "auth.permission",
   "pk": 7,
   "fields": {
-    "name": "Can delete permission",
+    "name": "Can delete group",
     "content_type": 2,
-    "codename": "delete_permission"
+    "codename": "delete_group"
   }
 },
 {
   "model": "auth.permission",
   "pk": 8,
   "fields": {
-    "name": "Can view permission",
+    "name": "Can view group",
     "content_type": 2,
-    "codename": "view_permission"
+    "codename": "view_group"
   }
 },
 {
   "model": "auth.permission",
   "pk": 9,
   "fields": {
-    "name": "Can add group",
+    "name": "Can add user",
     "content_type": 3,
-    "codename": "add_group"
+    "codename": "add_user"
   }
 },
 {
   "model": "auth.permission",
   "pk": 10,
   "fields": {
-    "name": "Can change group",
+    "name": "Can change user",
     "content_type": 3,
-    "codename": "change_group"
+    "codename": "change_user"
   }
 },
 {
   "model": "auth.permission",
   "pk": 11,
   "fields": {
-    "name": "Can delete group",
+    "name": "Can delete user",
     "content_type": 3,
-    "codename": "delete_group"
+    "codename": "delete_user"
   }
 },
 {
   "model": "auth.permission",
   "pk": 12,
   "fields": {
-    "name": "Can view group",
+    "name": "Can view user",
     "content_type": 3,
-    "codename": "view_group"
+    "codename": "view_user"
   }
 },
 {
   "model": "auth.permission",
   "pk": 13,
   "fields": {
-    "name": "Can add user",
+    "name": "Can add permission",
     "content_type": 4,
-    "codename": "add_user"
+    "codename": "add_permission"
   }
 },
 {
   "model": "auth.permission",
   "pk": 14,
   "fields": {
-    "name": "Can change user",
+    "name": "Can change permission",
     "content_type": 4,
-    "codename": "change_user"
+    "codename": "change_permission"
   }
 },
 {
   "model": "auth.permission",
   "pk": 15,
   "fields": {
-    "name": "Can delete user",
+    "name": "Can delete permission",
     "content_type": 4,
-    "codename": "delete_user"
+    "codename": "delete_permission"
   }
 },
 {
   "model": "auth.permission",
   "pk": 16,
   "fields": {
-    "name": "Can view user",
+    "name": "Can view permission",
     "content_type": 4,
-    "codename": "view_user"
+    "codename": "view_permission"
   }
 },
 {
@@ -219,152 +219,152 @@
   "model": "auth.permission",
   "pk": 25,
   "fields": {
-    "name": "Can add components",
+    "name": "Can add recyclable spot",
     "content_type": 7,
-    "codename": "add_components"
+    "codename": "add_recyclablespot"
   }
 },
 {
   "model": "auth.permission",
   "pk": 26,
   "fields": {
-    "name": "Can change components",
+    "name": "Can change recyclable spot",
     "content_type": 7,
-    "codename": "change_components"
+    "codename": "change_recyclablespot"
   }
 },
 {
   "model": "auth.permission",
   "pk": 27,
   "fields": {
-    "name": "Can delete components",
+    "name": "Can delete recyclable spot",
     "content_type": 7,
-    "codename": "delete_components"
+    "codename": "delete_recyclablespot"
   }
 },
 {
   "model": "auth.permission",
   "pk": 28,
   "fields": {
-    "name": "Can view components",
+    "name": "Can view recyclable spot",
     "content_type": 7,
-    "codename": "view_components"
+    "codename": "view_recyclablespot"
   }
 },
 {
   "model": "auth.permission",
   "pk": 29,
   "fields": {
-    "name": "Can add recyclable product",
+    "name": "Can add component",
     "content_type": 8,
-    "codename": "add_recyclableproduct"
+    "codename": "add_component"
   }
 },
 {
   "model": "auth.permission",
   "pk": 30,
   "fields": {
-    "name": "Can change recyclable product",
+    "name": "Can change component",
     "content_type": 8,
-    "codename": "change_recyclableproduct"
+    "codename": "change_component"
   }
 },
 {
   "model": "auth.permission",
   "pk": 31,
   "fields": {
-    "name": "Can delete recyclable product",
+    "name": "Can delete component",
     "content_type": 8,
-    "codename": "delete_recyclableproduct"
+    "codename": "delete_component"
   }
 },
 {
   "model": "auth.permission",
   "pk": 32,
   "fields": {
-    "name": "Can view recyclable product",
+    "name": "Can view component",
     "content_type": 8,
-    "codename": "view_recyclableproduct"
+    "codename": "view_component"
   }
 },
 {
   "model": "auth.permission",
   "pk": 33,
   "fields": {
-    "name": "Can add recyclable spot",
+    "name": "Can add product",
     "content_type": 9,
-    "codename": "add_recyclablespot"
+    "codename": "add_product"
   }
 },
 {
   "model": "auth.permission",
   "pk": 34,
   "fields": {
-    "name": "Can change recyclable spot",
+    "name": "Can change product",
     "content_type": 9,
-    "codename": "change_recyclablespot"
+    "codename": "change_product"
   }
 },
 {
   "model": "auth.permission",
   "pk": 35,
   "fields": {
-    "name": "Can delete recyclable spot",
+    "name": "Can delete product",
     "content_type": 9,
-    "codename": "delete_recyclablespot"
+    "codename": "delete_product"
   }
 },
 {
   "model": "auth.permission",
   "pk": 36,
   "fields": {
-    "name": "Can view recyclable spot",
+    "name": "Can view product",
     "content_type": 9,
-    "codename": "view_recyclablespot"
+    "codename": "view_product"
   }
 },
 {
   "model": "auth.permission",
   "pk": 37,
   "fields": {
-    "name": "Can add product",
+    "name": "Can add recyclable product",
     "content_type": 10,
-    "codename": "add_product"
+    "codename": "add_recyclableproduct"
   }
 },
 {
   "model": "auth.permission",
   "pk": 38,
   "fields": {
-    "name": "Can change product",
+    "name": "Can change recyclable product",
     "content_type": 10,
-    "codename": "change_product"
+    "codename": "change_recyclableproduct"
   }
 },
 {
   "model": "auth.permission",
   "pk": 39,
   "fields": {
-    "name": "Can delete product",
+    "name": "Can delete recyclable product",
     "content_type": 10,
-    "codename": "delete_product"
+    "codename": "delete_recyclableproduct"
   }
 },
 {
   "model": "auth.permission",
   "pk": 40,
   "fields": {
-    "name": "Can view product",
+    "name": "Can view recyclable product",
     "content_type": 10,
-    "codename": "view_product"
+    "codename": "view_recyclableproduct"
   }
 },
 {
   "model": "auth.user",
   "pk": 1,
   "fields": {
-    "password": "pbkdf2_sha256$120000$USexSwFPpukQ$y9z6Zug8rMP6l5FXagXmbyMOyDMx1zWEdNJH+AhHSQI=",
-    "last_login": null,
+    "password": "pbkdf2_sha256$120000$bfwTf8ycLGK3$NljXtHx34s+6YS9K9GP8PtN9nhzSQjDYks1iJJfFr5k=",
+    "last_login": "2019-01-13T11:29:52.493Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -372,7 +372,7 @@
     "email": "admin@mail.com",
     "is_staff": true,
     "is_active": true,
-    "date_joined": "2019-01-13T11:23:21.698Z",
+    "date_joined": "2019-01-13T11:29:47.124Z",
     "groups": [],
     "user_permissions": []
   }
