@@ -1,0 +1,67 @@
+[
+{
+  "model": "api.recyclableproduct",
+  "pk": 1,
+  "fields": {
+    "name": "Plastic",
+    "description": "Plastic description"
+  }
+},
+{
+  "model": "api.recyclableproduct",
+  "pk": 2,
+  "fields": {
+    "name": "Paper",
+    "description": "Paper description"
+  }
+},
+{
+  "model": "api.recyclableproduct",
+  "pk": 3,
+  "fields": {
+    "name": "Glass",
+    "description": "Glass Description"
+  }
+},
+{
+  "model": "api.recyclableproduct",
+  "pk": 4,
+  "fields": {
+    "name": "Other",
+    "description": "Other Description"
+  }
+},
+{
+  "model": "api.product",
+  "pk": 1,
+  "fields": {
+    "barcode": "123456789",
+    "name": "Milk",
+    "description": "Milk with Brik"
+  }
+},
+{
+  "model": "api.component",
+  "pk": 1,
+  "fields": {
+    "name": "Plastic",
+    "description": "Plastic description",
+    "recyclable_product": 1,
+    "product_set": [
+      1
+    ]
+  }
+},
+{
+  "model": "api.component",
+  "pk": 2,
+  "fields": {
+    "name": "Paper",
+    "description": "Paper description",
+    "recyclable_product": 2,
+    "product_set": [
+      1
+    ]
+  }
+}
+]
