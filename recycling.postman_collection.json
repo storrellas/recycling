@@ -128,6 +128,49 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Product - LocateSpot",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/product/1/locatespot/?latitude=41.410729&longitude=2.184305",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"product",
+						"1",
+						"locatespot",
+						""
+					],
+					"query": [
+						{
+							"key": "latitude",
+							"value": "41.410729"
+						},
+						{
+							"key": "longitude",
+							"value": "2.184305"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

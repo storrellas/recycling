@@ -40,6 +40,7 @@ class ComponentViewSet(viewsets.ModelViewSet):
 
 
 from math import sin, cos, sqrt, atan2, radians
+import operator
 def calculate_distance(lat1, lon1, lat2, lon2):
 
     # approximate radius of earth in km
@@ -92,12 +93,8 @@ class ProductViewSet(viewsets.ModelViewSet):
             spot_list = list(spot_queryset.values_list('id', flat=True))
             recyclable_spot_list.extend(spot_list)
 
-        print("-- Recyclable Spot List--")
-        print(recyclable_spot_list)
-
         # Get RecyclableSpot List
         recyclable_spot_queryset = RecyclableSpot.objects.filter(pk__in=recyclable_spot_list)
-
 
         # Calculate distance
         recyclable_spot_distance_list = {}
@@ -106,10 +103,14 @@ class ProductViewSet(viewsets.ModelViewSet):
                                           lat2=recyclable_spot.latitude, lon2=recyclable_spot.longitude)
             recyclable_spot_distance_list[recyclable_spot.id] = distance
 
+        # Get closest
+        recyclable_spot_id_listed_sorted = sorted(recyclable_spot_distance_list.items(),
+                                                    key=operator.itemgetter(1))
+        recyclable_spot_closest_id_list = [i[0] for i in recyclable_spot_id_listed_sorted[0:3]]
+        recyclable_spot_closest_queryset = recyclable_spot_queryset.filter(pk__in=recyclable_spot_closest_id_list)
 
         # Generate serializer
-        serializer = RecyclableSpotDistanceSerializer(recyclable_spot_queryset,
+        serializer = RecyclableSpotDistanceSerializer(recyclable_spot_closest_queryset,
                                                       context={'distance_list': recyclable_spot_distance_list},
                                                       many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-        
