@@ -1,10 +1,56 @@
 {
 	"info": {
-		"_postman_id": "a4f01651-528f-4b28-89da-081ea976e0e5",
+		"_postman_id": "4b6234b3-cf38-4694-95f4-71f93bf6dd0e",
 		"name": "recycling",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
+		{
+			"name": "GetJWTToken - Admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "67ff0d83-d218-44db-8dc7-70cd8368eb4f",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"token_access\", jsonData.access);",
+							"postman.setEnvironmentVariable(\"token_refresh\", jsonData.refresh);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"admin123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/token/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
 		{
 			"name": "Recyclable Component List",
 			"request": {
@@ -12,7 +58,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{token}}",
+						"value": "Bearer {{token_access}}",
 						"type": "text"
 					}
 				],
@@ -43,7 +89,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{token}}",
+						"value": "Bearer {{token_access}}",
 						"type": "text"
 					}
 				],
@@ -74,7 +120,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{token}}",
+						"value": "Bearer {{token_access}}",
 						"type": "text"
 					}
 				],
@@ -105,7 +151,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{token}}",
+						"value": "Bearer {{token_access}}",
 						"type": "text"
 					}
 				],
@@ -137,7 +183,7 @@
 					{
 						"key": "Authorization",
 						"type": "text",
-						"value": "Bearer {{token}}"
+						"value": "Bearer {{token_access}}"
 					}
 				],
 				"body": {

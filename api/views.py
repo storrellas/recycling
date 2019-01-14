@@ -6,6 +6,7 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
 
 
@@ -18,6 +19,7 @@ logger = utils.get_logger()
 
 
 class RecyclableComponentViewSet(viewsets.ModelViewSet):
+    authentication_classes = (JWTAuthentication,)
 
     model = RecyclableComponent
     queryset = RecyclableComponent.objects.all()
@@ -25,6 +27,7 @@ class RecyclableComponentViewSet(viewsets.ModelViewSet):
     renderer_classes = (JSONRenderer, )
 
 class RecyclableSpotViewSet(viewsets.ModelViewSet):
+    authentication_classes = (JWTAuthentication,)
 
     model = RecyclableSpot
     queryset = RecyclableSpot.objects.all()
@@ -32,6 +35,7 @@ class RecyclableSpotViewSet(viewsets.ModelViewSet):
     renderer_classes = (JSONRenderer, )
 
 class ComponentViewSet(viewsets.ModelViewSet):
+    authentication_classes = (JWTAuthentication,)
 
     model = Component
     queryset = Component.objects.all()
@@ -66,6 +70,7 @@ def calculate_distance(lat1, lon1, lat2, lon2):
     return distance
 
 class ProductViewSet(viewsets.ModelViewSet):
+    authentication_classes = (JWTAuthentication,)
 
     model = Product
     queryset = Product.objects.all()
