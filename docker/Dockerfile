@@ -21,4 +21,4 @@ RUN python3 manage.py loaddata api user
 EXPOSE 8000
 
 # Run container
-CMD mosquitto & python3 /repo/mqtt/sensor_sink.py & gunicorn --access-logfile=- --bind 0.0.0.0:8080 recycling.wsgi
+CMD gunicorn --access-logfile=- --bind 0.0.0.0:8080 recycling.wsgi
