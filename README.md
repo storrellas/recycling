@@ -2,7 +2,7 @@
 
 ## InteractionDiagram
 
-![alt text](https://raw.githubusercontent.com/storrellas/recycling/master/doc/interaction.png)
+![alt text](hhttps://github.com/storrellas/recycling/blob/master/doc/interaction.png)
 ```
 @startuml
 
