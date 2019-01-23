@@ -2,56 +2,12 @@
 
 ## Endpoint Definition
 
+### Sergi Endpoint Definition
 
-### News
-<table>
-  <tr>
-    <td><strong>URL</strong></td>
-    <td>/news/<news_id> [GET]</td>
-  </tr>
-  <tr>
-    <td><strong>Description</strong></td>
-    <td>To retrieve all the news and all its information.</td>
-  </tr>
-  <tr>
-    <td><strong>Body</strong></td>
-    <td>From, to: From the news X to the news X, done for pagination.</td>
-  </tr>
-  <tr>
-    <td><strong>Expected Response</strong></td>
-    <td>total number of news.</td>
-  </tr>
-  <tr>
-    <td><strong>Error Codes</strong></td>
-    <td>N/A</td>
-  </tr>
-</table>
-
-
-
-### News Likes
-<table>
-  <tr>
-    <td><strong>URL</strong></td>
-    <td>/news/<newsid>/likes [GET]</td>
-  </tr>
-  <tr>
-    <td><strong>Description</strong></td>
-    <td>To retrieve all the likes within a single news</td>
-  </tr>
-  <tr>
-    <td><strong>Body</strong></td>
-    <td>newsId (array): Returns all</td>
-  </tr>
-  <tr>
-    <td><strong>Expected Response</strong></td>
-    <td>N/A</td>
-  </tr>
-  <tr>
-    <td><strong>Error Codes</strong></td>
-    <td>N/A</td>
-  </tr>
-</table>
+Scan Product to retrieve RecyclableComponents
+Get RecyclableSpot from RecyclableComponents
+GreenImpact Endpoint - Retrieve Green Impact from RecyclabeHistory
+News Retrieve
 
 ### Product
 <table>
@@ -66,6 +22,30 @@
   <tr>
     <td><strong>Body</strong></td>
     <td>Productid (barcode)</td>
+  </tr>
+  <tr>
+    <td><strong>Expected Response</strong></td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td><strong>Error Codes</strong></td>
+    <td>N/A</td>
+  </tr>
+</table>
+
+### Product Location
+<table>
+  <tr>
+    <td><strong>URL</strong></td>
+    <td>/product/<product_id>/location/ [POST]</td>
+  </tr>
+  <tr>
+    <td><strong>Description</strong></td>
+    <td>To retrieve all the points information within the given product id. It will insert a registry into Scan History with the scanned bar code, a location and a timestamp into the Scan_history table. A maximum of 10 spots with less than 15Km radius</td>
+  </tr>
+  <tr>
+    <td><strong>Body</strong></td>
+    <td>startDate, endDate, UID (withing Gigya token)</td>
   </tr>
   <tr>
     <td><strong>Expected Response</strong></td>
@@ -125,29 +105,7 @@
   </tr>
 </table>
 
-### Product Location
-<table>
-  <tr>
-    <td><strong>URL</strong></td>
-    <td>/product/<product_id>/location/ [POST]</td>
-  </tr>
-  <tr>
-    <td><strong>Description</strong></td>
-    <td>To retrieve all the points information within the given product id. It will insert a registry into Scan History with the scanned bar code, a location and a timestamp into the Scan_history table.</td>
-  </tr>
-  <tr>
-    <td><strong>Body</strong></td>
-    <td>startDate, endDate, UID (withing Gigya token)</td>
-  </tr>
-  <tr>
-    <td><strong>Expected Response</strong></td>
-    <td>N/A</td>
-  </tr>
-  <tr>
-    <td><strong>Error Codes</strong></td>
-    <td>N/A</td>
-  </tr>
-</table>
+
 
 ### Scan
 <table>
@@ -187,6 +145,54 @@
   <tr>
     <td><strong>Body</strong></td>
     <td>userId</td>
+  </tr>
+  <tr>
+    <td><strong>Expected Response</strong></td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td><strong>Error Codes</strong></td>
+    <td>N/A</td>
+  </tr>
+</table>
+
+### News
+<table>
+  <tr>
+    <td><strong>URL</strong></td>
+    <td>/news/<news_id> [GET]</td>
+  </tr>
+  <tr>
+    <td><strong>Description</strong></td>
+    <td>To retrieve all the news and all its information.</td>
+  </tr>
+  <tr>
+    <td><strong>Body</strong></td>
+    <td>From, to: From the news X to the news X, done for pagination.</td>
+  </tr>
+  <tr>
+    <td><strong>Expected Response</strong></td>
+    <td>total number of news.</td>
+  </tr>
+  <tr>
+    <td><strong>Error Codes</strong></td>
+    <td>N/A</td>
+  </tr>
+</table>
+
+### News Likes
+<table>
+  <tr>
+    <td><strong>URL</strong></td>
+    <td>/news/<newsid>/likes [GET]</td>
+  </tr>
+  <tr>
+    <td><strong>Description</strong></td>
+    <td>To retrieve all the likes within a single news</td>
+  </tr>
+  <tr>
+    <td><strong>Body</strong></td>
+    <td>newsId (array): Returns all</td>
   </tr>
   <tr>
     <td><strong>Expected Response</strong></td>
