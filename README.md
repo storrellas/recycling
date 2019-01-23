@@ -1,205 +1,29 @@
 # Recycling
 
-## Endpoint Definition
+## InteractionDiagram
+
+![alt text](https://raw.githubusercontent.com/storrellas/recycling/master/doc/interaction.png)
+```
+@startuml
+
+title "Messages - Sequence Diagram"
+
+participant Mobile
+participant Backend
 
 
-### News
-<table>
-  <tr>
-    <td><strong>URL</strong></td>
-    <td>/news/<news_id> [GET]</td>
-  </tr>
-  <tr>
-    <td><strong>Description</strong></td>
-    <td>To retrieve all the news and all its information.</td>
-  </tr>
-  <tr>
-    <td><strong>Body</strong></td>
-    <td>From, to: From the news X to the news X, done for pagination.</td>
-  </tr>
-  <tr>
-    <td><strong>Expected Response</strong></td>
-    <td>total number of news.</td>
-  </tr>
-  <tr>
-    <td><strong>Error Codes</strong></td>
-    <td>N/A</td>
-  </tr>
-</table>
+note over Mobile: Get Product Details
+Mobile -> Backend : /product/<barcode>/
+note over Mobile: Get Locations from barcode filtered with recyclablegroupsover Mobile
+Mobile -> Backend : /product/<barcode>/locations/?filter=<recyclablegroups>
 
+note over Mobile: Get Green Impact 
+Mobile -> Backend : /greenimpact/?startdate=<startdate>&enddate=<enddate>
 
-
-### News Likes
-<table>
-  <tr>
-    <td><strong>URL</strong></td>
-    <td>/news/<newsid>/likes [GET]</td>
-  </tr>
-  <tr>
-    <td><strong>Description</strong></td>
-    <td>To retrieve all the likes within a single news</td>
-  </tr>
-  <tr>
-    <td><strong>Body</strong></td>
-    <td>newsId (array): Returns all</td>
-  </tr>
-  <tr>
-    <td><strong>Expected Response</strong></td>
-    <td>N/A</td>
-  </tr>
-  <tr>
-    <td><strong>Error Codes</strong></td>
-    <td>N/A</td>
-  </tr>
-</table>
-
-### Product
-<table>
-  <tr>
-    <td><strong>URL</strong></td>
-    <td>/product [GET]</td>
-  </tr>
-  <tr>
-    <td><strong>Description</strong></td>
-    <td>To retrieve all the products and all its information.</td>
-  </tr>
-  <tr>
-    <td><strong>Body</strong></td>
-    <td>Productid (barcode)</td>
-  </tr>
-  <tr>
-    <td><strong>Expected Response</strong></td>
-    <td>N/A</td>
-  </tr>
-  <tr>
-    <td><strong>Error Codes</strong></td>
-    <td>N/A</td>
-  </tr>
-</table>
-
-### Recycling Spot
-<table>
-  <tr>
-    <td><strong>URL</strong></td>
-    <td>/recycling/<spotid> [GET]</td>
-  </tr>
-  <tr>
-    <td><strong>Description</strong></td>
-    <td>To retrieve all the recycling spots and all its information.</td>
-  </tr>
-  <tr>
-    <td><strong>Body</strong></td>
-    <td>recyclingspotid</td>
-  </tr>
-  <tr>
-    <td><strong>Expected Response</strong></td>
-    <td>N/A</td>
-  </tr>
-  <tr>
-    <td><strong>Error Codes</strong></td>
-    <td>N/A</td>
-  </tr>
-</table>
-
-### Recycling History
-<table>
-  <tr>
-    <td><strong>URL</strong></td>
-    <td>/recycling/history [GET]</td>
-  </tr>
-  <tr>
-    <td><strong>Description</strong></td>
-    <td>To retrieve all the recycling history for an user and all its information</td>
-  </tr>
-  <tr>
-    <td><strong>Body</strong></td>
-    <td>startDate, endDate, UID (withing Gigya token)</td>
-  </tr>
-  <tr>
-    <td><strong>Expected Response</strong></td>
-    <td>N/A</td>
-  </tr>
-  <tr>
-    <td><strong>Error Codes</strong></td>
-    <td>N/A</td>
-  </tr>
-</table>
-
-### Product Location
-<table>
-  <tr>
-    <td><strong>URL</strong></td>
-    <td>/product/<product_id>/location/ [POST]</td>
-  </tr>
-  <tr>
-    <td><strong>Description</strong></td>
-    <td>To retrieve all the points information within the given product id. It will insert a registry into Scan History with the scanned bar code, a location and a timestamp into the Scan_history table.</td>
-  </tr>
-  <tr>
-    <td><strong>Body</strong></td>
-    <td>startDate, endDate, UID (withing Gigya token)</td>
-  </tr>
-  <tr>
-    <td><strong>Expected Response</strong></td>
-    <td>N/A</td>
-  </tr>
-  <tr>
-    <td><strong>Error Codes</strong></td>
-    <td>N/A</td>
-  </tr>
-</table>
-
-### Scan
-<table>
-  <tr>
-    <td><strong>URL</strong></td>
-    <td>scan/ [GET]</td>
-  </tr>
-  <tr>
-    <td><strong>Description</strong></td>
-    <td>To retrieve all the locations with a count of how many scans have been done there, grouped by location and component (or product).</td>
-  </tr>
-  <tr>
-    <td><strong>Body</strong></td>
-    <td>Location, scanId</td>
-  </tr>
-  <tr>
-    <td><strong>Expected Response</strong></td>
-    <td>N/A</td>
-  </tr>
-  <tr>
-    <td><strong>Error Codes</strong></td>
-    <td>N/A</td>
-  </tr>
-</table>
-
-
-### GreenImpact
-<table>
-  <tr>
-    <td><strong>URL</strong></td>
-    <td>scan/greenimpact [GET]</td>
-  </tr>
-  <tr>
-    <td><strong>Description</strong></td>
-    <td>To retrieve the green impact score of an user (We need to define calculations). TBD if it’s weekly, monthly</td>
-  </tr>
-  <tr>
-    <td><strong>Body</strong></td>
-    <td>userId</td>
-  </tr>
-  <tr>
-    <td><strong>Expected Response</strong></td>
-    <td>N/A</td>
-  </tr>
-  <tr>
-    <td><strong>Error Codes</strong></td>
-    <td>N/A</td>
-  </tr>
-</table>
+@enduml
+```
 
 ## DataModel
-Insert Here PlantUML Image
 ![alt text](https://raw.githubusercontent.com/storrellas/recycling/master/doc/datamodel.png)
 
 ```
@@ -301,3 +125,207 @@ Likes "1" -left- "N" Users
 
 @enduml
 ```
+
+## Endpoint Definition
+
+### Sergi Endpoint Definition
+
+- Scan Product to retrieve RecyclableComponents
+- Get RecyclableSpot from RecyclableComponents
+- GreenImpact Endpoint - Retrieve Green Impact from RecyclabeHistory
+- News Retrieve
+
+### Product
+<table>
+  <tr>
+    <td><strong>URL</strong></td>
+    <td>/product/<barcode>/ [GET]</td>
+  </tr>
+  <tr>
+    <td><strong>Description</strong></td>
+    <td>To retrieve information of a product given a barcode together with RecyclabeComponents</td>
+  </tr>
+  <tr>
+    <td><strong>Body</strong></td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td><strong>Expected Response</strong></td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td><strong>Error Codes</strong></td>
+    <td>N/A</td>
+  </tr>
+</table>
+
+### RecyclableSpot
+<table>
+  <tr>
+    <td><strong>URL</strong></td>
+    <td>/product/<barcode>/location/ [POST]</td>
+  </tr>
+  <tr>
+    <td><strong>Description</strong></td>
+    <td>To retrieve all the points information within the given product id. It will insert a registry into Scan History with the scanned bar code, a location and a timestamp into the Scan_history table. A maximum of 10 spots with less than 15Km radius</td>
+  </tr>
+  <tr>
+    <td><strong>Body</strong></td>
+    <td>startDate, endDate, UID (withing Gigya token)</td>
+  </tr>
+  <tr>
+    <td><strong>Expected Response</strong></td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td><strong>Error Codes</strong></td>
+    <td>N/A</td>
+  </tr>
+</table>
+
+### Recycling Spot
+<table>
+  <tr>
+    <td><strong>URL</strong></td>
+    <td>/recyclablespot/<spotid>/ [GET]</td>
+  </tr>
+  <tr>
+    <td><strong>Description</strong></td>
+    <td>To retrieve all the recycling spots and all its information.</td>
+  </tr>
+  <tr>
+    <td><strong>Body</strong></td>
+    <td>recyclingspotid</td>
+  </tr>
+  <tr>
+    <td><strong>Expected Response</strong></td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td><strong>Error Codes</strong></td>
+    <td>N/A</td>
+  </tr>
+</table>
+
+### Recycling History
+<table>
+  <tr>
+    <td><strong>URL</strong></td>
+    <td>/recyclable/history/ [GET]</td>
+  </tr>
+  <tr>
+    <td><strong>Description</strong></td>
+    <td>To retrieve all the recycling history for an user and all its information</td>
+  </tr>
+  <tr>
+    <td><strong>Body</strong></td>
+    <td>startDate, endDate, UID (within Gigya token)</td>
+  </tr>
+  <tr>
+    <td><strong>Expected Response</strong></td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td><strong>Error Codes</strong></td>
+    <td>N/A</td>
+  </tr>
+</table>
+
+
+
+### Scan
+<table>
+  <tr>
+    <td><strong>URL</strong></td>
+    <td>/scan/ [GET]</td>
+  </tr>
+  <tr>
+    <td><strong>Description</strong></td>
+    <td>To retrieve all the locations with a count of how many scans have been done there, grouped by location and component (or product).</td>
+  </tr>
+  <tr>
+    <td><strong>Body</strong></td>
+    <td>Location, scanId</td>
+  </tr>
+  <tr>
+    <td><strong>Expected Response</strong></td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td><strong>Error Codes</strong></td>
+    <td>N/A</td>
+  </tr>
+</table>
+
+
+### GreenImpact
+<table>
+  <tr>
+    <td><strong>URL</strong></td>
+    <td>/scan/greenimpact [GET]</td>
+  </tr>
+  <tr>
+    <td><strong>Description</strong></td>
+    <td>To retrieve the green impact score of an user (We need to define calculations). TBD if it’s weekly, monthly</td>
+  </tr>
+  <tr>
+    <td><strong>Body</strong></td>
+    <td>userId</td>
+  </tr>
+  <tr>
+    <td><strong>Expected Response</strong></td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td><strong>Error Codes</strong></td>
+    <td>N/A</td>
+  </tr>
+</table>
+
+### News
+<table>
+  <tr>
+    <td><strong>URL</strong></td>
+    <td>/news/ [GET]</td>
+  </tr>
+  <tr>
+    <td><strong>Description</strong></td>
+    <td>To retrieve all the news and all its information.</td>
+  </tr>
+  <tr>
+    <td><strong>Body</strong></td>
+    <td>From, to: From the news X to the news X, done for pagination.</td>
+  </tr>
+  <tr>
+    <td><strong>Expected Response</strong></td>
+    <td>total number of news.</td>
+  </tr>
+  <tr>
+    <td><strong>Error Codes</strong></td>
+    <td>N/A</td>
+  </tr>
+</table>
+
+### News Likes
+<table>
+  <tr>
+    <td><strong>URL</strong></td>
+    <td>/news/likes [GET]</td>
+  </tr>
+  <tr>
+    <td><strong>Description</strong></td>
+    <td>To retrieve all the likes within a single news</td>
+  </tr>
+  <tr>
+    <td><strong>Body</strong></td>
+    <td>newsId (array): Returns all</td>
+  </tr>
+  <tr>
+    <td><strong>Expected Response</strong></td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td><strong>Error Codes</strong></td>
+    <td>N/A</td>
+  </tr>
+</table>
