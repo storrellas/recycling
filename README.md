@@ -1,5 +1,131 @@
 # Recycling
 
+## InteractionDiagram
+
+![alt text](https://raw.githubusercontent.com/storrellas/recycling/master/doc/interaction.png)
+```
+@startuml
+
+title "Messages - Sequence Diagram"
+
+participant Mobile
+participant Backend
+
+
+note over Mobile: Get Product Details
+Mobile -> Backend : /product/<barcode>/
+note over Mobile: Get Locations from barcode filtered with recyclablegroupsover Mobile
+Mobile -> Backend : /product/<barcode>/locations/?filter=<recyclablegroups>
+
+note over Mobile: Get Green Impact 
+Mobile -> Backend : /greenimpact/?startdate=<startdate>&enddate=<enddate>
+
+@enduml
+```
+
+## DataModel
+![alt text](https://raw.githubusercontent.com/storrellas/recycling/master/doc/datamodel.png)
+
+```
+@startuml
+ 
+title Data Model
+ 
+
+class Products {
+  id
+  name
+  description
+  location
+  timestamp
+  material_id(FK)
+}
+ 
+class Materials {
+  id
+  name
+  description
+  group_id(FK)
+  timestamp
+}
+ 
+class Recycling_groups {
+  id
+  name
+  country
+  component_id(FK)
+  bullet_colour
+  letter_colour
+}
+ 
+class Recycling_spots {
+  id
+  name
+  location
+  phone
+  opening_hours
+  group_id (FK)
+}
+
+class Scan_history {
+  bar_code
+  location
+  timestamp
+  user
+}
+
+class Recycling_history {
+  bar_code
+  timestamp
+  user
+}
+
+class News {
+  id
+  country
+  language
+  title
+  content
+  category
+  icon
+  main_image
+  scheduled_date
+  published
+  timestamp
+  author
+  likes_id(FK)
+}
+
+class Likes {
+  id
+  quantity
+}
+
+class Users {
+  id
+  name
+  email
+  likes_id(FK)
+}
+
+class Green_ranking {
+  id
+  user_id
+  name
+  scan_count
+}
+ 
+
+Products "N" -right- "M" Materials
+Materials "1" -right- "N" Recycling_groups
+Recycling_groups "1" -down- "N" Recycling_spots
+Recycling_history "1" -up- "N" Products
+News "1" -down- "N" Likes
+Likes "1" -left- "N" Users
+
+@enduml
+```
+
 ## Endpoint Definition
 
 ### Sergi Endpoint Definition
@@ -203,107 +329,3 @@
     <td>N/A</td>
   </tr>
 </table>
-
-## DataModel
-Insert Here PlantUML Image
-![alt text](https://raw.githubusercontent.com/storrellas/recycling/master/doc/datamodel.png)
-
-```
-@startuml
- 
-title Data Model
- 
-
-class Products {
-  id
-  name
-  description
-  location
-  timestamp
-  material_id(FK)
-}
- 
-class Materials {
-  id
-  name
-  description
-  group_id(FK)
-  timestamp
-}
- 
-class Recycling_groups {
-  id
-  name
-  country
-  component_id(FK)
-  bullet_colour
-  letter_colour
-}
- 
-class Recycling_spots {
-  id
-  name
-  location
-  phone
-  opening_hours
-  group_id (FK)
-}
-
-class Scan_history {
-  bar_code
-  location
-  timestamp
-  user
-}
-
-class Recycling_history {
-  bar_code
-  timestamp
-  user
-}
-
-class News {
-  id
-  country
-  language
-  title
-  content
-  category
-  icon
-  main_image
-  scheduled_date
-  published
-  timestamp
-  author
-  likes_id(FK)
-}
-
-class Likes {
-  id
-  quantity
-}
-
-class Users {
-  id
-  name
-  email
-  likes_id(FK)
-}
-
-class Green_ranking {
-  id
-  user_id
-  name
-  scan_count
-}
- 
-
-Products "N" -right- "M" Materials
-Materials "1" -right- "N" Recycling_groups
-Recycling_groups "1" -down- "N" Recycling_spots
-Recycling_history "1" -up- "N" Products
-News "1" -down- "N" Likes
-Likes "1" -left- "N" Users
-
-@enduml
-```
