@@ -4,9 +4,9 @@ from rest_framework import serializers
 # Project imports
 from .models import *
 
-class RecyclableComponentSerializer(serializers.ModelSerializer):
+class RecyclableMaterialSerializer(serializers.ModelSerializer):
     class Meta:
-        model = RecyclableComponent
+        model = RecyclableMaterial
         fields = '__all__'
 
 class RecyclableSpotSerializer(serializers.ModelSerializer):
@@ -14,9 +14,9 @@ class RecyclableSpotSerializer(serializers.ModelSerializer):
         model = RecyclableSpot
         fields = '__all__'
 
-class ComponentSerializer(serializers.ModelSerializer):
+class MaterialSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Component
+        model = Material
         fields = '__all__'
 
 class ProductSerializer(serializers.ModelSerializer):

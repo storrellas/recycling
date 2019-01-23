@@ -18,12 +18,12 @@ from recycling import utils
 logger = utils.get_logger()
 
 
-class RecyclableComponentViewSet(viewsets.ModelViewSet):
+class RecyclableMaterialViewSet(viewsets.ModelViewSet):
     authentication_classes = (JWTAuthentication,)
 
-    model = RecyclableComponent
-    queryset = RecyclableComponent.objects.all()
-    serializer_class = RecyclableComponentSerializer
+    model = RecyclableMaterial
+    queryset = RecyclableMaterial.objects.all()
+    serializer_class = RecyclableMaterialSerializer
     renderer_classes = (JSONRenderer, )
 
 class RecyclableSpotViewSet(viewsets.ModelViewSet):
@@ -34,12 +34,12 @@ class RecyclableSpotViewSet(viewsets.ModelViewSet):
     serializer_class = RecyclableSpotSerializer
     renderer_classes = (JSONRenderer, )
 
-class ComponentViewSet(viewsets.ModelViewSet):
+class MaterialViewSet(viewsets.ModelViewSet):
     authentication_classes = (JWTAuthentication,)
 
-    model = Component
-    queryset = Component.objects.all()
-    serializer_class = ComponentSerializer
+    model = Material
+    queryset = Material.objects.all()
+    serializer_class = MaterialSerializer
     renderer_classes = (JSONRenderer, )
 
 
@@ -88,13 +88,13 @@ class ProductViewSet(viewsets.ModelViewSet):
         # Retrieve object
         product = self.get_object()
 
-        # Component set
-        component_set = product.component_set.all()
+        # M.aterial set
+        material_set = product.material_set.all()
 
         # Get Recyclable Spot
         recyclable_spot_list = []
-        for component in component_set:
-            spot_queryset = RecyclableSpot.objects.filter(recyclable_component=component.recyclable_component)
+        for material in material_set:
+            spot_queryset = RecyclableSpot.objects.filter(recyclable_material=material.recyclable_material)
             spot_list = list(spot_queryset.values_list('id', flat=True))
             recyclable_spot_list.extend(spot_list)
 
