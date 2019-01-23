@@ -342,6 +342,8 @@
     "barcode": "123456789",
     "name": "green olives",
     "description": "green olives description",
+    "latitude": "41.423264000000000000",
+    "longitude": "2.180323000000000000",
     "material_set": [
       8,
       10,
@@ -356,6 +358,8 @@
     "barcode": "987654321",
     "name": "milk set x6",
     "description": "milk set x6 description",
+    "latitude": "41.423264000000000000",
+    "longitude": "2.180323000000000000",
     "material_set": [
       4,
       8
@@ -369,6 +373,8 @@
     "barcode": "5678901234",
     "name": "light bulbs",
     "description": "light bulbs description",
+    "latitude": "41.423264000000000000",
+    "longitude": "2.180323000000000000",
     "material_set": [
       6,
       8
@@ -382,6 +388,8 @@
     "barcode": "34567890123",
     "name": "expedit furniture",
     "description": "expedit furniture description",
+    "latitude": "41.423264000000000000",
+    "longitude": "2.180323000000000000",
     "material_set": [
       2,
       3,
@@ -396,6 +404,8 @@
     "barcode": "234567891",
     "name": "towel",
     "description": "towel description",
+    "latitude": "41.423264000000000000",
+    "longitude": "2.180323000000000000",
     "material_set": [
       13
     ]
@@ -408,6 +418,8 @@
     "barcode": "678912345",
     "name": "soap",
     "description": "soap description",
+    "latitude": "41.423264000000000000",
+    "longitude": "2.180323000000000000",
     "material_set": [
       3,
       14
