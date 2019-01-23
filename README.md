@@ -200,6 +200,8 @@
 
 ## DataModel
 Insert Here PlantUML Image
+![alt text](https://raw.githubusercontent.com/storrellas/recycling/master/doc/datamodel.png)
+
 ```
 @startuml
  
