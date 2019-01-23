@@ -13,15 +13,15 @@
 <table>
   <tr>
     <td><strong>URL</strong></td>
-    <td>/product [GET]</td>
+    <td>/product/<barcode>/ [GET]</td>
   </tr>
   <tr>
     <td><strong>Description</strong></td>
-    <td>To retrieve all the products and all its information.</td>
+    <td>To retrieve information of a product given a barcode together with RecyclabeComponents</td>
   </tr>
   <tr>
     <td><strong>Body</strong></td>
-    <td>Productid (barcode)</td>
+    <td>N/A</td>
   </tr>
   <tr>
     <td><strong>Expected Response</strong></td>
@@ -33,11 +33,11 @@
   </tr>
 </table>
 
-### Product Location
+### RecyclableSpot
 <table>
   <tr>
     <td><strong>URL</strong></td>
-    <td>/product/<product_id>/location/ [POST]</td>
+    <td>/product/<barcode>/location/ [POST]</td>
   </tr>
   <tr>
     <td><strong>Description</strong></td>
@@ -61,7 +61,7 @@
 <table>
   <tr>
     <td><strong>URL</strong></td>
-    <td>/recycling/<spotid> [GET]</td>
+    <td>/recyclablespot/<spotid>/ [GET]</td>
   </tr>
   <tr>
     <td><strong>Description</strong></td>
@@ -85,7 +85,7 @@
 <table>
   <tr>
     <td><strong>URL</strong></td>
-    <td>/recycling/history [GET]</td>
+    <td>/recyclable/history/ [GET]</td>
   </tr>
   <tr>
     <td><strong>Description</strong></td>
@@ -93,7 +93,7 @@
   </tr>
   <tr>
     <td><strong>Body</strong></td>
-    <td>startDate, endDate, UID (withing Gigya token)</td>
+    <td>startDate, endDate, UID (within Gigya token)</td>
   </tr>
   <tr>
     <td><strong>Expected Response</strong></td>
@@ -111,7 +111,7 @@
 <table>
   <tr>
     <td><strong>URL</strong></td>
-    <td>scan/ [GET]</td>
+    <td>/scan/ [GET]</td>
   </tr>
   <tr>
     <td><strong>Description</strong></td>
@@ -136,7 +136,7 @@
 <table>
   <tr>
     <td><strong>URL</strong></td>
-    <td>scan/greenimpact [GET]</td>
+    <td>/scan/greenimpact [GET]</td>
   </tr>
   <tr>
     <td><strong>Description</strong></td>
@@ -160,7 +160,7 @@
 <table>
   <tr>
     <td><strong>URL</strong></td>
-    <td>/news/<news_id> [GET]</td>
+    <td>/news/ [GET]</td>
   </tr>
   <tr>
     <td><strong>Description</strong></td>
@@ -184,7 +184,7 @@
 <table>
   <tr>
     <td><strong>URL</strong></td>
-    <td>/news/<newsid>/likes [GET]</td>
+    <td>/news/likes [GET]</td>
   </tr>
   <tr>
     <td><strong>Description</strong></td>
