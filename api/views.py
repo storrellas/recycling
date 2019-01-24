@@ -35,6 +35,34 @@ class RecyclableSpotViewSet(viewsets.ModelViewSet):
     serializer_class = RecyclableSpotSerializer
     renderer_classes = (JSONRenderer, )
 
+    @action(detail=False, methods=['get'])
+    def nearby(self, request, pk=None):
+
+        user_latitude = float(request.query_params.get('latitude'))
+        user_longitude = float(request.query_params.get('longitude'))
+
+        # Get RecyclableSpot List
+        recyclable_spot_queryset = RecyclableSpot.objects.all()
+
+        # Calculate distance
+        recyclable_spot_distance_list = {}
+        for recyclable_spot in recyclable_spot_queryset:
+            user_location = (user_latitude, user_longitude)
+            spot_location = (recyclable_spot.latitude, recyclable_spot.longitude)
+            recyclable_spot_distance_list[recyclable_spot.id] = geodesic(user_location, spot_location).kilometers
+
+        # Get closest
+        recyclable_spot_id_listed_sorted = sorted(recyclable_spot_distance_list.items(),
+                                                    key=operator.itemgetter(1))
+        recyclable_spot_closest_id_list = [i[0] for i in recyclable_spot_id_listed_sorted[0:3]]
+        recyclable_spot_closest_queryset = recyclable_spot_queryset.filter(pk__in=recyclable_spot_closest_id_list)
+
+        # Generate serializer
+        serializer = RecyclableSpotDistanceSerializer(recyclable_spot_closest_queryset,
+                                                      context={'distance_list': recyclable_spot_distance_list},
+                                                      many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
 class MaterialViewSet(viewsets.ModelViewSet):
     authentication_classes = (JWTAuthentication,)
 
@@ -52,7 +80,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     renderer_classes = (JSONRenderer, )
 
     @action(detail=True, methods=['get'])
-    def locatespot(self, request, pk=None):
+    def recyclablespot(self, request, pk=None):
 
         user_latitude = float(request.query_params.get('latitude'))
         user_longitude = float(request.query_params.get('longitude'))
