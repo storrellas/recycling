@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.conf import settings
+import operator
 
 # Dependencies
 from rest_framework import viewsets
@@ -9,7 +11,6 @@ from rest_framework import status
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from geopy.distance import geodesic
-
 
 # Project
 from .serializers import *
@@ -44,6 +45,7 @@ class RecyclableSpotViewSet(viewsets.ModelViewSet):
         # Get RecyclableSpot List
         recyclable_spot_queryset = RecyclableSpot.objects.all()
 
+
         # Calculate distance
         recyclable_spot_distance_list = {}
         for recyclable_spot in recyclable_spot_queryset:
@@ -54,7 +56,7 @@ class RecyclableSpotViewSet(viewsets.ModelViewSet):
         # Get closest
         recyclable_spot_id_listed_sorted = sorted(recyclable_spot_distance_list.items(),
                                                     key=operator.itemgetter(1))
-        recyclable_spot_closest_id_list = [i[0] for i in recyclable_spot_id_listed_sorted[0:3]]
+        recyclable_spot_closest_id_list = [i[0] for i in recyclable_spot_id_listed_sorted[0:settings.RECYCLABLE_SPOTS_LIMIT]]
         recyclable_spot_closest_queryset = recyclable_spot_queryset.filter(pk__in=recyclable_spot_closest_id_list)
 
         # Generate serializer
@@ -113,7 +115,7 @@ class ProductViewSet(viewsets.ModelViewSet):
         # Get closest
         recyclable_spot_id_listed_sorted = sorted(recyclable_spot_distance_list.items(),
                                                     key=operator.itemgetter(1))
-        recyclable_spot_closest_id_list = [i[0] for i in recyclable_spot_id_listed_sorted[0:3]]
+        recyclable_spot_closest_id_list = [i[0] for i in recyclable_spot_id_listed_sorted[0:settings.RECYCLABLE_SPOTS_LIMIT]]
         recyclable_spot_closest_queryset = recyclable_spot_queryset.filter(pk__in=recyclable_spot_closest_id_list)
 
         # Generate serializer
