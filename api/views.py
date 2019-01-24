@@ -8,6 +8,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
+from geopy.distance import geodesic
 
 
 # Project
@@ -41,33 +42,6 @@ class MaterialViewSet(viewsets.ModelViewSet):
     queryset = Material.objects.all()
     serializer_class = MaterialSerializer
     renderer_classes = (JSONRenderer, )
-
-
-from math import sin, cos, sqrt, atan2, radians
-import operator
-def calculate_distance(lat1, lon1, lat2, lon2):
-
-    # approximate radius of earth in km
-    R = 6373.0
-
-    # local_lat1 = radians(52.2296756)
-    # local_lon1 = radians(21.0122287)
-    # local_lat2 = radians(52.406374)
-    # local_lon2 = radians(16.9251681)
-
-    local_lat1 = radians(lat1)
-    local_lon1 = radians(lon1)
-    local_lat2 = radians(lat2)
-    local_lon2 = radians(lon2)
-
-    dlon = local_lon2 - local_lon1
-    dlat = local_lat2 - local_lat1
-
-    a = sin(dlat / 2)**2 + cos(local_lat1) * cos(local_lat2) * sin(dlon / 2)**2
-    c = 2 * atan2(sqrt(a), sqrt(1 - a))
-
-    distance = R * c
-    return distance
 
 class ProductViewSet(viewsets.ModelViewSet):
     authentication_classes = (JWTAuthentication,)
@@ -104,9 +78,9 @@ class ProductViewSet(viewsets.ModelViewSet):
         # Calculate distance
         recyclable_spot_distance_list = {}
         for recyclable_spot in recyclable_spot_queryset:
-            distance = calculate_distance(lat1=user_latitude, lon1=user_longitude,
-                                          lat2=recyclable_spot.latitude, lon2=recyclable_spot.longitude)
-            recyclable_spot_distance_list[recyclable_spot.id] = distance
+            user_location = (user_latitude, user_longitude)
+            spot_location = (recyclable_spot.latitude, recyclable_spot.longitude)
+            recyclable_spot_distance_list[recyclable_spot.id] = geodesic(user_location, spot_location).kilometers
 
         # Get closest
         recyclable_spot_id_listed_sorted = sorted(recyclable_spot_distance_list.items(),

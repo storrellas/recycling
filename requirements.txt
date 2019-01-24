@@ -3,6 +3,8 @@ decorator==4.3.0
 Django==2.1.5
 djangorestframework==3.9.0
 djangorestframework-simplejwt==3.3
+geographiclib==1.49
+geopy==1.18.1
 ipython==7.2.0
 ipython-genutils==0.2.0
 jedi==0.13.2
