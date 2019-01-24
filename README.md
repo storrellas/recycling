@@ -2,7 +2,7 @@
 
 ## InteractionDiagram
 
-![alt text](https://github.com/storrellas/recycling/blob/master/doc/interaction.png)
+![alt text](https://innersource.soprasteria.com/digitalfactory/recycling/raw/master/doc/interaction.png)
 
 ```
 @startuml
@@ -25,7 +25,7 @@ Mobile -> Backend : /greenimpact/?startdate=<startdate>&enddate=<enddate>
 ```
 
 ## DataModel
-![alt text](https://raw.githubusercontent.com/storrellas/recycling/master/doc/datamodel.png)
+![alt text](https://innersource.soprasteria.com/digitalfactory/recycling/raw/master/doc/datamodel.png)
 
 ```
 @startuml
