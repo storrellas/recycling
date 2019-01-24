@@ -1,6 +1,6 @@
 [
 {
-  "model": "api.recyclablecomponent",
+  "model": "api.recyclablematerial",
   "pk": 1,
   "fields": {
     "name": "plastic-can",
@@ -8,7 +8,7 @@
   }
 },
 {
-  "model": "api.recyclablecomponent",
+  "model": "api.recyclablematerial",
   "pk": 2,
   "fields": {
     "name": "glass",
@@ -16,7 +16,7 @@
   }
 },
 {
-  "model": "api.recyclablecomponent",
+  "model": "api.recyclablematerial",
   "pk": 3,
   "fields": {
     "name": "textiles",
@@ -24,7 +24,7 @@
   }
 },
 {
-  "model": "api.recyclablecomponent",
+  "model": "api.recyclablematerial",
   "pk": 4,
   "fields": {
     "name": "paper",
@@ -32,7 +32,7 @@
   }
 },
 {
-  "model": "api.recyclablecomponent",
+  "model": "api.recyclablematerial",
   "pk": 5,
   "fields": {
     "name": "organic",
@@ -40,7 +40,7 @@
   }
 },
 {
-  "model": "api.recyclablecomponent",
+  "model": "api.recyclablematerial",
   "pk": 6,
   "fields": {
     "name": "electronics",
@@ -48,7 +48,7 @@
   }
 },
 {
-  "model": "api.recyclablecomponent",
+  "model": "api.recyclablematerial",
   "pk": 7,
   "fields": {
     "name": "other",
@@ -63,7 +63,7 @@
     "address": "Avinguda Meridiana, 3400, 08030 Barcelona, Spain",
     "latitude": "41.428824000000000000",
     "longitude": "2.184271000000000000",
-    "recyclable_component": 1
+    "recyclable_material": 1
   }
 },
 {
@@ -74,7 +74,7 @@
     "address": "Rambla de Volart, 19, 08041 Barcelona, Spain",
     "latitude": "41.415901000000000000",
     "longitude": "2.178950000000000000",
-    "recyclable_component": 1
+    "recyclable_material": 1
   }
 },
 {
@@ -85,7 +85,7 @@
     "address": "Carrer del Pont del Treball Digne, 42, 08020 Barcelona, Spain",
     "latitude": "41.423573000000000000",
     "longitude": "2.193884000000000000",
-    "recyclable_component": 1
+    "recyclable_material": 1
   }
 },
 {
@@ -96,7 +96,7 @@
     "address": "Carrer de Francesc T\u00e0rrega, 23, 08027 Barcelona, Spain",
     "latitude": "41.423264000000000000",
     "longitude": "2.180323000000000000",
-    "recyclable_component": 2
+    "recyclable_material": 2
   }
 },
 {
@@ -107,7 +107,7 @@
     "address": "Carrer de Jovellanos, 110, 08930 Sant Adri\u00e0 de Bes\u00f2s, Barcelona, Spain",
     "latitude": "41.428103000000000000",
     "longitude": "2.209334000000000000",
-    "recyclable_component": 2
+    "recyclable_material": 2
   }
 },
 {
@@ -118,7 +118,7 @@
     "address": "Carrer de Crist\u00f3bal de Moura, 204, 08019 Barcelona, Spain",
     "latitude": "41.414922000000000000",
     "longitude": "2.211909000000000000",
-    "recyclable_component": 2
+    "recyclable_material": 2
   }
 },
 {
@@ -129,7 +129,7 @@
     "address": "Carrer d'Am\u00edlcar, 182, 08032 Barcelona, Spain",
     "latitude": "41.420792000000000000",
     "longitude": "2.172942000000000000",
-    "recyclable_component": 3
+    "recyclable_material": 3
   }
 },
 {
@@ -140,7 +140,7 @@
     "address": "Carrer de Costa Rica, 31, 08027 Barcelona, Spain",
     "latitude": "41.421771000000000000",
     "longitude": "2.189593000000000000",
-    "recyclable_component": 3
+    "recyclable_material": 3
   }
 },
 {
@@ -151,7 +151,7 @@
     "address": "Carrer de la Marina, 253, 08013 Barcelona, Spain",
     "latitude": "41.403853000000000000",
     "longitude": "2.174263000000000000",
-    "recyclable_component": 4
+    "recyclable_material": 4
   }
 },
 {
@@ -162,7 +162,7 @@
     "address": "Carrer de Llull, 246, 08005 Barcelona, Spain",
     "latitude": "41.403287000000000000",
     "longitude": "2.205334000000000000",
-    "recyclable_component": 5
+    "recyclable_material": 5
   }
 },
 {
@@ -173,7 +173,7 @@
     "address": "Rambla de Guip\u00fascoa, 118, 08020 Barcelona, Spain",
     "latitude": "41.420178000000000000",
     "longitude": "2.202587000000000000",
-    "recyclable_component": 5
+    "recyclable_material": 5
   }
 },
 {
@@ -184,7 +184,7 @@
     "address": "Carrer de les Ci\u00e8ncies, 11, 08032 Barcelona, Spain",
     "latitude": "41.427077000000000000",
     "longitude": "2.158127000000000000",
-    "recyclable_component": 6
+    "recyclable_material": 6
   }
 },
 {
@@ -195,7 +195,7 @@
     "address": "Hospital Esperit Sant - Av. Cardenal Vidal i B., 08923 Santa Coloma de Gramenet, Barcelona, Spain",
     "latitude": "41.437579000000000000",
     "longitude": "2.214603000000000000",
-    "recyclable_component": 6
+    "recyclable_material": 6
   }
 },
 {
@@ -206,133 +206,133 @@
     "address": "Carrer de Cartagena, 153, 08013 Barcelona, Spain",
     "latitude": "41.403287000000000000",
     "longitude": "2.183876000000000000",
-    "recyclable_component": 7
+    "recyclable_material": 7
   }
 },
 {
-  "model": "api.component",
+  "model": "api.material",
   "pk": 1,
   "fields": {
     "name": "glass",
     "description": "glass description",
-    "recyclable_component": 2
+    "recyclable_material": 2
   }
 },
 {
-  "model": "api.component",
+  "model": "api.material",
   "pk": 2,
   "fields": {
     "name": "wood",
     "description": "wood description",
-    "recyclable_component": 4
+    "recyclable_material": 4
   }
 },
 {
-  "model": "api.component",
+  "model": "api.material",
   "pk": 3,
   "fields": {
     "name": "PET - plastic",
     "description": "PET soft drink bottles etc",
-    "recyclable_component": 1
+    "recyclable_material": 1
   }
 },
 {
-  "model": "api.component",
+  "model": "api.material",
   "pk": 4,
   "fields": {
     "name": "HDPE - plastic",
     "description": "high density polyethylene - milk, coffee cream, juice and shampoo bottles",
-    "recyclable_component": 1
+    "recyclable_material": 1
   }
 },
 {
-  "model": "api.component",
+  "model": "api.material",
   "pk": 5,
   "fields": {
     "name": "PS - plastic",
     "description": "polystyrene - yogurt containers, CD cases",
-    "recyclable_component": 1
+    "recyclable_material": 1
   }
 },
 {
-  "model": "api.component",
+  "model": "api.material",
   "pk": 6,
   "fields": {
     "name": "electronics",
     "description": "electronics description",
-    "recyclable_component": 7
+    "recyclable_material": 7
   }
 },
 {
-  "model": "api.component",
+  "model": "api.material",
   "pk": 7,
   "fields": {
     "name": "batteries",
     "description": "batteries description",
-    "recyclable_component": 7
+    "recyclable_material": 7
   }
 },
 {
-  "model": "api.component",
+  "model": "api.material",
   "pk": 8,
   "fields": {
     "name": "paper",
     "description": "paper description",
-    "recyclable_component": 5
+    "recyclable_material": 5
   }
 },
 {
-  "model": "api.component",
+  "model": "api.material",
   "pk": 9,
   "fields": {
     "name": "aluminium",
     "description": "aluminium description",
-    "recyclable_component": 1
+    "recyclable_material": 1
   }
 },
 {
-  "model": "api.component",
+  "model": "api.material",
   "pk": 10,
   "fields": {
     "name": "tins",
     "description": "tins description",
-    "recyclable_component": 1
+    "recyclable_material": 1
   }
 },
 {
-  "model": "api.component",
+  "model": "api.material",
   "pk": 11,
   "fields": {
     "name": "food",
     "description": "food description",
-    "recyclable_component": 6
+    "recyclable_material": 6
   }
 },
 {
-  "model": "api.component",
+  "model": "api.material",
   "pk": 12,
   "fields": {
     "name": "vegetables",
     "description": "vegetables description",
-    "recyclable_component": 6
+    "recyclable_material": 6
   }
 },
 {
-  "model": "api.component",
+  "model": "api.material",
   "pk": 13,
   "fields": {
     "name": "textiles",
     "description": "textiles description",
-    "recyclable_component": 3
+    "recyclable_material": 3
   }
 },
 {
-  "model": "api.component",
+  "model": "api.material",
   "pk": 14,
   "fields": {
     "name": "other",
     "description": "other description",
-    "recyclable_component": 7
+    "recyclable_material": 7
   }
 },
 {
@@ -342,7 +342,9 @@
     "barcode": "123456789",
     "name": "green olives",
     "description": "green olives description",
-    "component_set": [
+    "latitude": "41.423264000000000000",
+    "longitude": "2.180323000000000000",
+    "material_set": [
       8,
       10,
       11
@@ -356,7 +358,9 @@
     "barcode": "987654321",
     "name": "milk set x6",
     "description": "milk set x6 description",
-    "component_set": [
+    "latitude": "41.423264000000000000",
+    "longitude": "2.180323000000000000",
+    "material_set": [
       4,
       8
     ]
@@ -369,7 +373,9 @@
     "barcode": "5678901234",
     "name": "light bulbs",
     "description": "light bulbs description",
-    "component_set": [
+    "latitude": "41.423264000000000000",
+    "longitude": "2.180323000000000000",
+    "material_set": [
       6,
       8
     ]
@@ -382,7 +388,9 @@
     "barcode": "34567890123",
     "name": "expedit furniture",
     "description": "expedit furniture description",
-    "component_set": [
+    "latitude": "41.423264000000000000",
+    "longitude": "2.180323000000000000",
+    "material_set": [
       2,
       3,
       8
@@ -396,7 +404,9 @@
     "barcode": "234567891",
     "name": "towel",
     "description": "towel description",
-    "component_set": [
+    "latitude": "41.423264000000000000",
+    "longitude": "2.180323000000000000",
+    "material_set": [
       13
     ]
   }
@@ -408,7 +418,9 @@
     "barcode": "678912345",
     "name": "soap",
     "description": "soap description",
-    "component_set": [
+    "latitude": "41.423264000000000000",
+    "longitude": "2.180323000000000000",
+    "material_set": [
       3,
       14
     ]

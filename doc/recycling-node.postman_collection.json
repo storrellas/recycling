@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "7fa4aaed-f6fd-42d9-a941-96d09fa5fa7a",
+		"name": "recycling-node",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "news",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "start",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "end",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/news",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"news"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recyclinggroups",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/recyclinggroups",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"recyclinggroups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recyclingspots",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "lat",
+							"value": "41.3823236",
+							"type": "text"
+						},
+						{
+							"key": "long",
+							"value": "2.1635519",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/recyclingspots",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"recyclingspots"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
