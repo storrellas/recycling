@@ -31,6 +31,7 @@ class Product(models.Model):
     description = models.CharField(max_length=500, null=True)
     latitude = models.DecimalField(max_digits=20, null=True, decimal_places=18)
     longitude = models.DecimalField(max_digits=20, null=True, decimal_places=18)
+    media = models.URLField(max_length=500, null=True)
     material_set = models.ManyToManyField(Material, related_name="product_set", blank=True)
 
     def __str__(self):

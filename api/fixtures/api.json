@@ -343,6 +343,7 @@
     "description": "green olives description",
     "latitude": "41.423264000000000000",
     "longitude": "2.180323000000000000",
+    "media": "https://images-na.ssl-images-amazon.com/images/I/71zP76nWPsL._SX522_.jpg",
     "material_set": [
       8,
       10,
@@ -358,6 +359,7 @@
     "description": "towel description",
     "latitude": "41.423264000000000000",
     "longitude": "2.180323000000000000",
+    "media": "https://offersinme.com/images/offers/2017/05/09/carrefour/bath-towel-70cmx140cm.jpg",
     "material_set": [
       13
     ]
@@ -371,6 +373,7 @@
     "description": "expedit furniture description",
     "latitude": "41.423264000000000000",
     "longitude": "2.180323000000000000",
+    "media": "http://www.ikea.com/es/es/images/products/expedit-estanteria-marron__72880_PE189131_S4.jpg",
     "material_set": [
       2,
       3,
@@ -386,6 +389,7 @@
     "description": "light bulbs description",
     "latitude": "41.423264000000000000",
     "longitude": "2.180323000000000000",
+    "media": "https://static.carrefour.es/hd_510x_/crs/cdn_static/catalog/hd/096619_00_1.jpg",
     "material_set": [
       6,
       8
@@ -400,6 +404,7 @@
     "description": "soap description",
     "latitude": "41.423264000000000000",
     "longitude": "2.180323000000000000",
+    "media": "https://static.carrefour.es/hd_1600x_/supermercado/bcc_static/catalogImages/product/125232/125232.png",
     "material_set": [
       3,
       14
@@ -414,6 +419,7 @@
     "description": "milk set x6 description",
     "latitude": "41.423264000000000000",
     "longitude": "2.180323000000000000",
+    "media": "https://a0.soysuper.com/3fd66089b6262c3c90f87c9f65946a15.1500.0.0.0.wmark.45e0e9fc.jpg",
     "material_set": [
       4,
       8

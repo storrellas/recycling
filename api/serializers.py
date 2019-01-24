@@ -20,6 +20,7 @@ class MaterialSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ProductSerializer(serializers.ModelSerializer):
+    material_set = MaterialSerializer(required=False, many=True)
     class Meta:
         model = Product
         fields = '__all__'
