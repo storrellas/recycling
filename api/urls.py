@@ -34,7 +34,7 @@ router.register(r'product', ProductViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
-    url(r'^token/$', MyTokenObtainPairView.as_view(), name='api-token'),
+    url(r'^token/$', TokenObtainPairView.as_view(), name='api-token'),
     url(r'^token/refresh/$', TokenRefreshView.as_view(), name='api-token-refresh'),
     url(r'^token/verify/$', TokenVerifyView.as_view(), name='api-token-refresh'),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
