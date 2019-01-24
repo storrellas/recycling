@@ -343,7 +343,11 @@
     "description": "green olives description",
     "latitude": "41.423264000000000000",
     "longitude": "2.180323000000000000",
-    "material_set": []
+    "material_set": [
+      8,
+      10,
+      11
+    ]
   }
 },
 {
@@ -354,7 +358,9 @@
     "description": "towel description",
     "latitude": "41.423264000000000000",
     "longitude": "2.180323000000000000",
-    "material_set": []
+    "material_set": [
+      13
+    ]
   }
 },
 {
@@ -365,7 +371,11 @@
     "description": "expedit furniture description",
     "latitude": "41.423264000000000000",
     "longitude": "2.180323000000000000",
-    "material_set": []
+    "material_set": [
+      2,
+      3,
+      8
+    ]
   }
 },
 {
@@ -376,7 +386,10 @@
     "description": "light bulbs description",
     "latitude": "41.423264000000000000",
     "longitude": "2.180323000000000000",
-    "material_set": []
+    "material_set": [
+      6,
+      8
+    ]
   }
 },
 {
@@ -387,7 +400,10 @@
     "description": "soap description",
     "latitude": "41.423264000000000000",
     "longitude": "2.180323000000000000",
-    "material_set": []
+    "material_set": [
+      3,
+      14
+    ]
   }
 },
 {
@@ -398,7 +414,10 @@
     "description": "milk set x6 description",
     "latitude": "41.423264000000000000",
     "longitude": "2.180323000000000000",
-    "material_set": []
+    "material_set": [
+      4,
+      8
+    ]
   }
 }
 ]
