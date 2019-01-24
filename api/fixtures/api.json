@@ -337,93 +337,68 @@
 },
 {
   "model": "api.product",
-  "pk": 1,
+  "pk": "123456789",
   "fields": {
-    "barcode": "123456789",
     "name": "green olives",
     "description": "green olives description",
     "latitude": "41.423264000000000000",
     "longitude": "2.180323000000000000",
-    "material_set": [
-      8,
-      10,
-      11
-    ]
+    "material_set": []
   }
 },
 {
   "model": "api.product",
-  "pk": 2,
+  "pk": "234567891",
   "fields": {
-    "barcode": "987654321",
-    "name": "milk set x6",
-    "description": "milk set x6 description",
-    "latitude": "41.423264000000000000",
-    "longitude": "2.180323000000000000",
-    "material_set": [
-      4,
-      8
-    ]
-  }
-},
-{
-  "model": "api.product",
-  "pk": 3,
-  "fields": {
-    "barcode": "5678901234",
-    "name": "light bulbs",
-    "description": "light bulbs description",
-    "latitude": "41.423264000000000000",
-    "longitude": "2.180323000000000000",
-    "material_set": [
-      6,
-      8
-    ]
-  }
-},
-{
-  "model": "api.product",
-  "pk": 4,
-  "fields": {
-    "barcode": "34567890123",
-    "name": "expedit furniture",
-    "description": "expedit furniture description",
-    "latitude": "41.423264000000000000",
-    "longitude": "2.180323000000000000",
-    "material_set": [
-      2,
-      3,
-      8
-    ]
-  }
-},
-{
-  "model": "api.product",
-  "pk": 5,
-  "fields": {
-    "barcode": "234567891",
     "name": "towel",
     "description": "towel description",
     "latitude": "41.423264000000000000",
     "longitude": "2.180323000000000000",
-    "material_set": [
-      13
-    ]
+    "material_set": []
   }
 },
 {
   "model": "api.product",
-  "pk": 6,
+  "pk": "34567890123",
   "fields": {
-    "barcode": "678912345",
+    "name": "expedit furniture",
+    "description": "expedit furniture description",
+    "latitude": "41.423264000000000000",
+    "longitude": "2.180323000000000000",
+    "material_set": []
+  }
+},
+{
+  "model": "api.product",
+  "pk": "5678901234",
+  "fields": {
+    "name": "light bulbs",
+    "description": "light bulbs description",
+    "latitude": "41.423264000000000000",
+    "longitude": "2.180323000000000000",
+    "material_set": []
+  }
+},
+{
+  "model": "api.product",
+  "pk": "678912345",
+  "fields": {
     "name": "soap",
     "description": "soap description",
     "latitude": "41.423264000000000000",
     "longitude": "2.180323000000000000",
-    "material_set": [
-      3,
-      14
-    ]
+    "material_set": []
+  }
+},
+{
+  "model": "api.product",
+  "pk": "987654321",
+  "fields": {
+    "name": "milk set x6",
+    "description": "milk set x6 description",
+    "latitude": "41.423264000000000000",
+    "longitude": "2.180323000000000000",
+    "material_set": []
   }
 }
 ]

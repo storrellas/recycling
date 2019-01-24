@@ -26,7 +26,7 @@ class Material(models.Model):
         return self.name
 
 class Product(models.Model):
-    barcode = models.CharField(max_length=500, null=True)
+    barcode = models.CharField(max_length=500, primary_key=True)
     name = models.CharField(max_length=500, null=True)
     description = models.CharField(max_length=500, null=True)
     latitude = models.DecimalField(max_digits=20, null=True, decimal_places=18)
