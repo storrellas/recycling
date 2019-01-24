@@ -1,176 +1,459 @@
 {
 	"info": {
-		"_postman_id": "a4f01651-528f-4b28-89da-081ea976e0e5",
-		"name": "recycling -django",
+		"_postman_id": "8caa842e-7bd2-4a54-afaf-a3f0435c7f01",
+		"name": "recycling-django",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Recyclable Component List",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{token}}",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "http://localhost:8080/api/recyclablecomponent/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"recyclablecomponent",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Recyclable Spot",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{token}}",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "http://localhost:8080/api/recyclablespot/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"recyclablespot",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Component",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{token}}",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "http://localhost:8080/api/component/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"component",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Product",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{token}}",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "http://localhost:8080/api/component/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"component",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Product - LocateSpot",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"type": "text",
-						"value": "Bearer {{token}}"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "http://localhost:8080/api/product/1/locatespot/?latitude=41.410729&longitude=2.184305",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"product",
-						"1",
-						"locatespot",
-						""
-					],
-					"query": [
+			"name": "Admin",
+			"item": [
+				{
+					"name": "GetJWTToken - Admin",
+					"event": [
 						{
-							"key": "latitude",
-							"value": "41.410729"
-						},
-						{
-							"key": "longitude",
-							"value": "2.184305"
+							"listen": "test",
+							"script": {
+								"id": "67ff0d83-d218-44db-8dc7-70cd8368eb4f",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token_access\", jsonData.access);",
+									"postman.setEnvironmentVariable(\"token_refresh\", jsonData.refresh);"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Forwarded-For",
+								"value": "192.168.1.0, 81.40.231.163",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"admin123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/token/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetJWTToken - Irene",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "67ff0d83-d218-44db-8dc7-70cd8368eb4f",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token_access\", jsonData.access);",
+									"postman.setEnvironmentVariable(\"token_refresh\", jsonData.refresh);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Forwarded-For",
+								"type": "text",
+								"value": "192.168.1.0, 81.40.231.163"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"irene\",\n\t\"password\": \"irene123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/token/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetJWTToken - Estibaliz",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "67ff0d83-d218-44db-8dc7-70cd8368eb4f",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token_access\", jsonData.access);",
+									"postman.setEnvironmentVariable(\"token_refresh\", jsonData.refresh);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Forwarded-For",
+								"value": "192.168.1.0, 81.40.231.163",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"estibaliz\",\n\t\"password\": \"estibaliz123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/token/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetJWTToken - Refresh",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "67ff0d83-d218-44db-8dc7-70cd8368eb4f",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token_access}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"refresh\" : \"{{token_refresh}}\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/token/refresh/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"token",
+								"refresh",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetJWTToken - Verify",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "67ff0d83-d218-44db-8dc7-70cd8368eb4f",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token_access}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"token\" : \"{{token_refresh}}\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/token/verify/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"token",
+								"verify",
+								""
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "Model",
+			"item": [
+				{
+					"name": "Product",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token_access}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/product/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"product",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Recyclable Groups List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token_access}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/recyclablematerial/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"recyclablematerial",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Recyclable Spot",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token_access}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/recyclablespot/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"recyclablespot",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RecyclableSpot - Nearby",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token_access}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/recyclablespot/nearby/?latitude=41.410729&longitude=2.184305",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"recyclablespot",
+								"nearby",
+								""
+							],
+							"query": [
+								{
+									"key": "latitude",
+									"value": "41.410729"
+								},
+								{
+									"key": "longitude",
+									"value": "2.184305"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Material",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token_access}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/material/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"material",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product - LocateSpot",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token_access}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/product/123456789/recyclablespot/?latitude=41.410729&longitude=2.184305",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"product",
+								"123456789",
+								"recyclablespot",
+								""
+							],
+							"query": [
+								{
+									"key": "latitude",
+									"value": "41.410729"
+								},
+								{
+									"key": "longitude",
+									"value": "2.184305"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
