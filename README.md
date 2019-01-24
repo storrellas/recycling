@@ -7,19 +7,31 @@
 ```
 @startuml
 
-title "Messages - Sequence Diagram"
+title "Recyling - Sequence Diagram"
 
 participant Mobile
 participant Backend
 
 
-note over Mobile: Get Product Details
+note over Mobile: Get Product Details with Extended Material
 Mobile -> Backend : /product/<barcode>/
-note over Mobile: Get Locations from barcode filtered with recyclablegroupsover Mobile
-Mobile -> Backend : /product/<barcode>/locations/?filter=<recyclablegroups>
 
-note over Mobile: Get Green Impact 
+note over Mobile: Get RecyclableSpots from barcode filtered with recyclablegroupsover Mobile
+Mobile -> Backend : /recyclablespots/?latitude=<latitude>&longitude=<longitude>
+note over Mobile: Get RecyclableSpots filtered with recyclablegroupsover Mobile
+Mobile -> Backend : /product/<barcode>/recyclablespots/?latitude=<latitude>&longitude=<longitude>
+
+note over Mobile: Get Green Impact (percentage, Number of Scans, IndividualRanking, PercentageOfMaterial)
 Mobile -> Backend : /greenimpact/?startdate=<startdate>&enddate=<enddate>
+
+note over Mobile: Get Ranking
+Mobile -> Backend : /ranking/
+
+note over Mobile: Get Partners (Partners with description)
+Mobile -> Backend : /partners/
+
+note over Mobile: Get News
+Mobile -> Backend : /news/
 
 @enduml
 ```
