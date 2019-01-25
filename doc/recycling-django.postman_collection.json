@@ -454,6 +454,74 @@
 					"response": []
 				},
 				{
+					"name": "Ranking",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token_access}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/ranking/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ranking",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stats",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token_access}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/stats/?startdate=2019-01-01&enddate=2019-01-25",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"stats",
+								""
+							],
+							"query": [
+								{
+									"key": "startdate",
+									"value": "2019-01-01"
+								},
+								{
+									"key": "enddate",
+									"value": "2019-01-25"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "New",
 					"request": {
 						"method": "GET",
