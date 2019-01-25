@@ -25,6 +25,10 @@ class ProductSerializer(serializers.ModelSerializer):
         model = Product
         fields = '__all__'
 
+class NewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = New
+        fields = '__all__'
 
 class RecyclableSpotDistanceSerializer(serializers.ModelSerializer):
     distance = serializers.SerializerMethodField()

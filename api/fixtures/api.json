@@ -425,5 +425,125 @@
       8
     ]
   }
+},
+{
+  "model": "api.new",
+  "pk": 1,
+  "fields": {
+    "title": "Rudolph the Green Smart Reindeer",
+    "content": "The holidays are here and it is time to work against the accumulation of waste and belongings that happen every year. Waste tends to increase during the holiday season. There are some crazy statistics that go along with it. For example, about 8,000 tons of wrapping paper are used every year and the 2.65 billion holiday cards sold each year in the U.S. could fill a football field 10 stories high.",
+    "media": "https://www.rethinkrecycling.com/sites/default/files/styles/detail/public/images/blog/rudolph1.jpg",
+    "created_at": "2019-01-24T16:13:59.290Z"
+  }
+},
+{
+  "model": "api.new",
+  "pk": 2,
+  "fields": {
+    "title": "Best if Used – Keep Food Out of the Garbage",
+    "content": "This time of year means colder weather, shorter days, holidays, and more opportunities to prevent food waste. As you get ready to cook the biggest meals of the year, take some time to plan and prepare for reducing food waste. Forty percent of food in America is wasted. That is a big number that can be greatly reduced with some willingness and attention from individual households.",
+    "media": "https://www.rethinkrecycling.com/sites/default/files/styles/detail/public/images/blog/img_20170920_133839-01.jpeg",
+    "created_at": "2019-01-24T16:14:42.392Z"
+  }
+},
+{
+  "model": "api.new",
+  "pk": 3,
+  "fields": {
+    "title": "Rising to the Top of the Pops Chart - Organics",
+    "content": "Here we go once again with all the big recycling hits from the Twin Cities metro area and beyond. With lots of ways to reduce, reuse and recycle just about anything in your home already, we’re always looking for the next big hit in recycling. You’ve already taken steps to avoid wish cycling and you know what to throw. Let’s look towards the new trend in recycling that is sweeping the nation and helping keep valuable resources from ending up in landfills and incinerators. It’s time to recycle organics!",
+    "media": "https://www.rethinkrecycling.com/sites/default/files/styles/detail/public/images/blog/organics.jpg",
+    "created_at": "2019-01-24T16:15:00.314Z"
+  }
+},
+{
+  "model": "api.new",
+  "pk": 4,
+  "fields": {
+    "title": "You Can Recycle More Than You Think",
+    "content": "You may have the basics of curbside recycling down. You put bottles, cans, cardboard, and paper in your bin; you avoid wish cycling; and you generally know what to throw. But there is more you can do! Recycle even more by adding another room to your recycling routine or utilizing drop-off locations for items that can’t be recycled curbside.",
+    "media": "https://www.rethinkrecycling.com/sites/default/files/styles/detail/public/images/blog/rr_resources_0.png",
+    "created_at": "2019-01-24T16:15:00.314Z"
+  }
+},
+{
+  "model": "api.new",
+  "pk": 5,
+  "fields": {
+    "title": "Sherlock Holmes on the Less Waste Case",
+    "content": "The who, what, when, where, why, and how of reduce, reuse and recycle can cause confusion. Shed some light on a few of the biggest mysteries of recycling and continue to refine your practices. Whether you consider your habits to be excellent or elementary, there are always ways to learn more about knowing what to throw.",
+    "media": "https://www.rethinkrecycling.com/sites/default/files/styles/detail/public/images/blog/stocksnap_jaosilas_2016.jpg",
+    "created_at": "2019-01-24T16:15:00.314Z"
+  }
+},
+{
+  "model": "api.new",
+  "pk": 6,
+  "fields": {
+    "title": "Make Every Day Earth Day",
+    "content": "Whether participating in a community clean-up event, attending an educational function or donating time or money to an environmental cause, people celebrate Earth Day in big ways every April. However, the best way to celebrate the earth is in small ways every day. This year, making a small change in your little corner of the world can produce a big impact.",
+    "media": "https://www.rethinkrecycling.com/sites/default/files/styles/detail/public/images/blog/pexels_kukzaa_earthpalm.jpeg",
+    "created_at": "2019-01-24T16:15:00.314Z"
+  }
+},
+{
+  "model": "api.new",
+  "pk": 7,
+  "fields": {
+    "title": "Resolve to Live a 'Less-Waste' Lifestyle in 2017",
+    "content": "A new year is here, and it’s time to not only make resolutions, but to put them into action. Whether you want to start composting or hosting green events, there are plenty of resources to help you accomplish your green goals. A huge way to move your lifestyle in a greener direction is to dedicate yourself to living a less-waste lifestyle. Use the 3 Rs and a little planning to cut down on how much waste you create.",
+    "media": "https://www.rethinkrecycling.com/sites/default/files/styles/detail/public/images/blog/swmcb_lessismore_290x185.png",
+    "created_at": "2019-01-24T16:15:00.314Z"
+  }
+},
+{
+  "model": "api.new",
+  "pk": 8,
+  "fields": {
+    "title": "Be Thankful for Less Food Waste",
+    "content": "What are you thankful for this year? You may be thankful you recycled more materials than before or you made sure others know what to throw in curbside bins. As you get ready to cook the biggest meals of the year, plan ahead so you can be thankful for less food waste.",
+    "media": "https://www.rethinkrecycling.com/sites/default/files/styles/detail/public/images/blog/foodscraping.jpg",
+    "created_at": "2019-01-24T16:15:00.314Z"
+  }
+},
+{
+  "model": "api.new",
+  "pk": 9,
+  "fields": {
+    "title": "Free Screening: The Clean Bin Project",
+    "content": "Do you cringe when you see someone toss a soda can in the trash? Are you on a first-name basis with your city recycling coordinator? Have you ever wondered if you’re alone? (You’re not!)",
+    "media": "https://www.rethinkrecycling.com/sites/default/files/styles/detail/public/images/blog/cbp_jen_grant.jpg",
+    "created_at": "2019-01-24T16:15:00.314Z"
+  }
+},
+{
+  "model": "api.new",
+  "pk": 10,
+  "fields": {
+    "title": "The Great, Green Outdoors",
+    "content": "Summer means warmer weather, more time spent out of the house and finding ways to recycle while away from home. It also means a variety of outdoor events including sporting events, trips, festivals, parties, weddings, and more. Whether you are hosting or attending an event, there are many ways to reduce, reuse and recycle.",
+    "media": "https://www.rethinkrecycling.com/sites/default/files/styles/detail/public/images/blog/flickr_usfwsmidwest_flowingriver_07212013.jpg",
+    "created_at": "2019-01-24T16:15:00.314Z"
+  }
+},
+{
+  "model": "api.new",
+  "pk": 11,
+  "fields": {
+    "title": "Spring Fix it Season is Here",
+    "content": "You may be familiar with ways to recycle, reduce and reuse tons of different items, but what if there was another way to keep items out of the waste stream? Some say that there is a fourth R: Repair. While you are spring cleaning, take a look at items that may be a little worn out or broken and think twice before disposing of them. There are plenty of resources to help you fix and maintain those items and keep them out of the garbage.",
+    "media": "https://www.rethinkrecycling.com/sites/default/files/styles/detail/public/images/blog/flickr_tools_pauldowney_02232005.jpg",
+    "created_at": "2019-01-24T16:15:00.314Z"
+  }
+},
+{
+  "model": "api.new",
+  "pk": 12,
+  "fields": {
+    "title": "Reduce, Reuse, Recycle, Repair, Refuse",
+    "content": "You know about the three Rs and how important they are. Reducing the amount of items we own and the amount of waste we create, means less stuff will end up in the garbage. Reusing what we can gives our items another life and keeps them out of the trash. Recycling takes a variety of materials and puts them to good use, helping the economy, creating jobs and manufacturing new products. You may have the mantra of “reduce, reuse and recycle” down, but there are more Rs you can add to your routine.",
+    "media": "https://www.rethinkrecycling.com/sites/default/files/styles/detail/public/images/blog/reuseablebags.jpeg",
+    "created_at": "2019-01-24T16:15:39.040Z"
+  }
 }
 ]

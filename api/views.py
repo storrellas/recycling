@@ -123,3 +123,11 @@ class ProductViewSet(viewsets.ModelViewSet):
                                                       context={'distance_list': recyclable_spot_distance_list},
                                                       many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+class NewViewSet(viewsets.ModelViewSet):
+    authentication_classes = (JWTAuthentication,)
+
+    model = New
+    queryset = New.objects.all()
+    serializer_class = NewSerializer
+    renderer_classes = (JSONRenderer, )

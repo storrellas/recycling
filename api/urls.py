@@ -30,6 +30,7 @@ router.register(r'recyclablematerial', RecyclableMaterialViewSet)
 router.register(r'recyclablespot', RecyclableSpotViewSet)
 router.register(r'material', MaterialViewSet)
 router.register(r'product', ProductViewSet)
+router.register(r'new', NewViewSet)
 
 
 urlpatterns = [

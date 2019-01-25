@@ -44,3 +44,13 @@ class RecyclableHistory(models.Model):
 
     def __str__(self):
         return self.product.barcode + " - " + self.created_at
+
+
+class New(models.Model):
+    title = models.CharField(max_length=500, null=True)
+    content = models.CharField(max_length=500, null=True)
+    media = models.URLField(max_length=500, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
