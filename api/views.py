@@ -1,6 +1,9 @@
+import operator
+
+# Django imports
 from django.shortcuts import render
 from django.conf import settings
-import operator
+from django.contrib.auth import get_user_model
 
 # Dependencies
 from rest_framework import viewsets
@@ -88,14 +91,37 @@ class MaterialViewSet(viewsets.ModelViewSet):
     serializer_class = MaterialSerializer
     renderer_classes = (JSONRenderer, )
 
+from django.db import connection
+
 class RankingView(APIView):
     authentication_classes = (JWTAuthentication,)
     permission_classes = (IsAdminUserOrReadOnly,)
 
     def get(self, request, format=None):
 
-        # Return generic response
-        return Response({'response': 'ranking_ok'})
+        #model = get_user_model()
+        with connection.cursor() as cursor:
+            cursor.execute('Select auth_user.id as id, auth_user.username as username, count(api_recyclablehistory.created_at) as count ' +
+                            'from auth_user ' +
+                            'left join api_recyclablehistory ' +
+                            'on auth_user.id = api_recyclablehistory.user_id ' +
+                            'where auth_user.is_superuser=0 ' +
+                            'group by auth_user.id ' +
+                            'order by -count ')
+            result = cursor.fetchall()
+            print(type(result))
+            print(type(result[0]))
+            print(result)
+
+            user_list = []
+            for user in result:
+                user_list.append({'id': user[0], 'username': user[1], 'count': user[2]})
+
+            print(user_list)
+            return Response(user_list,  status=status.HTTP_200_OK)
+
+        # Return generic error
+        return Response({'response': 'ko'},  status=status.HTTP_400_BAD_REQUEST)
 
 class StatsView(APIView):
     authentication_classes = (JWTAuthentication,)
