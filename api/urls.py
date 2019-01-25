@@ -38,5 +38,7 @@ urlpatterns = [
     url(r'^token/$', TokenObtainPairView.as_view(), name='api-token'),
     url(r'^token/refresh/$', TokenRefreshView.as_view(), name='api-token-refresh'),
     url(r'^token/verify/$', TokenVerifyView.as_view(), name='api-token-refresh'),
+    url(r'^ranking/$', RankingView.as_view(), name='ranking'),
+    url(r'^stats/$', StatsView.as_view(), name='stats'),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

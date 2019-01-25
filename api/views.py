@@ -4,6 +4,7 @@ import operator
 
 # Dependencies
 from rest_framework import viewsets
+from rest_framework.views import APIView
 from rest_framework.renderers import JSONRenderer
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -42,6 +43,7 @@ class RecyclableMaterialViewSet(viewsets.ModelViewSet):
 
 class RecyclableSpotViewSet(viewsets.ModelViewSet):
     authentication_classes = (JWTAuthentication,)
+    permission_classes = (IsAdminUserOrReadOnly,)
 
     model = RecyclableSpot
     queryset = RecyclableSpot.objects.all()
@@ -79,14 +81,34 @@ class RecyclableSpotViewSet(viewsets.ModelViewSet):
 
 class MaterialViewSet(viewsets.ModelViewSet):
     authentication_classes = (JWTAuthentication,)
+    permission_classes = (IsAdminUserOrReadOnly,)
 
     model = Material
     queryset = Material.objects.all()
     serializer_class = MaterialSerializer
     renderer_classes = (JSONRenderer, )
 
+class RankingView(APIView):
+    authentication_classes = (JWTAuthentication,)
+    permission_classes = (IsAdminUserOrReadOnly,)
+
+    def get(self, request, format=None):
+
+        # Return generic response
+        return Response({'response': 'ranking_ok'})
+
+class StatsView(APIView):
+    authentication_classes = (JWTAuthentication,)
+    permission_classes = (IsAdminUserOrReadOnly,)
+
+    def get(self, request, format=None):
+
+        # Return generic response
+        return Response({'response': 'stats_ok'})
+
 class ProductViewSet(viewsets.ModelViewSet):
     authentication_classes = (JWTAuthentication,)
+    permission_classes = (IsAdminUserOrReadOnly,)
 
     model = Product
     queryset = Product.objects.all()
@@ -138,6 +160,7 @@ class ProductViewSet(viewsets.ModelViewSet):
 
 class NewViewSet(viewsets.ModelViewSet):
     authentication_classes = (JWTAuthentication,)
+    permission_classes = (IsAdminUserOrReadOnly,)
 
     model = New
     queryset = New.objects.all()
