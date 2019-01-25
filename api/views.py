@@ -100,7 +100,6 @@ class RankingView(APIView):
 
     def get(self, request, format=None):
 
-        #model = get_user_model()
         with connection.cursor() as cursor:
             cursor.execute('Select auth_user.id as id, auth_user.username as username, count(api_recyclablehistory.created_at) as count ' +
                             'from auth_user ' +
@@ -110,15 +109,11 @@ class RankingView(APIView):
                             'group by auth_user.id ' +
                             'order by -count ')
             result = cursor.fetchall()
-            print(type(result))
-            print(type(result[0]))
-            print(result)
 
+            # Generate User_List
             user_list = []
             for user in result:
                 user_list.append({'id': user[0], 'username': user[1], 'count': user[2]})
-
-            print(user_list)
             return Response(user_list,  status=status.HTTP_200_OK)
 
         # Return generic error
@@ -136,8 +131,41 @@ class StatsView(APIView):
         print(start_time)
         print(end_time)
 
+        recyclable_history = RecyclableHistory.objects.filter(user=request.user)
+
+
+        response = {
+            'n_scan': 876,
+            'ranking': 765,
+            'green_impact': 81.8,
+            'weekly': {
+                'n_scan': 103,
+                'material_set' : {
+                    'cardboard': 50,
+                    'paper': 30,
+                    'aluminum':20
+                }
+            },
+            'monthly': {
+                'n_scan': 221,
+                'material_set' : {
+                    'cardboard': 50,
+                    'paper': 30,
+                    'aluminum':20
+                }
+            },
+            'yearly': {
+                'n_scan': 456,
+                'material_set' : {
+                    'cardboard': 50,
+                    'paper': 30,
+                    'aluminum':20
+                }
+            }
+        }
+
         # Return generic response
-        return Response({'response': 'stats_ok'})
+        return Response(response, status=status.HTTP_200_OK)
 
 class ProductViewSet(viewsets.ModelViewSet):
     authentication_classes = (JWTAuthentication,)
