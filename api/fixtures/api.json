@@ -427,6 +427,36 @@
   }
 },
 {
+  "model": "api.recyclablehistory",
+  "pk": 1,
+  "fields": {
+    "UID": "123456789",
+    "user": 2,
+    "product": "123456789",
+    "created_at": "2019-01-25T09:57:42.447Z"
+  }
+},
+{
+  "model": "api.recyclablehistory",
+  "pk": 2,
+  "fields": {
+    "UID": "123456789",
+    "user": 2,
+    "product": "234567891",
+    "created_at": "2019-01-25T09:58:02.849Z"
+  }
+},
+{
+  "model": "api.recyclablehistory",
+  "pk": 3,
+  "fields": {
+    "UID": "987654321",
+    "user": 3,
+    "product": "678912345",
+    "created_at": "2019-01-25T09:58:17.819Z"
+  }
+},
+{
   "model": "api.new",
   "pk": 1,
   "fields": {
@@ -440,7 +470,7 @@
   "model": "api.new",
   "pk": 2,
   "fields": {
-    "title": "Best if Used – Keep Food Out of the Garbage",
+    "title": "Best if Used \u2013 Keep Food Out of the Garbage",
     "content": "This time of year means colder weather, shorter days, holidays, and more opportunities to prevent food waste. As you get ready to cook the biggest meals of the year, take some time to plan and prepare for reducing food waste. Forty percent of food in America is wasted. That is a big number that can be greatly reduced with some willingness and attention from individual households.",
     "media": "https://www.rethinkrecycling.com/sites/default/files/styles/detail/public/images/blog/img_20170920_133839-01.jpeg",
     "created_at": "2018-05-24T16:14:42.392Z"
@@ -451,7 +481,7 @@
   "pk": 3,
   "fields": {
     "title": "Rising to the Top of the Pops Chart - Organics",
-    "content": "Here we go once again with all the big recycling hits from the Twin Cities metro area and beyond. With lots of ways to reduce, reuse and recycle just about anything in your home already, we’re always looking for the next big hit in recycling. You’ve already taken steps to avoid wish cycling and you know what to throw. Let’s look towards the new trend in recycling that is sweeping the nation and helping keep valuable resources from ending up in landfills and incinerators. It’s time to recycle organics!",
+    "content": "Here we go once again with all the big recycling hits from the Twin Cities metro area and beyond. With lots of ways to reduce, reuse and recycle just about anything in your home already, we\u2019re always looking for the next big hit in recycling. You\u2019ve already taken steps to avoid wish cycling and you know what to throw. Let\u2019s look towards the new trend in recycling that is sweeping the nation and helping keep valuable resources from ending up in landfills and incinerators. It\u2019s time to recycle organics!",
     "media": "https://www.rethinkrecycling.com/sites/default/files/styles/detail/public/images/blog/organics.jpg",
     "created_at": "2018-03-24T16:15:00.314Z"
   }
@@ -461,7 +491,7 @@
   "pk": 4,
   "fields": {
     "title": "You Can Recycle More Than You Think",
-    "content": "You may have the basics of curbside recycling down. You put bottles, cans, cardboard, and paper in your bin; you avoid wish cycling; and you generally know what to throw. But there is more you can do! Recycle even more by adding another room to your recycling routine or utilizing drop-off locations for items that can’t be recycled curbside.",
+    "content": "You may have the basics of curbside recycling down. You put bottles, cans, cardboard, and paper in your bin; you avoid wish cycling; and you generally know what to throw. But there is more you can do! Recycle even more by adding another room to your recycling routine or utilizing drop-off locations for items that can\u2019t be recycled curbside.",
     "media": "https://www.rethinkrecycling.com/sites/default/files/styles/detail/public/images/blog/rr_resources_0.png",
     "created_at": "2018-07-24T16:15:00.314Z"
   }
@@ -491,7 +521,7 @@
   "pk": 7,
   "fields": {
     "title": "Resolve to Live a 'Less-Waste' Lifestyle in 2017",
-    "content": "A new year is here, and it’s time to not only make resolutions, but to put them into action. Whether you want to start composting or hosting green events, there are plenty of resources to help you accomplish your green goals. A huge way to move your lifestyle in a greener direction is to dedicate yourself to living a less-waste lifestyle. Use the 3 Rs and a little planning to cut down on how much waste you create.",
+    "content": "A new year is here, and it\u2019s time to not only make resolutions, but to put them into action. Whether you want to start composting or hosting green events, there are plenty of resources to help you accomplish your green goals. A huge way to move your lifestyle in a greener direction is to dedicate yourself to living a less-waste lifestyle. Use the 3 Rs and a little planning to cut down on how much waste you create.",
     "media": "https://www.rethinkrecycling.com/sites/default/files/styles/detail/public/images/blog/swmcb_lessismore_290x185.png",
     "created_at": "2018-11-24T16:15:00.314Z"
   }
@@ -511,7 +541,7 @@
   "pk": 9,
   "fields": {
     "title": "Free Screening: The Clean Bin Project",
-    "content": "Do you cringe when you see someone toss a soda can in the trash? Are you on a first-name basis with your city recycling coordinator? Have you ever wondered if you’re alone? (You’re not!)",
+    "content": "Do you cringe when you see someone toss a soda can in the trash? Are you on a first-name basis with your city recycling coordinator? Have you ever wondered if you\u2019re alone? (You\u2019re not!)",
     "media": "https://www.rethinkrecycling.com/sites/default/files/styles/detail/public/images/blog/cbp_jen_grant.jpg",
     "created_at": "2018-04-24T16:15:00.314Z"
   }
@@ -541,7 +571,7 @@
   "pk": 12,
   "fields": {
     "title": "Reduce, Reuse, Recycle, Repair, Refuse",
-    "content": "You know about the three Rs and how important they are. Reducing the amount of items we own and the amount of waste we create, means less stuff will end up in the garbage. Reusing what we can gives our items another life and keeps them out of the trash. Recycling takes a variety of materials and puts them to good use, helping the economy, creating jobs and manufacturing new products. You may have the mantra of “reduce, reuse and recycle” down, but there are more Rs you can add to your routine.",
+    "content": "You know about the three Rs and how important they are. Reducing the amount of items we own and the amount of waste we create, means less stuff will end up in the garbage. Reusing what we can gives our items another life and keeps them out of the trash. Recycling takes a variety of materials and puts them to good use, helping the economy, creating jobs and manufacturing new products. You may have the mantra of \u201creduce, reuse and recycle\u201d down, but there are more Rs you can add to your routine.",
     "media": "https://www.rethinkrecycling.com/sites/default/files/styles/detail/public/images/blog/reuseablebags.jpeg",
     "created_at": "2018-02-02T16:15:39.040Z"
   }

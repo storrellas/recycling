@@ -45,7 +45,7 @@ class RecyclableHistory(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.product.barcode + " - " + self.created_at
+        return self.product.barcode + " - " + self.product.name
 
 
 class New(models.Model):
