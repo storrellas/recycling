@@ -1,9 +1,11 @@
 import operator
+from datetime import datetime
 
 # Django imports
 from django.shortcuts import render
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.db import connection
 
 # Dependencies
 from rest_framework import viewsets
@@ -91,7 +93,6 @@ class MaterialViewSet(viewsets.ModelViewSet):
     serializer_class = MaterialSerializer
     renderer_classes = (JSONRenderer, )
 
-from django.db import connection
 
 class RankingView(APIView):
     authentication_classes = (JWTAuthentication,)
@@ -128,6 +129,12 @@ class StatsView(APIView):
     permission_classes = (IsAdminUserOrReadOnly,)
 
     def get(self, request, format=None):
+        start_time = datetime.strptime(request.query_params.get('startdate'), '%Y-%m-%d')
+        end_time = datetime.strptime(request.query_params.get('enddate'), '%Y-%m-%d')
+
+        print("-- parsing time --")
+        print(start_time)
+        print(end_time)
 
         # Return generic response
         return Response({'response': 'stats_ok'})
@@ -146,8 +153,6 @@ class ProductViewSet(viewsets.ModelViewSet):
 
         user_latitude = float(request.query_params.get('latitude'))
         user_longitude = float(request.query_params.get('longitude'))
-        print(user_latitude)
-        print(user_longitude)
 
         # Retrieve object
         product = self.get_object()
