@@ -9,6 +9,8 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework.permissions import IsAdminUser, SAFE_METHODS
+
 
 from geopy.distance import geodesic
 
@@ -20,8 +22,18 @@ from recycling import utils
 logger = utils.get_logger()
 
 
+class IsAdminUserOrReadOnly(IsAdminUser):
+
+    def has_permission(self, request, view):
+        is_admin = super(
+            IsAdminUserOrReadOnly,
+            self).has_permission(request, view)
+        # Python3: is_admin = super().has_permission(request, view)
+        return request.method in SAFE_METHODS or is_admin
+
 class RecyclableMaterialViewSet(viewsets.ModelViewSet):
     authentication_classes = (JWTAuthentication,)
+    permission_classes = (IsAdminUserOrReadOnly,)
 
     model = RecyclableMaterial
     queryset = RecyclableMaterial.objects.all()
