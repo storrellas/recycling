@@ -112,8 +112,9 @@ class RankingView(APIView):
 
             # Generate User_List
             user_list = []
-            for user in result:
-                user_list.append({'id': user[0], 'username': user[1], 'count': user[2]})
+            #for user in result:
+            for index, user in enumerate(result):
+                user_list.append({'id': user[0], 'username': user[1], 'count': user[2], 'ranking': (index+1)})
             return Response(user_list,  status=status.HTTP_200_OK)
 
         # Return generic error
