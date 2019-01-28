@@ -234,7 +234,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"token\" : \"{{token_refresh}}\"\n}"
+							"raw": "{\n\t\"token\": \"{{token_access}}\"\n}"
 						},
 						"url": {
 							"raw": "{{url}}/api/token/verify/",
@@ -265,40 +265,10 @@
 								"key": "Authorization",
 								"value": "Bearer {{token_access}}",
 								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{url}}/api/product/?user_id=2",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"product",
-								""
-							],
-							"query": [
-								{
-									"key": "user_id",
-									"value": "2"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Recyclable Groups List",
-					"request": {
-						"method": "GET",
-						"header": [
+							},
 							{
-								"key": "Authorization",
-								"value": "Bearer {{token_access}}",
+								"key": "USERNAME",
+								"value": "{{username}}",
 								"type": "text"
 							}
 						],
@@ -307,7 +277,102 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/api/recyclablematerial/?user_id=2",
+							"raw": "{{url}}/api/product/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"product",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product - LocateSpot",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token_access}}"
+							},
+							{
+								"key": "USERNAME",
+								"value": "{{username}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/product/123456789/recyclablespot/?latitude=41.410729&longitude=2.184305",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"product",
+								"123456789",
+								"recyclablespot",
+								""
+							],
+							"query": [
+								{
+									"key": "latitude",
+									"value": "41.410729"
+								},
+								{
+									"key": "longitude",
+									"value": "2.184305"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RecyclableMaterial - Preflight",
+					"request": {
+						"method": "OPTIONS",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token_access}}",
+								"type": "text"
+							},
+							{
+								"key": "Access-Control-Request-Method",
+								"value": "GET",
+								"type": "text"
+							},
+							{
+								"key": "Access-Control-Request-Headers",
+								"value": "origin, x-requested-with, accept",
+								"type": "text"
+							},
+							{
+								"key": "Origin",
+								"value": "*",
+								"type": "text"
+							},
+							{
+								"key": "USERNAME",
+								"value": "{{username}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/recyclablematerial/",
 							"host": [
 								"{{url}}"
 							],
@@ -315,12 +380,40 @@
 								"api",
 								"recyclablematerial",
 								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RecyclableMaterial",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token_access}}",
+								"type": "text"
+							},
+							{
+								"key": "USERNAME",
+								"value": "{{username}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/recyclablematerial/",
+							"host": [
+								"{{url}}"
 							],
-							"query": [
-								{
-									"key": "user_id",
-									"value": "2"
-								}
+							"path": [
+								"api",
+								"recyclablematerial",
+								""
 							]
 						}
 					},
@@ -335,6 +428,11 @@
 								"key": "Authorization",
 								"value": "Bearer {{token_access}}",
 								"type": "text"
+							},
+							{
+								"key": "USERNAME",
+								"value": "{{username}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -342,7 +440,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/api/recyclablespot/?user_id=2",
+							"raw": "{{url}}/api/recyclablespot/",
 							"host": [
 								"{{url}}"
 							],
@@ -350,12 +448,6 @@
 								"api",
 								"recyclablespot",
 								""
-							],
-							"query": [
-								{
-									"key": "user_id",
-									"value": "2"
-								}
 							]
 						}
 					},
@@ -370,6 +462,11 @@
 								"key": "Authorization",
 								"type": "text",
 								"value": "Bearer {{token_access}}"
+							},
+							{
+								"key": "USERNAME",
+								"value": "{{username}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -377,7 +474,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/api/recyclablespot/nearby/?user_id=2&latitude=41.410729&longitude=2.184305",
+							"raw": "{{url}}/api/recyclablespot/nearby/?latitude=41.410729&longitude=2.184305",
 							"host": [
 								"{{url}}"
 							],
@@ -388,10 +485,6 @@
 								""
 							],
 							"query": [
-								{
-									"key": "user_id",
-									"value": "2"
-								},
 								{
 									"key": "latitude",
 									"value": "41.410729"
@@ -414,6 +507,11 @@
 								"key": "Authorization",
 								"type": "text",
 								"value": "Bearer {{token_access}}"
+							},
+							{
+								"key": "USERNAME",
+								"value": "{{username}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -421,7 +519,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/api/material/?user_id=2",
+							"raw": "{{url}}/api/material/",
 							"host": [
 								"{{url}}"
 							],
@@ -429,57 +527,6 @@
 								"api",
 								"material",
 								""
-							],
-							"query": [
-								{
-									"key": "user_id",
-									"value": "2"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Product - LocateSpot",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{token_access}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{url}}/api/product/123456789/recyclablespot/?user_id=2&latitude=41.410729&longitude=2.184305",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"product",
-								"123456789",
-								"recyclablespot",
-								""
-							],
-							"query": [
-								{
-									"key": "user_id",
-									"value": "2"
-								},
-								{
-									"key": "latitude",
-									"value": "41.410729"
-								},
-								{
-									"key": "longitude",
-									"value": "2.184305"
-								}
 							]
 						}
 					},
@@ -494,6 +541,11 @@
 								"key": "Authorization",
 								"type": "text",
 								"value": "Bearer {{token_access}}"
+							},
+							{
+								"key": "USERNAME",
+								"value": "{{username}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -501,7 +553,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/api/ranking/?user_id=2",
+							"raw": "{{url}}/api/ranking/",
 							"host": [
 								"{{url}}"
 							],
@@ -509,12 +561,6 @@
 								"api",
 								"ranking",
 								""
-							],
-							"query": [
-								{
-									"key": "user_id",
-									"value": "2"
-								}
 							]
 						}
 					},
@@ -529,6 +575,11 @@
 								"key": "Authorization",
 								"type": "text",
 								"value": "Bearer {{token_access}}"
+							},
+							{
+								"key": "USERNAME",
+								"value": "{{username}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -536,7 +587,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/api/stats/?user_id=2&startdate=2019-01-01&enddate=2019-01-25",
+							"raw": "{{url}}/api/stats/?startdate=2019-01-01&enddate=2019-01-25",
 							"host": [
 								"{{url}}"
 							],
@@ -546,10 +597,6 @@
 								""
 							],
 							"query": [
-								{
-									"key": "user_id",
-									"value": "2"
-								},
 								{
 									"key": "startdate",
 									"value": "2019-01-01"
@@ -572,6 +619,11 @@
 								"key": "Authorization",
 								"value": "Bearer {{token_access}}",
 								"type": "text"
+							},
+							{
+								"key": "USERNAME",
+								"value": "{{username}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -579,7 +631,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/api/product/?user_id=2",
+							"raw": "{{url}}/api/product/",
 							"host": [
 								"{{url}}"
 							],
@@ -587,12 +639,6 @@
 								"api",
 								"product",
 								""
-							],
-							"query": [
-								{
-									"key": "user_id",
-									"value": "2"
-								}
 							]
 						}
 					},
