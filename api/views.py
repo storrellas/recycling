@@ -6,6 +6,7 @@ from django.shortcuts import render
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db import connection
+from django.core.exceptions import PermissionDenied
 
 # Dependencies
 from rest_framework import viewsets
@@ -16,6 +17,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.permissions import IsAdminUser, SAFE_METHODS, IsAuthenticated
+from rest_framework.exceptions import APIException
 
 
 from geopy.distance import geodesic
@@ -59,8 +61,8 @@ class RecyclableSpotViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['get'])
     def nearby(self, request, pk=None):
 
-        log.info("-- Nearby --")
-        log.info(request.user)
+        logger.info("-- Nearby --")
+        logger.info(request.user)
 
         user_latitude = float(request.query_params.get('latitude'))
         user_longitude = float(request.query_params.get('longitude'))
@@ -89,8 +91,8 @@ class RecyclableSpotViewSet(viewsets.ModelViewSet):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 class MaterialViewSet(viewsets.ModelViewSet):
-    authentication_classes = (JWTAuthentication,)
-    permission_classes = (IsAuthenticated,)
+    # authentication_classes = (JWTAuthentication,)
+    # permission_classes = (IsAuthenticated,)
 
     model = Material
     queryset = Material.objects.all()
@@ -99,8 +101,8 @@ class MaterialViewSet(viewsets.ModelViewSet):
 
 
 class RankingView(APIView):
-    authentication_classes = (JWTAuthentication,)
-    permission_classes = (IsAuthenticated,)
+    # authentication_classes = (JWTAuthentication,)
+    # permission_classes = (IsAuthenticated,)
 
     def get(self, request, format=None):
 
@@ -125,14 +127,19 @@ class RankingView(APIView):
         return Response({'response': 'ko'},  status=status.HTTP_400_BAD_REQUEST)
 
 class StatsView(APIView):
-    authentication_classes = (JWTAuthentication,)
-    permission_classes = (IsAuthenticated,)
+    #authentication_classes = (JWTAuthentication,)
+    #permission_classes = (IsAuthenticated,)
 
     def get(self, request, format=None):
+
         start_time = datetime.strptime(request.query_params.get('startdate'), '%Y-%m-%d')
         end_time = datetime.strptime(request.query_params.get('enddate'), '%Y-%m-%d')
 
         recyclable_history = RecyclableHistory.objects.filter(user=request.user)
+
+        # print("-- INIT: USER ID GET --")
+        # print(request.user_id)
+        # print("-- END: USER ID GET --")
 
         response = {
             'n_scan': 876,
