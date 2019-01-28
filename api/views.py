@@ -15,7 +15,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework_simplejwt.authentication import JWTAuthentication
-from rest_framework.permissions import IsAdminUser, SAFE_METHODS
+from rest_framework.permissions import IsAdminUser, SAFE_METHODS, IsAuthenticated
 
 
 from geopy.distance import geodesic
@@ -39,7 +39,7 @@ class IsAdminUserOrReadOnly(IsAdminUser):
 
 class RecyclableMaterialViewSet(viewsets.ModelViewSet):
     authentication_classes = (JWTAuthentication,)
-    permission_classes = (IsAdminUserOrReadOnly,)
+    permission_classes = (IsAuthenticated,)
 
     model = RecyclableMaterial
     queryset = RecyclableMaterial.objects.all()
@@ -48,7 +48,8 @@ class RecyclableMaterialViewSet(viewsets.ModelViewSet):
 
 class RecyclableSpotViewSet(viewsets.ModelViewSet):
     authentication_classes = (JWTAuthentication,)
-    permission_classes = (IsAdminUserOrReadOnly,)
+    #permission_classes = (IsAdminUserOrReadOnly,)
+    permission_classes = (IsAuthenticated,)
 
     model = RecyclableSpot
     queryset = RecyclableSpot.objects.all()
@@ -89,7 +90,7 @@ class RecyclableSpotViewSet(viewsets.ModelViewSet):
 
 class MaterialViewSet(viewsets.ModelViewSet):
     authentication_classes = (JWTAuthentication,)
-    permission_classes = (IsAdminUserOrReadOnly,)
+    permission_classes = (IsAuthenticated,)
 
     model = Material
     queryset = Material.objects.all()
@@ -99,7 +100,7 @@ class MaterialViewSet(viewsets.ModelViewSet):
 
 class RankingView(APIView):
     authentication_classes = (JWTAuthentication,)
-    permission_classes = (IsAdminUserOrReadOnly,)
+    permission_classes = (IsAuthenticated,)
 
     def get(self, request, format=None):
 
@@ -125,7 +126,7 @@ class RankingView(APIView):
 
 class StatsView(APIView):
     authentication_classes = (JWTAuthentication,)
-    permission_classes = (IsAdminUserOrReadOnly,)
+    permission_classes = (IsAuthenticated,)
 
     def get(self, request, format=None):
         start_time = datetime.strptime(request.query_params.get('startdate'), '%Y-%m-%d')
@@ -168,7 +169,7 @@ class StatsView(APIView):
 
 class ProductViewSet(viewsets.ModelViewSet):
     authentication_classes = (JWTAuthentication,)
-    permission_classes = (IsAdminUserOrReadOnly,)
+    permission_classes = (IsAuthenticated,)
 
     model = Product
     queryset = Product.objects.all()
@@ -218,7 +219,7 @@ class ProductViewSet(viewsets.ModelViewSet):
 
 class NewViewSet(viewsets.ModelViewSet):
     authentication_classes = (JWTAuthentication,)
-    permission_classes = (IsAdminUserOrReadOnly,)
+    permission_classes = (IsAuthenticated,)
 
     model = New
     queryset = New.objects.all()
