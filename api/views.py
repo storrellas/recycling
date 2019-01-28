@@ -20,7 +20,8 @@ from rest_framework import status
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.permissions import IsAdminUser, SAFE_METHODS, IsAuthenticated
 from rest_framework.exceptions import APIException
-
+from rest_framework import authentication
+from rest_framework import exceptions
 
 from geopy.distance import geodesic
 
@@ -31,41 +32,55 @@ from recycling import utils
 
 logger = utils.get_logger()
 
-def view_or_retreive_user_id(view, request, *args, **kwargs):
+# def view_or_retreive_user_id(view, request, *args, **kwargs):
+#
+#     # Check whether token is present
+#     # Get URL Parameter
+#     if request.GET.get('user_id') is not None:
+#         model = get_user_model()
+#         request.user = model.objects.get(id=request.GET.get('user_id'))
+#
+#     print("-- view_or_retreive_user_id --")
+#     print(request.user)
+#
+#     return view(request, *args, **kwargs)
+#
+# def retrieve_user_id(view_func):
+#     @wraps(view_func)
+#     def wrapper(request, *args, **kwargs):
+#         return view_or_retreive_user_id(view_func, request, *args, **kwargs)
+#     return wrapper
+#
+#
+# class IsAdminUserOrReadOnly(IsAdminUser):
+#
+#     def has_permission(self, request, view):
+#         is_admin = super(
+#             IsAdminUserOrReadOnly,
+#             self).has_permission(request, view)
+#         # Python3: is_admin = super().has_permission(request, view)
+#         return request.method in SAFE_METHODS or is_admin
 
-    # Check whether token is present
-    # Get URL Parameter
-    if request.GET.get('user_id') is not None:
-        model = get_user_model()
-        request.user = model.objects.get(id=request.GET.get('user_id'))
-        return view(request, *args, **kwargs)
 
-    return HttpResponse(json.dumps({'error': 'you did not provide user_id'}),
-                        status=404,
-                        content_type="application/json")
+class HeaderAuthentication(authentication.BaseAuthentication):
+    def authenticate(self, request):
+        username = request.META.get('HTTP_USERNAME')
+        if not username:
+            return None
 
-def retrieve_user_id(view_func):
-    @wraps(view_func)
-    def wrapper(request, *args, **kwargs):
-        return view_or_retreive_user_id(view_func, request, *args, **kwargs)
-    return wrapper
+        try:
+            user = get_user_model().objects.get(username=username)
+        except User.DoesNotExist:
+            raise exceptions.AuthenticationFailed('No such user')
+
+        return (user, None)
 
 
-class IsAdminUserOrReadOnly(IsAdminUser):
-
-    def has_permission(self, request, view):
-        is_admin = super(
-            IsAdminUserOrReadOnly,
-            self).has_permission(request, view)
-        # Python3: is_admin = super().has_permission(request, view)
-        return request.method in SAFE_METHODS or is_admin
-
-
-@method_decorator(retrieve_user_id, name='dispatch')
+#@method_decorator(retrieve_user_id, name='dispatch')
 class RecyclingAPIView(APIView):
-    pass
-    # authentication_classes = (JWTAuthentication,)
-    # permission_classes = (IsAuthenticated,)
+    #pass
+    authentication_classes = (JWTAuthentication, HeaderAuthentication, )
+    permission_classes = (IsAuthenticated,)
 
 class RecyclableMaterialViewSet(viewsets.ModelViewSet, RecyclingAPIView):
 
@@ -84,8 +99,6 @@ class RecyclableSpotViewSet(viewsets.ModelViewSet, RecyclingAPIView):
     @action(detail=False, methods=['get'])
     def nearby(self, request, pk=None):
 
-        logger.info("-- Nearby --")
-        logger.info(request.user)
 
         user_latitude = float(request.query_params.get('latitude'))
         user_longitude = float(request.query_params.get('longitude'))
@@ -144,7 +157,6 @@ class RankingView(RecyclingAPIView):
 
         # Return generic error
         return Response({'response': 'ko'},  status=status.HTTP_400_BAD_REQUEST)
-
 
 class StatsView(RecyclingAPIView):
 

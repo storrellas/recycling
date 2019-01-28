@@ -18,13 +18,17 @@ class UserRetrieveMiddleware:
         # the view (and later middleware) are called.
 
         # Get URL Parameter
-        if request.GET.get('user_id') is None:
-            return HttpResponse(json.dumps({'error': 'you did not provide user_id'}),
-                                status=404,
-                                content_type="application/json")
+        if request.GET.get('user_id') is not None:
+            model = get_user_model()
+            request.user = model.objects.get(id=request.GET.get('user_id'))
+            # return HttpResponse(json.dumps({'error': 'you did not provide user_id'}),
+            #                     status=404,
+            #                     content_type="application/json")
 
-        model = get_user_model()
-        request.user = model.objects.get(id=request.GET.get('user_id'))
+        # model = get_user_model()
+        # request.user = model.objects.get(id=request.GET.get('user_id'))
+
+        print(request.user)
 
         # Call View
         response = self.get_response(request)
