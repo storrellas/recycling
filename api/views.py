@@ -60,11 +60,6 @@ class IsAdminUserOrReadOnly(IsAdminUser):
         # Python3: is_admin = super().has_permission(request, view)
         return request.method in SAFE_METHODS or is_admin
 
-@method_decorator(retrieve_user_id, name='dispatch')
-class RecyclingViewSet(viewsets.ModelViewSet):
-    pass
-    # authentication_classes = (JWTAuthentication,)
-    # permission_classes = (IsAuthenticated,)
 
 @method_decorator(retrieve_user_id, name='dispatch')
 class RecyclingAPIView(APIView):
@@ -72,25 +67,14 @@ class RecyclingAPIView(APIView):
     # authentication_classes = (JWTAuthentication,)
     # permission_classes = (IsAuthenticated,)
 
-
-# @method_decorator(retrieve_user_id, name='dispatch')
-# class RecyclableMaterialViewSet(viewsets.ModelViewSet):
-#     # authentication_classes = (JWTAuthentication,)
-#     # permission_classes = (IsAuthenticated,)
-
-class RecyclableMaterialViewSet(RecyclingViewSet):
+class RecyclableMaterialViewSet(viewsets.ModelViewSet, RecyclingAPIView):
 
     model = RecyclableMaterial
     queryset = RecyclableMaterial.objects.all()
     serializer_class = RecyclableMaterialSerializer
     renderer_classes = (JSONRenderer, )
 
-# @method_decorator(retrieve_user_id, name='dispatch')
-# class RecyclableSpotViewSet(viewsets.ModelViewSet):
-#     # authentication_classes = (JWTAuthentication,)
-#     # permission_classes = (IsAuthenticated,)
-
-class RecyclableSpotViewSet(RecyclingViewSet):
+class RecyclableSpotViewSet(viewsets.ModelViewSet, RecyclingAPIView):
 
     model = RecyclableSpot
     queryset = RecyclableSpot.objects.all()
@@ -129,22 +113,14 @@ class RecyclableSpotViewSet(RecyclingViewSet):
                                                       many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-# @method_decorator(retrieve_user_id, name='dispatch')
-# class MaterialViewSet(viewsets.ModelViewSet):
-#     # authentication_classes = (JWTAuthentication,)
-#     # permission_classes = (IsAuthenticated,)
 
-class MaterialViewSet(RecyclingViewSet):
+class MaterialViewSet(viewsets.ModelViewSet, RecyclingAPIView):
 
     model = Material
     queryset = Material.objects.all()
     serializer_class = MaterialSerializer
     renderer_classes = (JSONRenderer, )
 
-# @method_decorator(retrieve_user_id, name='dispatch')
-# class RankingView(APIView):
-#     # authentication_classes = (JWTAuthentication,)
-#     # permission_classes = (IsAuthenticated,)
 
 class RankingView(RecyclingAPIView):
 
@@ -162,7 +138,6 @@ class RankingView(RecyclingAPIView):
 
             # Generate User_List
             user_list = []
-            #for user in result:
             for index, user in enumerate(result):
                 user_list.append({'id': user[0], 'username': user[1], 'count': user[2], 'ranking': (index+1)})
             return Response(user_list,  status=status.HTTP_200_OK)
@@ -170,11 +145,6 @@ class RankingView(RecyclingAPIView):
         # Return generic error
         return Response({'response': 'ko'},  status=status.HTTP_400_BAD_REQUEST)
 
-# @method_decorator(retrieve_user_id, name='dispatch')
-# class StatsView(APIView):
-#     #authentication_classes = (JWTAuthentication,)
-#     #permission_classes = (IsAuthenticated,)
-#     pass
 
 class StatsView(RecyclingAPIView):
 
@@ -184,10 +154,6 @@ class StatsView(RecyclingAPIView):
         end_time = datetime.strptime(request.query_params.get('enddate'), '%Y-%m-%d')
 
         recyclable_history = RecyclableHistory.objects.filter(user=request.user)
-
-        # print("-- INIT: USER ID GET --")
-        # print(request.user_id)
-        # print("-- END: USER ID GET --")
 
         response = {
             'n_scan': 876,
@@ -222,12 +188,8 @@ class StatsView(RecyclingAPIView):
         # Return generic response
         return Response(response, status=status.HTTP_200_OK)
 
-# @method_decorator(retrieve_user_id, name='dispatch')
-# class ProductViewSet(viewsets.ModelViewSet):
-#     # authentication_classes = (JWTAuthentication,)
-#     # permission_classes = (IsAuthenticated,)
 
-class ProductViewSet(RecyclingViewSet):
+class ProductViewSet(viewsets.ModelViewSet, RecyclingAPIView):
 
     model = Product
     queryset = Product.objects.all()
@@ -276,12 +238,8 @@ class ProductViewSet(RecyclingViewSet):
                                                       many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-# @method_decorator(retrieve_user_id, name='dispatch')
-# class NewViewSet(viewsets.ModelViewSet):
-#     # authentication_classes = (JWTAuthentication,)
-#     # permission_classes = (IsAuthenticated,)
 
-class NewViewSet(RecyclingViewSet):
+class NewViewSet(viewsets.ModelViewSet, RecyclingAPIView):
 
     model = New
     queryset = New.objects.all()

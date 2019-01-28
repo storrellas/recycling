@@ -1,6 +1,7 @@
 backcall==0.1.0
 decorator==4.3.0
 Django==2.1.5
+django-cors-headers==2.4.0
 djangorestframework==3.9.0
 djangorestframework-simplejwt==3.3
 geographiclib==1.49
