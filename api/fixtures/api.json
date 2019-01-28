@@ -5,7 +5,7 @@
   "fields": {
     "name": "aluminum",
     "description": "plastic-can description",
-    "media" : "http://recycling.sopradigitalfactory.com/static/aluminum.png"
+    "media" : "https://recycling.sopradigitalfactory.com/static/aluminium.png"
   }
 },
 {
@@ -14,7 +14,7 @@
   "fields": {
     "name": "capsules",
     "description": "glass description",
-    "media" : "http://recycling.sopradigitalfactory.com/static/capsules.png"
+    "media" : "https://recycling.sopradigitalfactory.com/static/capsules.png"
   }
 },
 {
@@ -23,7 +23,7 @@
   "fields": {
     "name": "cardboard",
     "description": "textiles description",
-    "media" : "http://recycling.sopradigitalfactory.com/static/cardboard.png"
+    "media" : "https://recycling.sopradigitalfactory.com/static/cardboard.png"
   }
 },
 {
@@ -32,7 +32,7 @@
   "fields": {
     "name": "glass",
     "description": "paper description",
-    "media" : "http://recycling.sopradigitalfactory.com/static/glass.png"
+    "media" : "https://recycling.sopradigitalfactory.com/static/glass.png"
   }
 },
 {
@@ -41,7 +41,7 @@
   "fields": {
     "name": "green_waste",
     "description": "organic description",
-    "media" : "http://recycling.sopradigitalfactory.com/static/green_waste.png"
+    "media" : "https://recycling.sopradigitalfactory.com/static/green_waste.png"
   }
 },
 {
@@ -50,7 +50,7 @@
   "fields": {
     "name": "paper",
     "description": "other description",
-    "media" : "http://recycling.sopradigitalfactory.com/static/paper.png"
+    "media" : "https://recycling.sopradigitalfactory.com/static/paper.png"
   }
 },
 {
@@ -59,7 +59,7 @@
   "fields": {
     "name": "pet bottles",
     "description": "other description",
-    "media" : "http://recycling.sopradigitalfactory.com/static/pet_bottles.png"
+    "media" : "https://recycling.sopradigitalfactory.com/static/pet_bottles.png"
   }
 },
 {
@@ -68,7 +68,7 @@
   "fields": {
     "name": "plastic bottles",
     "description": "other description",
-    "media" : "http://recycling.sopradigitalfactory.com/static/plastic_bottles.png"
+    "media" : "https://recycling.sopradigitalfactory.com/static/plastic_bottles.png"
   }
 },
 {
@@ -77,7 +77,7 @@
   "fields": {
     "name": "non recyclable",
     "description": "electronics description",
-    "media" : "http://recycling.sopradigitalfactory.com/static/non.png"
+    "media" : "https://recycling.sopradigitalfactory.com/static/non.png"
   }
 },
 {
