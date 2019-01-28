@@ -128,12 +128,7 @@ class StatsView(APIView):
         start_time = datetime.strptime(request.query_params.get('startdate'), '%Y-%m-%d')
         end_time = datetime.strptime(request.query_params.get('enddate'), '%Y-%m-%d')
 
-        print("-- parsing time --")
-        print(start_time)
-        print(end_time)
-
         recyclable_history = RecyclableHistory.objects.filter(user=request.user)
-
 
         response = {
             'n_scan': 876,
