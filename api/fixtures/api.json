@@ -451,6 +451,86 @@
   "pk": 3,
   "fields": {
     "UID": "987654321",
+    "user": 2,
+    "product": "678912345",
+    "created_at": "2019-01-25T09:58:17.819Z"
+  }
+},
+{
+  "model": "api.recyclablehistory",
+  "pk": 5,
+  "fields": {
+    "UID": "987654321",
+    "user": 2,
+    "product": "678912345",
+    "created_at": "2019-01-25T09:58:17.819Z"
+  }
+},
+{
+  "model": "api.recyclablehistory",
+  "pk": 6,
+  "fields": {
+    "UID": "987654321",
+    "user": 2,
+    "product": "678912345",
+    "created_at": "2019-01-25T09:58:17.819Z"
+  }
+},
+{
+  "model": "api.recyclablehistory",
+  "pk": 7,
+  "fields": {
+    "UID": "987654321",
+    "user": 3,
+    "product": "678912345",
+    "created_at": "2019-01-25T09:58:17.819Z"
+  }
+},
+{
+  "model": "api.recyclablehistory",
+  "pk": 8,
+  "fields": {
+    "UID": "987654321",
+    "user": 3,
+    "product": "678912345",
+    "created_at": "2019-01-25T09:58:17.819Z"
+  }
+},
+{
+  "model": "api.recyclablehistory",
+  "pk": 9,
+  "fields": {
+    "UID": "987654321",
+    "user": 3,
+    "product": "678912345",
+    "created_at": "2019-01-25T09:58:17.819Z"
+  }
+},
+{
+  "model": "api.recyclablehistory",
+  "pk": 10,
+  "fields": {
+    "UID": "987654321",
+    "user": 3,
+    "product": "678912345",
+    "created_at": "2019-01-25T09:58:17.819Z"
+  }
+},
+{
+  "model": "api.recyclablehistory",
+  "pk": 11,
+  "fields": {
+    "UID": "987654321",
+    "user": 3,
+    "product": "678912345",
+    "created_at": "2019-01-25T09:58:17.819Z"
+  }
+},
+{
+  "model": "api.recyclablehistory",
+  "pk": 12,
+  "fields": {
+    "UID": "987654321",
     "user": 3,
     "product": "678912345",
     "created_at": "2019-01-25T09:58:17.819Z"

@@ -36,7 +36,7 @@ class Product(models.Model):
     material_set = models.ManyToManyField(Material, related_name="product_set", blank=True)
 
     def __str__(self):
-        return self.name
+        return self.barcode + " - " + self.name
 
 class RecyclableHistory(models.Model):
     UID = models.CharField(max_length=500, null=True)
