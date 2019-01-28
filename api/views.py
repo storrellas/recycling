@@ -58,6 +58,9 @@ class RecyclableSpotViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['get'])
     def nearby(self, request, pk=None):
 
+        log.info("-- Nearby --")
+        log.info(request.user)
+
         user_latitude = float(request.query_params.get('latitude'))
         user_longitude = float(request.query_params.get('longitude'))
 
