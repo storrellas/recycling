@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 class RecyclableMaterial(models.Model):
     name = models.CharField(max_length=500, null=True)
     description = models.CharField(max_length=500, null=True)
+    media = models.URLField(max_length=500, null=True)
 
     def __str__(self):
         return self.name

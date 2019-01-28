@@ -3,56 +3,81 @@
   "model": "api.recyclablematerial",
   "pk": 1,
   "fields": {
-    "name": "plastic-can",
-    "description": "plastic-can description"
+    "name": "aluminum",
+    "description": "plastic-can description",
+    "media" : "http://recycling.sopradigitalfactory.com/static/aluminum.png"
   }
 },
 {
   "model": "api.recyclablematerial",
   "pk": 2,
   "fields": {
-    "name": "glass",
-    "description": "glass description"
+    "name": "capsules",
+    "description": "glass description",
+    "media" : "http://recycling.sopradigitalfactory.com/static/capsules.png"
   }
 },
 {
   "model": "api.recyclablematerial",
   "pk": 3,
   "fields": {
-    "name": "textiles",
-    "description": "textiles description"
+    "name": "cardboard",
+    "description": "textiles description",
+    "media" : "http://recycling.sopradigitalfactory.com/static/cardboard.png"
   }
 },
 {
   "model": "api.recyclablematerial",
   "pk": 4,
   "fields": {
-    "name": "paper",
-    "description": "paper description"
+    "name": "glass",
+    "description": "paper description",
+    "media" : "http://recycling.sopradigitalfactory.com/static/glass.png"
   }
 },
 {
   "model": "api.recyclablematerial",
   "pk": 5,
   "fields": {
-    "name": "organic",
-    "description": "organic description"
+    "name": "green_waste",
+    "description": "organic description",
+    "media" : "http://recycling.sopradigitalfactory.com/static/green_waste.png"
   }
 },
 {
   "model": "api.recyclablematerial",
   "pk": 6,
   "fields": {
-    "name": "electronics",
-    "description": "electronics description"
+    "name": "paper",
+    "description": "other description",
+    "media" : "http://recycling.sopradigitalfactory.com/static/paper.png"
   }
 },
 {
   "model": "api.recyclablematerial",
   "pk": 7,
   "fields": {
-    "name": "other",
-    "description": "other description"
+    "name": "pet bottles",
+    "description": "other description",
+    "media" : "http://recycling.sopradigitalfactory.com/static/pet_bottles.png"
+  }
+},
+{
+  "model": "api.recyclablematerial",
+  "pk": 8,
+  "fields": {
+    "name": "plastic bottles",
+    "description": "other description",
+    "media" : "http://recycling.sopradigitalfactory.com/static/plastic_bottles.png"
+  }
+},
+{
+  "model": "api.recyclablematerial",
+  "pk": 9,
+  "fields": {
+    "name": "non recyclable",
+    "description": "electronics description",
+    "media" : "http://recycling.sopradigitalfactory.com/static/non.png"
   }
 },
 {
