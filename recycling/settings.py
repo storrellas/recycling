@@ -126,7 +126,6 @@ RECYCLABLE_SPOTS_LIMIT = 10
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(PROJECT_ROOT, "static")
-print(STATIC_ROOT)
 STATICFILES_DIRS = [
 
 ]

@@ -12,6 +12,7 @@ RUN pip3 install gunicorn
 RUN python3 manage.py makemigrations api
 RUN python3 manage.py migrate
 RUN python3 manage.py loaddata user api news
+RUN python3 manage.py collecstatic
 
 
 # Create superuser (if necessary)
