@@ -1,5 +1,6 @@
 import operator
 from datetime import datetime
+from functools import wraps
 
 # Django imports
 from django.shortcuts import render
@@ -7,6 +8,7 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db import connection
 from django.core.exceptions import PermissionDenied
+from django.utils.decorators import method_decorator
 
 # Dependencies
 from rest_framework import viewsets
@@ -29,6 +31,25 @@ from recycling import utils
 
 logger = utils.get_logger()
 
+def view_or_retreive_user_id(view, request, *args, **kwargs):
+
+    # Check whether token is present
+    # Get URL Parameter
+    if request.GET.get('user_id') is not None:
+        model = get_user_model()
+        request.user = model.objects.get(id=request.GET.get('user_id'))
+        return view(request, *args, **kwargs)
+
+    return HttpResponse(json.dumps({'error': 'you did not provide user_id'}),
+                        status=404,
+                        content_type="application/json")
+
+def retrieve_user_id(view_func):
+    @wraps(view_func)
+    def wrapper(request, *args, **kwargs):
+        return view_or_retreive_user_id(view_func, request, *args, **kwargs)
+    return wrapper
+
 
 class IsAdminUserOrReadOnly(IsAdminUser):
 
@@ -39,19 +60,37 @@ class IsAdminUserOrReadOnly(IsAdminUser):
         # Python3: is_admin = super().has_permission(request, view)
         return request.method in SAFE_METHODS or is_admin
 
-class RecyclableMaterialViewSet(viewsets.ModelViewSet):
-    authentication_classes = (JWTAuthentication,)
-    permission_classes = (IsAuthenticated,)
+@method_decorator(retrieve_user_id, name='dispatch')
+class RecyclingViewSet(viewsets.ModelViewSet):
+    pass
+    # authentication_classes = (JWTAuthentication,)
+    # permission_classes = (IsAuthenticated,)
+
+@method_decorator(retrieve_user_id, name='dispatch')
+class RecyclingAPIView(APIView):
+    pass
+    # authentication_classes = (JWTAuthentication,)
+    # permission_classes = (IsAuthenticated,)
+
+
+# @method_decorator(retrieve_user_id, name='dispatch')
+# class RecyclableMaterialViewSet(viewsets.ModelViewSet):
+#     # authentication_classes = (JWTAuthentication,)
+#     # permission_classes = (IsAuthenticated,)
+
+class RecyclableMaterialViewSet(RecyclingViewSet):
 
     model = RecyclableMaterial
     queryset = RecyclableMaterial.objects.all()
     serializer_class = RecyclableMaterialSerializer
     renderer_classes = (JSONRenderer, )
 
-class RecyclableSpotViewSet(viewsets.ModelViewSet):
-    authentication_classes = (JWTAuthentication,)
-    #permission_classes = (IsAdminUserOrReadOnly,)
-    permission_classes = (IsAuthenticated,)
+# @method_decorator(retrieve_user_id, name='dispatch')
+# class RecyclableSpotViewSet(viewsets.ModelViewSet):
+#     # authentication_classes = (JWTAuthentication,)
+#     # permission_classes = (IsAuthenticated,)
+
+class RecyclableSpotViewSet(RecyclingViewSet):
 
     model = RecyclableSpot
     queryset = RecyclableSpot.objects.all()
@@ -90,19 +129,24 @@ class RecyclableSpotViewSet(viewsets.ModelViewSet):
                                                       many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-class MaterialViewSet(viewsets.ModelViewSet):
-    # authentication_classes = (JWTAuthentication,)
-    # permission_classes = (IsAuthenticated,)
+# @method_decorator(retrieve_user_id, name='dispatch')
+# class MaterialViewSet(viewsets.ModelViewSet):
+#     # authentication_classes = (JWTAuthentication,)
+#     # permission_classes = (IsAuthenticated,)
+
+class MaterialViewSet(RecyclingViewSet):
 
     model = Material
     queryset = Material.objects.all()
     serializer_class = MaterialSerializer
     renderer_classes = (JSONRenderer, )
 
+# @method_decorator(retrieve_user_id, name='dispatch')
+# class RankingView(APIView):
+#     # authentication_classes = (JWTAuthentication,)
+#     # permission_classes = (IsAuthenticated,)
 
-class RankingView(APIView):
-    # authentication_classes = (JWTAuthentication,)
-    # permission_classes = (IsAuthenticated,)
+class RankingView(RecyclingAPIView):
 
     def get(self, request, format=None):
 
@@ -126,9 +170,13 @@ class RankingView(APIView):
         # Return generic error
         return Response({'response': 'ko'},  status=status.HTTP_400_BAD_REQUEST)
 
-class StatsView(APIView):
-    #authentication_classes = (JWTAuthentication,)
-    #permission_classes = (IsAuthenticated,)
+# @method_decorator(retrieve_user_id, name='dispatch')
+# class StatsView(APIView):
+#     #authentication_classes = (JWTAuthentication,)
+#     #permission_classes = (IsAuthenticated,)
+#     pass
+
+class StatsView(RecyclingAPIView):
 
     def get(self, request, format=None):
 
@@ -174,9 +222,12 @@ class StatsView(APIView):
         # Return generic response
         return Response(response, status=status.HTTP_200_OK)
 
-class ProductViewSet(viewsets.ModelViewSet):
-    authentication_classes = (JWTAuthentication,)
-    permission_classes = (IsAuthenticated,)
+# @method_decorator(retrieve_user_id, name='dispatch')
+# class ProductViewSet(viewsets.ModelViewSet):
+#     # authentication_classes = (JWTAuthentication,)
+#     # permission_classes = (IsAuthenticated,)
+
+class ProductViewSet(RecyclingViewSet):
 
     model = Product
     queryset = Product.objects.all()
@@ -185,6 +236,7 @@ class ProductViewSet(viewsets.ModelViewSet):
 
     @action(detail=True, methods=['get'])
     def recyclablespot(self, request, pk=None):
+        print(request.user)
 
         user_latitude = float(request.query_params.get('latitude'))
         user_longitude = float(request.query_params.get('longitude'))
@@ -224,9 +276,12 @@ class ProductViewSet(viewsets.ModelViewSet):
                                                       many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-class NewViewSet(viewsets.ModelViewSet):
-    authentication_classes = (JWTAuthentication,)
-    permission_classes = (IsAuthenticated,)
+# @method_decorator(retrieve_user_id, name='dispatch')
+# class NewViewSet(viewsets.ModelViewSet):
+#     # authentication_classes = (JWTAuthentication,)
+#     # permission_classes = (IsAuthenticated,)
+
+class NewViewSet(RecyclingViewSet):
 
     model = New
     queryset = New.objects.all()
