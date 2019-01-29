@@ -13,25 +13,37 @@ participant Mobile
 participant Backend
 
 
-note over Mobile: Get Product Details with Extended Material
+note over Mobile: Get Product Details with RecyclableProduct
 Mobile -> Backend : /product/<barcode>/
 
 note over Mobile: Get RecyclableSpots from barcode filtered with recyclablegroupsover Mobile
-Mobile -> Backend : /recyclablespots/?latitude=<latitude>&longitude=<longitude>
-note over Mobile: Get RecyclableSpots filtered with recyclablegroupsover Mobile
-Mobile -> Backend : /product/<barcode>/recyclablespots/?latitude=<latitude>&longitude=<longitude>
+Mobile -> Backend : /product/<barcode>/recyclablespot/?latitude=<latitude>&longitude=<longitude>
 
-note over Mobile: Get Green Impact (percentage, Number of Scans, IndividualRanking, PercentageOfMaterial)
+note over Mobile: Get RecyclableSpots
+Mobile -> Backend : /recyclablespot/
+
+note over Mobile: Get Nearby RecyclableSpot
+Mobile -> Backend : /recyclablespot/nearby/?latitude=<latitude>&longitude=<longitude>
+
+note over Mobile 
+    Get Stats 
+    Green Impact, N_Recycles, Ranking
+    Week/Month/Year (N_Scan, Percentage of Material)
+end note
 Mobile -> Backend : /greenimpact/?startdate=<startdate>&enddate=<enddate>
 
 note over Mobile: Get Ranking
 Mobile -> Backend : /ranking/
 
+note over Mobile: Get News
+Mobile -> Backend : /news/
+
+note over Mobile: Get Default location
+Mobile -> Backend : /location/default/
+
 note over Mobile: Get Partners (Partners with description)
 Mobile -> Backend : /partners/
 
-note over Mobile: Get News
-Mobile -> Backend : /news/
 
 @enduml
 ```
