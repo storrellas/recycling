@@ -145,12 +145,6 @@ Likes "1" -left- "N" Users
 
 ## Endpoint Definition
 
-### Sergi Endpoint Definition
-
-- Scan Product to retrieve RecyclableComponents
-- Get RecyclableSpot from RecyclableComponents
-- GreenImpact Endpoint - Retrieve Green Impact from RecyclabeHistory
-- News Retrieve
 
 ### Product
 <table>
