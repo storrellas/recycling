@@ -241,7 +241,7 @@ Likes "1" -left- "N" Users
   </tr>
   <tr>
     <td><strong>Expected Response</strong></td>
-    <td>{<br>
+    <td style="font-family: Consolas,monaco,monospace;">{<br>
     "n_scan": 876,<br>
     "ranking": 765,<br>
     "green_impact": 81.8,<br>
