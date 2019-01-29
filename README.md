@@ -293,7 +293,33 @@ Likes "1" -left- "N" Users
   </tr>
   <tr>
     <td><strong>Expected Response</strong></td>
-    <td>N/A</td>
+    <td>[<br>
+    {<br>
+        "id": 3,<br>
+        "username": "estibaliz",<br>
+        "count": 7,<br>
+        "ranking": 1<br>
+    },<br>
+    {<br>
+        "id": 2,<br>
+        "username": "irene",<br>
+        "count": 6,<br>
+        "ranking": 2<br>
+    },<br>
+    {<br>
+        "id": 4,<br>
+        "username": "user4",<br>
+        "count": 0,<br>
+        "ranking": 3<br>
+    },<br>
+    {<br>
+        "id": 5,<br>
+        "username": "user5",<br>
+        "count": 0,<br>
+        "ranking": 4<br>
+    },<br>
+...<br>
+]<br></td>
   </tr>
   <tr>
     <td><strong>Error Codes</strong></td>
