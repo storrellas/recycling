@@ -61,7 +61,6 @@ class Products {
   id
   name
   description
-  location
   timestamp
   material_id(FK)
 }
