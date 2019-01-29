@@ -176,19 +176,117 @@ Likes "1" -left- "N" Users
   </tr>
 </table>
 
-### RecyclableSpot
+### Product - RecyclableSpot
 <table>
   <tr>
     <td><strong>URL</strong></td>
-    <td>/product/<barcode>/location/ [POST]</td>
+    <td>/product/<barcode>/recyclablespot/?latitude=<latitude>&longitude=<longitude> [GET]</td>
   </tr>
   <tr>
     <td><strong>Description</strong></td>
-    <td>To retrieve all the points information within the given product id. It will insert a registry into Scan History with the scanned bar code, a location and a timestamp into the Scan_history table. A maximum of 10 spots with less than 15Km radius</td>
+    <td>To retrieve all the recyclable spots for the product nearby location. It will insert a registry into Scan History with the scanned bar code, a location and a timestamp into the Scan_history table. A maximum of 10 spots with less than 15Km radius</td>
   </tr>
   <tr>
     <td><strong>Body</strong></td>
     <td>startDate, endDate, UID (withing Gigya token)</td>
+  </tr>
+  <tr>
+    <td><strong>Expected Response</strong></td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td><strong>Error Codes</strong></td>
+    <td>N/A</td>
+  </tr>
+</table>
+
+### RecyclableSpot - Nearby
+<table>
+  <tr>
+    <td><strong>URL</strong></td>
+    <td>/recyclablespot/nearby/?latitude=<latitude>&longitude=<longitude> [GET]</td>
+  </tr>
+  <tr>
+    <td><strong>Description</strong></td>
+    <td>To retrieve all the recyclable spots nearby locationA maximum of 10 spots with less than 15Km radius</td>
+  </tr>
+  <tr>
+    <td><strong>Body</strong></td>
+    <td>startDate, endDate, UID (withing Gigya token)</td>
+  </tr>
+  <tr>
+    <td><strong>Expected Response</strong></td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td><strong>Error Codes</strong></td>
+    <td>N/A</td>
+  </tr>
+</table>
+
+
+### Stats (GreenImpact)
+<table>
+  <tr>
+    <td><strong>URL</strong></td>
+    <td>/stats/ [GET]</td>
+  </tr>
+  <tr>
+    <td><strong>Description</strong></td>
+    <td>To stats of the user</td>
+  </tr>
+  <tr>
+    <td><strong>Body</strong></td>
+    <td>userId</td>
+  </tr>
+  <tr>
+    <td><strong>Expected Response</strong></td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td><strong>Error Codes</strong></td>
+    <td>N/A</td>
+  </tr>
+</table>
+
+### Ranking
+<table>
+  <tr>
+    <td><strong>URL</strong></td>
+    <td>/ranking/ [GET]</td>
+  </tr>
+  <tr>
+    <td><strong>Description</strong></td>
+    <td>To retrieve a ranking of the users according to the number of recycle history he made</td>
+  </tr>
+  <tr>
+    <td><strong>Body</strong></td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td><strong>Expected Response</strong></td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td><strong>Error Codes</strong></td>
+    <td>N/A</td>
+  </tr>
+</table>
+
+
+### RecyclingHistory
+<table>
+  <tr>
+    <td><strong>URL</strong></td>
+    <td>/recyclable/history/ [GET]</td>
+  </tr>
+  <tr>
+    <td><strong>Description</strong></td>
+    <td>To retrieve all the recycling history for an user and all its information</td>
+  </tr>
+  <tr>
+    <td><strong>Body</strong></td>
+    <td>startDate, endDate, UID (within Gigya token)</td>
   </tr>
   <tr>
     <td><strong>Expected Response</strong></td>
@@ -213,81 +311,6 @@ Likes "1" -left- "N" Users
   <tr>
     <td><strong>Body</strong></td>
     <td>recyclingspotid</td>
-  </tr>
-  <tr>
-    <td><strong>Expected Response</strong></td>
-    <td>N/A</td>
-  </tr>
-  <tr>
-    <td><strong>Error Codes</strong></td>
-    <td>N/A</td>
-  </tr>
-</table>
-
-### Recycling History
-<table>
-  <tr>
-    <td><strong>URL</strong></td>
-    <td>/recyclable/history/ [GET]</td>
-  </tr>
-  <tr>
-    <td><strong>Description</strong></td>
-    <td>To retrieve all the recycling history for an user and all its information</td>
-  </tr>
-  <tr>
-    <td><strong>Body</strong></td>
-    <td>startDate, endDate, UID (within Gigya token)</td>
-  </tr>
-  <tr>
-    <td><strong>Expected Response</strong></td>
-    <td>N/A</td>
-  </tr>
-  <tr>
-    <td><strong>Error Codes</strong></td>
-    <td>N/A</td>
-  </tr>
-</table>
-
-
-
-### Scan
-<table>
-  <tr>
-    <td><strong>URL</strong></td>
-    <td>/scan/ [GET]</td>
-  </tr>
-  <tr>
-    <td><strong>Description</strong></td>
-    <td>To retrieve all the locations with a count of how many scans have been done there, grouped by location and component (or product).</td>
-  </tr>
-  <tr>
-    <td><strong>Body</strong></td>
-    <td>Location, scanId</td>
-  </tr>
-  <tr>
-    <td><strong>Expected Response</strong></td>
-    <td>N/A</td>
-  </tr>
-  <tr>
-    <td><strong>Error Codes</strong></td>
-    <td>N/A</td>
-  </tr>
-</table>
-
-
-### GreenImpact
-<table>
-  <tr>
-    <td><strong>URL</strong></td>
-    <td>/scan/greenimpact [GET]</td>
-  </tr>
-  <tr>
-    <td><strong>Description</strong></td>
-    <td>To retrieve the green impact score of an user (We need to define calculations). TBD if it’s weekly, monthly</td>
-  </tr>
-  <tr>
-    <td><strong>Body</strong></td>
-    <td>userId</td>
   </tr>
   <tr>
     <td><strong>Expected Response</strong></td>
