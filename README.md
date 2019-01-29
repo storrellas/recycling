@@ -241,7 +241,35 @@ Likes "1" -left- "N" Users
   </tr>
   <tr>
     <td><strong>Expected Response</strong></td>
-    <td>N/A</td>
+    <td>{
+    "n_scan": 876,
+    "ranking": 765,
+    "green_impact": 81.8,
+    "weekly": {
+        "n_scan": 103,
+        "material_set": {
+            "cardboard": 50,
+            "paper": 30,
+            "aluminum": 20
+        }
+    },
+    "monthly": {
+        "n_scan": 221,
+        "material_set": {
+            "cardboard": 50,
+            "paper": 30,
+            "aluminum": 20
+        }
+    },
+    "yearly": {
+        "n_scan": 456,
+        "material_set": {
+            "cardboard": 50,
+            "paper": 30,
+            "aluminum": 20
+        }
+    }
+}</td>
   </tr>
   <tr>
     <td><strong>Error Codes</strong></td>
