@@ -74,7 +74,7 @@ class Materials {
   timestamp
 }
  
-class Recycling_groups {
+class RecyclableMaterial {
   id
   name
   country
@@ -83,7 +83,7 @@ class Recycling_groups {
   letter_colour
 }
  
-class Recycling_spots {
+class RecyclableSpot {
   id
   name
   location
@@ -92,15 +92,8 @@ class Recycling_spots {
   group_id (FK)
 }
 
-class Scan_history {
-  bar_code
-  location
-  timestamp
-  user
-}
-
-class Recycling_history {
-  bar_code
+class RecyclableHistory {
+  barcode_not_linked_to_product
   timestamp
   user
 }
@@ -142,9 +135,8 @@ class Green_ranking {
  
 
 Products "N" -right- "M" Materials
-Materials "1" -right- "N" Recycling_groups
-Recycling_groups "1" -down- "N" Recycling_spots
-Recycling_history "1" -up- "N" Products
+Materials "1" -right- "N" RecyclableMaterial
+RecyclableMaterial "M" -down- "N" RecyclableSpot
 News "1" -down- "N" Likes
 Likes "1" -left- "N" Users
 
