@@ -241,34 +241,34 @@ Likes "1" -left- "N" Users
   </tr>
   <tr>
     <td><strong>Expected Response</strong></td>
-    <td>{
-    "n_scan": 876,
-    "ranking": 765,
-    "green_impact": 81.8,
-    "weekly": {
-        "n_scan": 103,
-        "material_set": {
-            "cardboard": 50,
-            "paper": 30,
-            "aluminum": 20
-        }
-    },
-    "monthly": {
-        "n_scan": 221,
-        "material_set": {
-            "cardboard": 50,
-            "paper": 30,
-            "aluminum": 20
-        }
-    },
-    "yearly": {
-        "n_scan": 456,
-        "material_set": {
-            "cardboard": 50,
-            "paper": 30,
-            "aluminum": 20
-        }
-    }
+    <td>{<br>
+    "n_scan": 876,<br>
+    "ranking": 765,<br>
+    "green_impact": 81.8,<br>
+    "weekly": {<br>
+        "n_scan": 103,<br>
+        "material_set": {<br>
+            "cardboard": 50,<br>
+            "paper": 30,<br>
+            "aluminum": 20<br>
+        }<br>
+    },<br>
+    "monthly": {<br>
+        "n_scan": 221,<br>
+        "material_set": {<br>
+            "cardboard": 50,<br>
+            "paper": 30,<br>
+            "aluminum": 20<br>
+        }<br>
+    },<br>
+    "yearly": {<br>
+        "n_scan": 456,<br>
+        "material_set": {<br>
+            "cardboard": 50,<br>
+            "paper": 30,<br>
+            "aluminum": 20<br>
+        }<br>
+    }<br>
 }</td>
   </tr>
   <tr>
