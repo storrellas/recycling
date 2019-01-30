@@ -25,8 +25,8 @@ Mobile -> Backend : /recyclablespot/
 note over Mobile: Get Nearby RecyclableSpot
 Mobile -> Backend : /recyclablespot/nearby/?latitude=<latitude>&longitude=<longitude>
 
-note over Mobile 
-    Get Stats 
+note over Mobile
+    Get Stats
     Green Impact, N_Recycles, Ranking
     Week/Month/Year (N_Scan, Percentage of Material)
 end note
@@ -53,18 +53,20 @@ Mobile -> Backend : /partners/
 
 ```
 @startuml
- 
+
 title Data Model
- 
+
 
 class Products {
   id
   name
+  barcode
   description
+  media
   timestamp
   material_id(FK)
 }
- 
+
 class Materials {
   id
   name
@@ -72,7 +74,7 @@ class Materials {
   group_id(FK)
   timestamp
 }
- 
+
 class RecyclableMaterial {
   id
   name
@@ -81,8 +83,8 @@ class RecyclableMaterial {
   bullet_colour
   letter_colour
 }
- 
-class RecyclableSpot {
+
+class RecyclingPoints {
   id
   name
   location
@@ -131,11 +133,11 @@ class Green_ranking {
   name
   scan_count
 }
- 
+
 
 Products "N" -right- "M" Materials
 Materials "1" -right- "N" RecyclableMaterial
-RecyclableMaterial "M" -down- "N" RecyclableSpot
+RecyclableMaterial "M" -down- "N" RecyclingPoints
 News "1" -down- "N" Likes
 Likes "1" -left- "N" Users
 
