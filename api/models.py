@@ -5,6 +5,9 @@ class RecyclingMaterial(models.Model):
     name = models.CharField(max_length=500, null=True)
     description = models.CharField(max_length=500, null=True)
     media = models.URLField(max_length=500, null=True)
+    collected = models.CharField(max_length=500, null=True)
+    not_collected = models.CharField(max_length=500, null=True)
+    important = models.CharField(max_length=500, null=True)
 
     def __str__(self):
         return self.name
