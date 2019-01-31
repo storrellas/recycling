@@ -4,14 +4,14 @@ from rest_framework import serializers
 # Project imports
 from .models import *
 
-class RecyclableMaterialSerializer(serializers.ModelSerializer):
+class RecyclingMaterialSerializer(serializers.ModelSerializer):
     class Meta:
-        model = RecyclableMaterial
+        model = RecyclingMaterial
         fields = '__all__'
 
-class RecyclableSpotSerializer(serializers.ModelSerializer):
+class RecyclingSpotSerializer(serializers.ModelSerializer):
     class Meta:
-        model = RecyclableSpot
+        model = RecyclingSpot
         fields = '__all__'
 
 class MaterialSerializer(serializers.ModelSerializer):
@@ -30,12 +30,12 @@ class NewSerializer(serializers.ModelSerializer):
         model = New
         fields = '__all__'
 
-class RecyclableSpotDistanceSerializer(serializers.ModelSerializer):
+class RecyclingSpotDistanceSerializer(serializers.ModelSerializer):
     distance = serializers.SerializerMethodField()
 
     def get_distance(self, obj):
         return self.context.get('distance_list')[obj.id]
 
     class Meta:
-        model = RecyclableSpot
+        model = RecyclingSpot
         fields = '__all__'

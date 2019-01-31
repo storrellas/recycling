@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 
-class RecyclableMaterial(models.Model):
+class RecyclingMaterial(models.Model):
     name = models.CharField(max_length=500, null=True)
     description = models.CharField(max_length=500, null=True)
     media = models.URLField(max_length=500, null=True)
@@ -9,12 +9,12 @@ class RecyclableMaterial(models.Model):
     def __str__(self):
         return self.name
 
-class RecyclableSpot(models.Model):
+class RecyclingSpot(models.Model):
     name = models.CharField(max_length=500, null=True)
     address = models.CharField(max_length=500, null=True)
     latitude = models.DecimalField(max_digits=20, null=True, decimal_places=18)
     longitude = models.DecimalField(max_digits=20, null=True, decimal_places=18)
-    recyclable_material = models.ForeignKey(RecyclableMaterial, on_delete=models.SET_NULL, null=True)
+    recycling_material = models.ForeignKey(RecyclingMaterial, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return self.name + " - " + self.address
@@ -22,7 +22,7 @@ class RecyclableSpot(models.Model):
 class Material(models.Model):
     name = models.CharField(max_length=500, null=True)
     description = models.CharField(max_length=500, null=True)
-    recyclable_material = models.ForeignKey(RecyclableMaterial, on_delete=models.SET_NULL, null=True)
+    recycling_material = models.ForeignKey(RecyclingMaterial, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return self.name
@@ -39,7 +39,7 @@ class Product(models.Model):
     def __str__(self):
         return self.barcode + " - " + self.name
 
-class RecyclableHistory(models.Model):
+class RecyclingHistory(models.Model):
     UID = models.CharField(max_length=500, null=True)
     user = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True)
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)

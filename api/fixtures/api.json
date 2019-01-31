@@ -1,6 +1,6 @@
 [
 {
-  "model": "api.recyclablematerial",
+  "model": "api.recyclingmaterial",
   "pk": 1,
   "fields": {
     "name": "aluminum",
@@ -9,7 +9,7 @@
   }
 },
 {
-  "model": "api.recyclablematerial",
+  "model": "api.recyclingmaterial",
   "pk": 2,
   "fields": {
     "name": "capsules",
@@ -18,7 +18,7 @@
   }
 },
 {
-  "model": "api.recyclablematerial",
+  "model": "api.recyclingmaterial",
   "pk": 3,
   "fields": {
     "name": "cardboard",
@@ -27,7 +27,7 @@
   }
 },
 {
-  "model": "api.recyclablematerial",
+  "model": "api.recyclingmaterial",
   "pk": 4,
   "fields": {
     "name": "glass",
@@ -36,7 +36,7 @@
   }
 },
 {
-  "model": "api.recyclablematerial",
+  "model": "api.recyclingmaterial",
   "pk": 5,
   "fields": {
     "name": "green_waste",
@@ -45,7 +45,7 @@
   }
 },
 {
-  "model": "api.recyclablematerial",
+  "model": "api.recyclingmaterial",
   "pk": 6,
   "fields": {
     "name": "paper",
@@ -54,7 +54,7 @@
   }
 },
 {
-  "model": "api.recyclablematerial",
+  "model": "api.recyclingmaterial",
   "pk": 7,
   "fields": {
     "name": "pet bottles",
@@ -63,7 +63,7 @@
   }
 },
 {
-  "model": "api.recyclablematerial",
+  "model": "api.recyclingmaterial",
   "pk": 8,
   "fields": {
     "name": "plastic bottles",
@@ -72,166 +72,166 @@
   }
 },
 {
-  "model": "api.recyclablematerial",
+  "model": "api.recyclingmaterial",
   "pk": 9,
   "fields": {
-    "name": "non recyclable",
+    "name": "non recycling",
     "description": "electronics description",
     "media" : "https://recycling.sopradigitalfactory.com/static/non.png"
   }
 },
 {
-  "model": "api.recyclablespot",
+  "model": "api.recyclingspot",
   "pk": 1,
   "fields": {
     "name": "point 1",
     "address": "Avinguda Meridiana, 3400, 08030 Barcelona, Spain",
     "latitude": "41.428824000000000000",
     "longitude": "2.184271000000000000",
-    "recyclable_material": 1
+    "recycling_material": 1
   }
 },
 {
-  "model": "api.recyclablespot",
+  "model": "api.recyclingspot",
   "pk": 2,
   "fields": {
     "name": "point 2",
     "address": "Rambla de Volart, 19, 08041 Barcelona, Spain",
     "latitude": "41.415901000000000000",
     "longitude": "2.178950000000000000",
-    "recyclable_material": 1
+    "recycling_material": 1
   }
 },
 {
-  "model": "api.recyclablespot",
+  "model": "api.recyclingspot",
   "pk": 3,
   "fields": {
     "name": "point 3",
     "address": "Carrer del Pont del Treball Digne, 42, 08020 Barcelona, Spain",
     "latitude": "41.423573000000000000",
     "longitude": "2.193884000000000000",
-    "recyclable_material": 1
+    "recycling_material": 1
   }
 },
 {
-  "model": "api.recyclablespot",
+  "model": "api.recyclingspot",
   "pk": 4,
   "fields": {
     "name": "point 4",
     "address": "Carrer de Francesc T\u00e0rrega, 23, 08027 Barcelona, Spain",
     "latitude": "41.423264000000000000",
     "longitude": "2.180323000000000000",
-    "recyclable_material": 2
+    "recycling_material": 2
   }
 },
 {
-  "model": "api.recyclablespot",
+  "model": "api.recyclingspot",
   "pk": 5,
   "fields": {
     "name": "point 5",
     "address": "Carrer de Jovellanos, 110, 08930 Sant Adri\u00e0 de Bes\u00f2s, Barcelona, Spain",
     "latitude": "41.428103000000000000",
     "longitude": "2.209334000000000000",
-    "recyclable_material": 2
+    "recycling_material": 2
   }
 },
 {
-  "model": "api.recyclablespot",
+  "model": "api.recyclingspot",
   "pk": 6,
   "fields": {
     "name": "point 6",
     "address": "Carrer de Crist\u00f3bal de Moura, 204, 08019 Barcelona, Spain",
     "latitude": "41.414922000000000000",
     "longitude": "2.211909000000000000",
-    "recyclable_material": 2
+    "recycling_material": 2
   }
 },
 {
-  "model": "api.recyclablespot",
+  "model": "api.recyclingspot",
   "pk": 7,
   "fields": {
     "name": "point 7",
     "address": "Carrer d'Am\u00edlcar, 182, 08032 Barcelona, Spain",
     "latitude": "41.420792000000000000",
     "longitude": "2.172942000000000000",
-    "recyclable_material": 3
+    "recycling_material": 3
   }
 },
 {
-  "model": "api.recyclablespot",
+  "model": "api.recyclingspot",
   "pk": 8,
   "fields": {
     "name": "point 8",
     "address": "Carrer de Costa Rica, 31, 08027 Barcelona, Spain",
     "latitude": "41.421771000000000000",
     "longitude": "2.189593000000000000",
-    "recyclable_material": 3
+    "recycling_material": 3
   }
 },
 {
-  "model": "api.recyclablespot",
+  "model": "api.recyclingspot",
   "pk": 9,
   "fields": {
     "name": "pont 9",
     "address": "Carrer de la Marina, 253, 08013 Barcelona, Spain",
     "latitude": "41.403853000000000000",
     "longitude": "2.174263000000000000",
-    "recyclable_material": 4
+    "recycling_material": 4
   }
 },
 {
-  "model": "api.recyclablespot",
+  "model": "api.recyclingspot",
   "pk": 10,
   "fields": {
     "name": "point 10",
     "address": "Carrer de Llull, 246, 08005 Barcelona, Spain",
     "latitude": "41.403287000000000000",
     "longitude": "2.205334000000000000",
-    "recyclable_material": 5
+    "recycling_material": 5
   }
 },
 {
-  "model": "api.recyclablespot",
+  "model": "api.recyclingspot",
   "pk": 11,
   "fields": {
     "name": "point 11",
     "address": "Rambla de Guip\u00fascoa, 118, 08020 Barcelona, Spain",
     "latitude": "41.420178000000000000",
     "longitude": "2.202587000000000000",
-    "recyclable_material": 5
+    "recycling_material": 5
   }
 },
 {
-  "model": "api.recyclablespot",
+  "model": "api.recyclingspot",
   "pk": 12,
   "fields": {
     "name": "point 12",
     "address": "Carrer de les Ci\u00e8ncies, 11, 08032 Barcelona, Spain",
     "latitude": "41.427077000000000000",
     "longitude": "2.158127000000000000",
-    "recyclable_material": 6
+    "recycling_material": 6
   }
 },
 {
-  "model": "api.recyclablespot",
+  "model": "api.recyclingspot",
   "pk": 13,
   "fields": {
     "name": "point 13",
     "address": "Hospital Esperit Sant - Av. Cardenal Vidal i B., 08923 Santa Coloma de Gramenet, Barcelona, Spain",
     "latitude": "41.437579000000000000",
     "longitude": "2.214603000000000000",
-    "recyclable_material": 6
+    "recycling_material": 6
   }
 },
 {
-  "model": "api.recyclablespot",
+  "model": "api.recyclingspot",
   "pk": 14,
   "fields": {
     "name": "point 14",
     "address": "Carrer de Cartagena, 153, 08013 Barcelona, Spain",
     "latitude": "41.403287000000000000",
     "longitude": "2.183876000000000000",
-    "recyclable_material": 7
+    "recycling_material": 7
   }
 },
 {
@@ -240,7 +240,7 @@
   "fields": {
     "name": "glass",
     "description": "glass description",
-    "recyclable_material": 2
+    "recycling_material": 2
   }
 },
 {
@@ -249,7 +249,7 @@
   "fields": {
     "name": "wood",
     "description": "wood description",
-    "recyclable_material": 4
+    "recycling_material": 4
   }
 },
 {
@@ -258,7 +258,7 @@
   "fields": {
     "name": "PET - plastic",
     "description": "PET soft drink bottles etc",
-    "recyclable_material": 1
+    "recycling_material": 1
   }
 },
 {
@@ -267,7 +267,7 @@
   "fields": {
     "name": "HDPE - plastic",
     "description": "high density polyethylene - milk, coffee cream, juice and shampoo bottles",
-    "recyclable_material": 1
+    "recycling_material": 1
   }
 },
 {
@@ -276,7 +276,7 @@
   "fields": {
     "name": "PS - plastic",
     "description": "polystyrene - yogurt containers, CD cases",
-    "recyclable_material": 1
+    "recycling_material": 1
   }
 },
 {
@@ -285,7 +285,7 @@
   "fields": {
     "name": "electronics",
     "description": "electronics description",
-    "recyclable_material": 7
+    "recycling_material": 7
   }
 },
 {
@@ -294,7 +294,7 @@
   "fields": {
     "name": "batteries",
     "description": "batteries description",
-    "recyclable_material": 7
+    "recycling_material": 7
   }
 },
 {
@@ -303,7 +303,7 @@
   "fields": {
     "name": "paper",
     "description": "paper description",
-    "recyclable_material": 5
+    "recycling_material": 5
   }
 },
 {
@@ -312,7 +312,7 @@
   "fields": {
     "name": "aluminium",
     "description": "aluminium description",
-    "recyclable_material": 1
+    "recycling_material": 1
   }
 },
 {
@@ -321,7 +321,7 @@
   "fields": {
     "name": "tins",
     "description": "tins description",
-    "recyclable_material": 1
+    "recycling_material": 1
   }
 },
 {
@@ -330,7 +330,7 @@
   "fields": {
     "name": "food",
     "description": "food description",
-    "recyclable_material": 6
+    "recycling_material": 6
   }
 },
 {
@@ -339,7 +339,7 @@
   "fields": {
     "name": "vegetables",
     "description": "vegetables description",
-    "recyclable_material": 6
+    "recycling_material": 6
   }
 },
 {
@@ -348,7 +348,7 @@
   "fields": {
     "name": "textiles",
     "description": "textiles description",
-    "recyclable_material": 3
+    "recycling_material": 3
   }
 },
 {
@@ -357,7 +357,7 @@
   "fields": {
     "name": "other",
     "description": "other description",
-    "recyclable_material": 7
+    "recycling_material": 7
   }
 },
 {
@@ -452,7 +452,7 @@
   }
 },
 {
-  "model": "api.recyclablehistory",
+  "model": "api.recyclinghistory",
   "pk": 1,
   "fields": {
     "UID": "123456789",
@@ -462,7 +462,7 @@
   }
 },
 {
-  "model": "api.recyclablehistory",
+  "model": "api.recyclinghistory",
   "pk": 2,
   "fields": {
     "UID": "123456789",
@@ -472,7 +472,7 @@
   }
 },
 {
-  "model": "api.recyclablehistory",
+  "model": "api.recyclinghistory",
   "pk": 3,
   "fields": {
     "UID": "987654321",
@@ -482,7 +482,7 @@
   }
 },
 {
-  "model": "api.recyclablehistory",
+  "model": "api.recyclinghistory",
   "pk": 4,
   "fields": {
     "UID": "987654321",
@@ -492,7 +492,7 @@
   }
 },
 {
-  "model": "api.recyclablehistory",
+  "model": "api.recyclinghistory",
   "pk": 5,
   "fields": {
     "UID": "987654321",
@@ -502,7 +502,7 @@
   }
 },
 {
-  "model": "api.recyclablehistory",
+  "model": "api.recyclinghistory",
   "pk": 6,
   "fields": {
     "UID": "987654321",
@@ -512,7 +512,7 @@
   }
 },
 {
-  "model": "api.recyclablehistory",
+  "model": "api.recyclinghistory",
   "pk": 7,
   "fields": {
     "UID": "123456789",
@@ -522,7 +522,7 @@
   }
 },
 {
-  "model": "api.recyclablehistory",
+  "model": "api.recyclinghistory",
   "pk": 8,
   "fields": {
     "UID": "123456789",
@@ -532,7 +532,7 @@
   }
 },
 {
-  "model": "api.recyclablehistory",
+  "model": "api.recyclinghistory",
   "pk": 9,
   "fields": {
     "UID": "987654321",
@@ -542,7 +542,7 @@
   }
 },
 {
-  "model": "api.recyclablehistory",
+  "model": "api.recyclinghistory",
   "pk": 10,
   "fields": {
     "UID": "987654321",
@@ -552,7 +552,7 @@
   }
 },
 {
-  "model": "api.recyclablehistory",
+  "model": "api.recyclinghistory",
   "pk": 11,
   "fields": {
     "UID": "987654321",
@@ -562,7 +562,7 @@
   }
 },
 {
-  "model": "api.recyclablehistory",
+  "model": "api.recyclinghistory",
   "pk": 12,
   "fields": {
     "UID": "987654321",
@@ -572,7 +572,7 @@
   }
 },
 {
-  "model": "api.recyclablehistory",
+  "model": "api.recyclinghistory",
   "pk": 13,
   "fields": {
     "UID": "987654321",

@@ -79,21 +79,22 @@ class HeaderAuthentication(authentication.BaseAuthentication):
 #@method_decorator(retrieve_user_id, name='dispatch')
 class RecyclingAPIView(APIView):
     #pass
-    authentication_classes = (JWTAuthentication, HeaderAuthentication, )
+    #authentication_classes = (JWTAuthentication, HeaderAuthentication, )
+    authentication_classes = (JWTAuthentication, )
     permission_classes = (IsAuthenticated,)
 
-class RecyclableMaterialViewSet(viewsets.ModelViewSet, RecyclingAPIView):
+class RecyclingMaterialViewSet(viewsets.ModelViewSet, RecyclingAPIView):
 
-    model = RecyclableMaterial
-    queryset = RecyclableMaterial.objects.all()
-    serializer_class = RecyclableMaterialSerializer
+    model = RecyclingMaterial
+    queryset = RecyclingMaterial.objects.all()
+    serializer_class = RecyclingMaterialSerializer
     renderer_classes = (JSONRenderer, )
 
-class RecyclableSpotViewSet(viewsets.ModelViewSet, RecyclingAPIView):
+class RecyclingSpotViewSet(viewsets.ModelViewSet, RecyclingAPIView):
 
-    model = RecyclableSpot
-    queryset = RecyclableSpot.objects.all()
-    serializer_class = RecyclableSpotSerializer
+    model = RecyclingSpot
+    queryset = RecyclingSpot.objects.all()
+    serializer_class = RecyclingSpotSerializer
     renderer_classes = (JSONRenderer, )
 
     @action(detail=False, methods=['get'])
@@ -103,26 +104,26 @@ class RecyclableSpotViewSet(viewsets.ModelViewSet, RecyclingAPIView):
         user_latitude = float(request.query_params.get('latitude'))
         user_longitude = float(request.query_params.get('longitude'))
 
-        # Get RecyclableSpot List
-        recyclable_spot_queryset = RecyclableSpot.objects.all()
+        # Get RecyclingSpot List
+        recycling_spot_queryset = RecyclingSpot.objects.all()
 
 
         # Calculate distance
-        recyclable_spot_distance_list = {}
-        for recyclable_spot in recyclable_spot_queryset:
+        recycling_spot_distance_list = {}
+        for recycling_spot in recycling_spot_queryset:
             user_location = (user_latitude, user_longitude)
-            spot_location = (recyclable_spot.latitude, recyclable_spot.longitude)
-            recyclable_spot_distance_list[recyclable_spot.id] = geodesic(user_location, spot_location).kilometers
+            spot_location = (recycling_spot.latitude, recycling_spot.longitude)
+            recycling_spot_distance_list[recycling_spot.id] = geodesic(user_location, spot_location).kilometers
 
         # Get closest
-        recyclable_spot_id_listed_sorted = sorted(recyclable_spot_distance_list.items(),
+        recycling_spot_id_listed_sorted = sorted(recycling_spot_distance_list.items(),
                                                     key=operator.itemgetter(1))
-        recyclable_spot_closest_id_list = [i[0] for i in recyclable_spot_id_listed_sorted[0:settings.RECYCLABLE_SPOTS_LIMIT]]
-        recyclable_spot_closest_queryset = recyclable_spot_queryset.filter(pk__in=recyclable_spot_closest_id_list)
+        recycling_spot_closest_id_list = [i[0] for i in recycling_spot_id_listed_sorted[0:settings.RECYCLING_SPOTS_LIMIT]]
+        recycling_spot_closest_queryset = recycling_spot_queryset.filter(pk__in=recycling_spot_closest_id_list)
 
         # Generate serializer
-        serializer = RecyclableSpotDistanceSerializer(recyclable_spot_closest_queryset,
-                                                      context={'distance_list': recyclable_spot_distance_list},
+        serializer = RecyclingSpotDistanceSerializer(recycling_spot_closest_queryset,
+                                                      context={'distance_list': recycling_spot_distance_list},
                                                       many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -140,10 +141,10 @@ class RankingView(RecyclingAPIView):
     def get(self, request, format=None):
 
         with connection.cursor() as cursor:
-            cursor.execute('Select auth_user.id as id, auth_user.username as username, count(api_recyclablehistory.created_at) as count ' +
+            cursor.execute('Select auth_user.id as id, auth_user.username as username, count(api_recyclinghistory.created_at) as count ' +
                             'from auth_user ' +
-                            'left join api_recyclablehistory ' +
-                            'on auth_user.id = api_recyclablehistory.user_id ' +
+                            'left join api_recyclinghistory ' +
+                            'on auth_user.id = api_recyclinghistory.user_id ' +
                             'where auth_user.is_superuser=0 ' +
                             'group by auth_user.id ' +
                             'order by -count ')
@@ -165,7 +166,7 @@ class StatsView(RecyclingAPIView):
         start_time = datetime.strptime(request.query_params.get('startdate'), '%Y-%m-%d')
         end_time = datetime.strptime(request.query_params.get('enddate'), '%Y-%m-%d')
 
-        recyclable_history = RecyclableHistory.objects.filter(user=request.user)
+        recycling_history = RecyclingHistory.objects.filter(user=request.user)
 
         response = {
             'n_scan': 876,
@@ -209,7 +210,7 @@ class ProductViewSet(viewsets.ModelViewSet, RecyclingAPIView):
     renderer_classes = (JSONRenderer, )
 
     @action(detail=True, methods=['get'])
-    def recyclablespot(self, request, pk=None):
+    def recyclingspot(self, request, pk=None):
         print(request.user)
 
         user_latitude = float(request.query_params.get('latitude'))
@@ -221,32 +222,32 @@ class ProductViewSet(viewsets.ModelViewSet, RecyclingAPIView):
         # M.aterial set
         material_set = product.material_set.all()
 
-        # Get Recyclable Spot
-        recyclable_spot_list = []
+        # Get Recycling Spot
+        recycling_spot_list = []
         for material in material_set:
-            spot_queryset = RecyclableSpot.objects.filter(recyclable_material=material.recyclable_material)
+            spot_queryset = RecyclingSpot.objects.filter(recycling_material=material.recycling_material)
             spot_list = list(spot_queryset.values_list('id', flat=True))
-            recyclable_spot_list.extend(spot_list)
+            recycling_spot_list.extend(spot_list)
 
-        # Get RecyclableSpot List
-        recyclable_spot_queryset = RecyclableSpot.objects.filter(pk__in=recyclable_spot_list)
+        # Get RecyclingSpot List
+        recycling_spot_queryset = RecyclingSpot.objects.filter(pk__in=recycling_spot_list)
 
         # Calculate distance
-        recyclable_spot_distance_list = {}
-        for recyclable_spot in recyclable_spot_queryset:
+        recycling_spot_distance_list = {}
+        for recycling_spot in recycling_spot_queryset:
             user_location = (user_latitude, user_longitude)
-            spot_location = (recyclable_spot.latitude, recyclable_spot.longitude)
-            recyclable_spot_distance_list[recyclable_spot.id] = geodesic(user_location, spot_location).kilometers
+            spot_location = (recycling_spot.latitude, recycling_spot.longitude)
+            recycling_spot_distance_list[recycling_spot.id] = geodesic(user_location, spot_location).kilometers
 
         # Get closest
-        recyclable_spot_id_listed_sorted = sorted(recyclable_spot_distance_list.items(),
+        recycling_spot_id_listed_sorted = sorted(recycling_spot_distance_list.items(),
                                                     key=operator.itemgetter(1))
-        recyclable_spot_closest_id_list = [i[0] for i in recyclable_spot_id_listed_sorted[0:settings.RECYCLABLE_SPOTS_LIMIT]]
-        recyclable_spot_closest_queryset = recyclable_spot_queryset.filter(pk__in=recyclable_spot_closest_id_list)
+        recycling_spot_closest_id_list = [i[0] for i in recycling_spot_id_listed_sorted[0:settings.RECYCLING_SPOTS_LIMIT]]
+        recycling_spot_closest_queryset = recycling_spot_queryset.filter(pk__in=recycling_spot_closest_id_list)
 
         # Generate serializer
-        serializer = RecyclableSpotDistanceSerializer(recyclable_spot_closest_queryset,
-                                                      context={'distance_list': recyclable_spot_distance_list},
+        serializer = RecyclingSpotDistanceSerializer(recycling_spot_closest_queryset,
+                                                      context={'distance_list': recycling_spot_distance_list},
                                                       many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
