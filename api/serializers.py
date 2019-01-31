@@ -9,9 +9,9 @@ class RecyclingMaterialSerializer(serializers.ModelSerializer):
         model = RecyclingMaterial
         fields = '__all__'
 
-class RecyclingSpotSerializer(serializers.ModelSerializer):
+class RecyclingPointSerializer(serializers.ModelSerializer):
     class Meta:
-        model = RecyclingSpot
+        model = RecyclingPoint
         fields = '__all__'
 
 class MaterialSerializer(serializers.ModelSerializer):
@@ -30,12 +30,12 @@ class NewSerializer(serializers.ModelSerializer):
         model = New
         fields = '__all__'
 
-class RecyclingSpotDistanceSerializer(serializers.ModelSerializer):
+class RecyclingPointDistanceSerializer(serializers.ModelSerializer):
     distance = serializers.SerializerMethodField()
 
     def get_distance(self, obj):
         return self.context.get('distance_list')[obj.id]
 
     class Meta:
-        model = RecyclingSpot
+        model = RecyclingPoint
         fields = '__all__'

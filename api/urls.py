@@ -27,7 +27,7 @@ class MyTokenObtainPairView(TokenObtainPairView):
 
 router = routers.DefaultRouter()
 router.register(r'recyclingmaterial', RecyclingMaterialViewSet)
-router.register(r'recyclingspot', RecyclingSpotViewSet)
+router.register(r'recyclingspot', RecyclingPointViewSet)
 router.register(r'material', MaterialViewSet)
 router.register(r'product', ProductViewSet)
 router.register(r'new', NewViewSet)

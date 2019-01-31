@@ -9,7 +9,7 @@ class RecyclingMaterial(models.Model):
     def __str__(self):
         return self.name
 
-class RecyclingSpot(models.Model):
+class RecyclingPoint(models.Model):
     name = models.CharField(max_length=500, null=True)
     address = models.CharField(max_length=500, null=True)
     latitude = models.DecimalField(max_digits=20, null=True, decimal_places=18)
