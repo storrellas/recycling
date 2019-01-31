@@ -311,7 +311,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/api/product/123456789/recyclablespot/?latitude=41.410729&longitude=2.184305",
+							"raw": "{{url}}/api/product/123456789/recyclingpoint/?latitude=41.410729&longitude=2.184305",
 							"host": [
 								"{{url}}"
 							],
@@ -319,7 +319,7 @@
 								"api",
 								"product",
 								"123456789",
-								"recyclablespot",
+								"recyclingpoint",
 								""
 							],
 							"query": [
@@ -337,7 +337,7 @@
 					"response": []
 				},
 				{
-					"name": "RecyclableMaterial - Preflight",
+					"name": "RecyclingMaterial - Preflight",
 					"request": {
 						"method": "OPTIONS",
 						"header": [
@@ -372,13 +372,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/api/recyclablematerial/",
+							"raw": "{{url}}/api/recyclingmaterial/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"recyclablematerial",
+								"recyclingmaterial",
 								""
 							]
 						}
@@ -386,7 +386,7 @@
 					"response": []
 				},
 				{
-					"name": "RecyclableMaterial",
+					"name": "RecyclingMaterial",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -406,13 +406,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/api/recyclablematerial/",
+							"raw": "{{url}}/api/recyclingmaterial/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"recyclablematerial",
+								"recyclingmaterial",
 								""
 							]
 						}
@@ -420,7 +420,7 @@
 					"response": []
 				},
 				{
-					"name": "Recyclable Spot",
+					"name": "Recycling Point",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -440,13 +440,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/api/recyclablespot/",
+							"raw": "{{url}}/api/recyclingpoint/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"recyclablespot",
+								"recyclingpoint",
 								""
 							]
 						}
@@ -454,7 +454,7 @@
 					"response": []
 				},
 				{
-					"name": "RecyclableSpot - Nearby",
+					"name": "Recycling Point - Nearby",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -474,13 +474,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/api/recyclablespot/nearby/?latitude=41.410729&longitude=2.184305",
+							"raw": "{{url}}/api/recyclingpoint/nearby/?latitude=41.410729&longitude=2.184305",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"recyclablespot",
+								"recyclingpoint",
 								"nearby",
 								""
 							],
@@ -631,13 +631,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/api/product/",
+							"raw": "{{url}}/api/new/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"product",
+								"new",
 								""
 							]
 						}
