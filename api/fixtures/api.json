@@ -239,22 +239,6 @@
   "model": "api.recyclingpoint",
   "pk": 9,
   "fields": {
-    "name": "pont 9",
-    "address": "Carrer de la Marina, 253, 08013 Barcelona, Spain",
-    "city": "Barcelona",
-    "zipcode": "08041",
-    "phone": "003469569548",
-    "opening_hours": "",
-    "country": "CH",
-    "latitude": "41.403853000000000000",
-    "longitude": "2.174263000000000000",
-    "recycling_material": 4
-  }
-},
-{
-  "model": "api.recyclingpoint",
-  "pk": 10,
-  "fields": {
     "name": "La Claie-aux-Moines",
     "address": "Route Vers-chez-les-Blanc",
     "city": "Savigny",
@@ -269,7 +253,7 @@
 },
 {
   "model": "api.recyclingpoint",
-  "pk": 11,
+  "pk": 10,
   "fields": {
     "name": "Déchèterie intercommunale En Praz Libon",
     "address": "En Praz Libon",
@@ -285,7 +269,7 @@
 },
 {
   "model": "api.recyclingpoint",
-  "pk": 12,
+  "pk": 11,
   "fields": {
     "name": "Rue des Prises",
     "address": "Rue des Prises",
@@ -301,7 +285,7 @@
 },
 {
   "model": "api.recyclingpoint",
-  "pk": 13,
+  "pk": 12,
   "fields": {
     "name": "Route des Cullayes",
     "address": "Route des Cullayes",
@@ -317,7 +301,7 @@
 },
 {
   "model": "api.recyclingpoint",
-  "pk": 14,
+  "pk": 13,
   "fields": {
     "name": "Migros MM Avenue Gustave Coindet 11",
     "address": "Avenue Gustave Coindet 11",
@@ -333,7 +317,7 @@
 },
 {
   "model": "api.recyclingpoint",
-  "pk": 15,
+  "pk": 14,
   "fields": {
     "name": "Coop rue du Simplon 28",
     "address": "Rue du Simplon 28",
@@ -349,7 +333,7 @@
 },
 {
   "model": "api.recyclingpoint",
-  "pk": 17,
+  "pk": 15,
   "fields": {
     "name": "Eco point rue des Pêcheurs 10",
     "address": "Rue des Pêcheurs 10",
@@ -365,7 +349,7 @@
 },
 {
   "model": "api.recyclingpoint",
-  "pk": 18,
+  "pk": 16,
   "fields": {
     "name": "Denner Rue d'Italie 56",
     "address": "Rue d'Italie 56",
@@ -381,7 +365,7 @@
 },
 {
   "model": "api.recyclingpoint",
-  "pk": 19,
+  "pk": 17,
   "fields": {
     "name": "Dipl. Ing. Fust SA Rue du Simplon 11",
     "address": "Rue du Simplon 11",
@@ -397,7 +381,7 @@
 },
 {
   "model": "api.recyclingpoint",
-  "pk": 20,
+  "pk": 18,
   "fields": {
     "name": "Eco point Grande Place 1",
     "address": "Grande Place 1",
@@ -413,7 +397,7 @@
 },
 {
   "model": "api.recyclingpoint",
-  "pk": 21,
+  "pk": 19,
   "fields": {
     "name": "Eco point Avenue Gustave Coindet 9",
     "address": "Avenue Gustave Coindet 9",
