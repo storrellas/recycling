@@ -19,6 +19,7 @@ class RecyclingPoint(models.Model):
     zipcode = models.CharField(max_length=100, null=True)
     phone = models.CharField(max_length=100, null=True)
     opening_hours = models.CharField(max_length=100, null=True)
+    country = models.CharField(max_length=2, null=True)
     latitude = models.DecimalField(max_digits=20, null=True, decimal_places=18)
     longitude = models.DecimalField(max_digits=20, null=True, decimal_places=18)
     recycling_material = models.ForeignKey(RecyclingMaterial, on_delete=models.SET_NULL, null=True)
