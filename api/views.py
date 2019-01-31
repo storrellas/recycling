@@ -202,6 +202,15 @@ class StatsView(RecyclingAPIView):
         return Response(response, status=status.HTTP_200_OK)
 
 
+class DefaultLocationView(RecyclingAPIView):
+    def get(self, request, format=None):
+        response = {
+            'latitude': settings.RECYCLING_DEFAULT_LATITUDE,
+            'longitude': settings.RECYCLING_DEFAULT_LONGITUDE
+        }
+        return Response(response, status=status.HTTP_200_OK)
+
+
 class ProductViewSet(viewsets.ModelViewSet, RecyclingAPIView):
 
     model = Product

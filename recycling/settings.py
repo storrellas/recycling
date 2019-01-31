@@ -119,6 +119,8 @@ USE_L10N = True
 USE_TZ = True
 
 RECYCLING_POINT_LIMIT = 10
+RECYCLING_DEFAULT_LATITUDE = 46.467104
+RECYCLING_DEFAULT_LONGITUDE = 6.835388
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
