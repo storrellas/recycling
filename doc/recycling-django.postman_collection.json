@@ -643,6 +643,41 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Default Location",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token_access}}"
+							},
+							{
+								"key": "USERNAME",
+								"type": "text",
+								"value": "{{username}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/location/default/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"location",
+								"default",
+								""
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}

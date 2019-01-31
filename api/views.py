@@ -78,10 +78,10 @@ class HeaderAuthentication(authentication.BaseAuthentication):
 
 #@method_decorator(retrieve_user_id, name='dispatch')
 class RecyclingAPIView(APIView):
-    #pass
+    pass
     #authentication_classes = (JWTAuthentication, HeaderAuthentication, )
-    authentication_classes = (JWTAuthentication, )
-    permission_classes = (IsAuthenticated,)
+    # authentication_classes = (JWTAuthentication, )
+    # permission_classes = (IsAuthenticated,)
 
     def recycling_point_by_distance(self, user_location, recycling_point_queryset):
         """
