@@ -83,6 +83,25 @@ class RecyclingAPIView(APIView):
     authentication_classes = (JWTAuthentication, )
     permission_classes = (IsAuthenticated,)
 
+    def recycling_point_by_distance(self, user_latitude, user_longitude, recycling_point_queryset):
+        """
+        Calculates Distance given a queryset
+        """
+        # Calculate distance
+        recycling_point_distance_list = {}
+        for recycling_point in recycling_point_queryset:
+            user_location = (user_latitude, user_longitude)
+            point_location = (recycling_point.latitude, recycling_point.longitude)
+            recycling_point_distance_list[recycling_point.id] = geodesic(user_location, point_location).kilometers
+
+        # Ordering results
+        recycling_point_id_listed_sorted = sorted(recycling_point_distance_list.items(),
+                                                  key=operator.itemgetter(1))
+        recycling_point_closest_id_list = [i[0] for i in recycling_point_id_listed_sorted[0:settings.RECYCLING_POINT_LIMIT]]
+
+        return recycling_point_closest_id_list
+
+
 class RecyclingMaterialViewSet(viewsets.ModelViewSet, RecyclingAPIView):
 
     model = RecyclingMaterial
@@ -100,30 +119,55 @@ class RecyclingPointViewSet(viewsets.ModelViewSet, RecyclingAPIView):
     @action(detail=False, methods=['get'])
     def nearby(self, request, pk=None):
 
-
+        # Generate tuple for user_location
         user_latitude = float(request.query_params.get('latitude'))
         user_longitude = float(request.query_params.get('longitude'))
+        user_location = (user_latitude, user_longitude)
 
         # Get RecyclingPoint List
         recycling_point_queryset = RecyclingPoint.objects.all()
 
-
-        # Calculate distance
-        recycling_point_distance_list = {}
+        # Calculate distance for every recycling point
+        recycling_point_id_distance_list = {}  # Dict key=id, value=<distance>
         for recycling_point in recycling_point_queryset:
-            user_location = (user_latitude, user_longitude)
             point_location = (recycling_point.latitude, recycling_point.longitude)
-            recycling_point_distance_list[recycling_point.id] = geodesic(user_location, point_location).kilometers
+            recycling_point_id_distance_list[recycling_point.id] = geodesic(user_location, point_location).kilometers
 
         # Get closest
-        recycling_point_id_listed_sorted = sorted(recycling_point_distance_list.items(),
-                                                    key=operator.itemgetter(1))
-        recycling_point_closest_id_list = [i[0] for i in recycling_point_id_listed_sorted[0:settings.RECYCLING_POINT_LIMIT]]
-        recycling_point_closest_queryset = recycling_point_queryset.filter(pk__in=recycling_point_closest_id_list)
+        # recycling_point_id_listed_sorted = sorted(recycling_point_distance_list.items(),
+        #                                             key=operator.itemgetter(1))
+
+        recycling_point_id_distance_list_sorted = [(k, recycling_point_id_distance_list[k]) for k in sorted(recycling_point_id_distance_list, key=recycling_point_id_distance_list.get)]
+
+
+        #recycling_point_closest_id_list = [i[0] for i in recycling_point_id_listed_sorted[0:settings.RECYCLING_POINT_LIMIT]]
+        recycling_point_closest_id_list = [i[0] for i in recycling_point_id_distance_list_sorted[0:settings.RECYCLING_POINT_LIMIT]]
+
+        # recycling_point_closest_id_list = self.recycling_point_by_distance(user_latitude, user_longitude,
+        #                                                                    recycling_point_queryset)
 
         # Generate serializer
-        serializer = RecyclingPointDistanceSerializer(recycling_point_closest_queryset,
-                                                      context={'distance_list': recycling_point_distance_list},
+        recycling_point_closest_queryset = recycling_point_queryset.filter(pk__in=recycling_point_closest_id_list)
+
+        print("-- INIT: recycling_point_distance_list --")
+        print(recycling_point_id_distance_list)
+        print("-- END: recycling_point_distance_list --")
+        print("-- INIT: recycling_point_id_listed_sorted --")
+        print(recycling_point_id_distance_list_sorted)
+        print("-- END: recycling_point_id_listed_sorted --")
+        print("-- INIT: recycling_point_closest_id_list --")
+        print(recycling_point_closest_id_list)
+        print("-- END: recycling_point_closest_id_list --")
+        print("-- END: recycling_point_closest_queryset --")
+        print(recycling_point_closest_queryset)
+        print("-- END: recycling_point_closest_queryset --")
+
+        # Order items by distance (id's are sorted)
+        recycling_point_closest_dict = dict([(obj.id, obj) for obj in recycling_point_closest_queryset])
+        recycling_point_closest_dict_sorted = [recycling_point_closest_dict[id] for id in recycling_point_closest_id_list]
+
+        serializer = RecyclingPointDistanceSerializer(recycling_point_closest_dict_sorted,
+                                                      context={'distance_list': recycling_point_id_distance_list},
                                                       many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -241,20 +285,23 @@ class ProductViewSet(viewsets.ModelViewSet, RecyclingAPIView):
         # Get RecyclingPoint List
         recycling_point_queryset = RecyclingPoint.objects.filter(pk__in=recycling_point_list)
 
-        # Calculate distance
-        recycling_point_distance_list = {}
-        for recycling_point in recycling_point_queryset:
-            user_location = (user_latitude, user_longitude)
-            point_location = (recycling_point.latitude, recycling_point.longitude)
-            recycling_point_distance_list[recycling_point.id] = geodesic(user_location, point_location).kilometers
+        # # Calculate distance
+        # recycling_point_distance_list = {}
+        # for recycling_point in recycling_point_queryset:
+        #     user_location = (user_latitude, user_longitude)
+        #     point_location = (recycling_point.latitude, recycling_point.longitude)
+        #     recycling_point_distance_list[recycling_point.id] = geodesic(user_location, point_location).kilometers
+        #
+        # # Get closest
+        # recycling_point_id_listed_sorted = sorted(recycling_point_distance_list.items(),
+        #                                             key=operator.itemgetter(1))
+        # recycling_point_closest_id_list = [i[0] for i in recycling_point_id_listed_sorted[0:settings.RECYCLING_POINT_LIMIT]]
 
-        # Get closest
-        recycling_point_id_listed_sorted = sorted(recycling_point_distance_list.items(),
-                                                    key=operator.itemgetter(1))
-        recycling_point_closest_id_list = [i[0] for i in recycling_point_id_listed_sorted[0:settings.RECYCLING_POINT_LIMIT]]
-        recycling_point_closest_queryset = recycling_point_queryset.filter(pk__in=recycling_point_closest_id_list)
+        recycling_point_closest_id_list = self.recycling_point_by_distance(user_latitude, user_longitude,
+                                                                           recycling_point_queryset)
 
         # Generate serializer
+        recycling_point_closest_queryset = recycling_point_queryset.filter(pk__in=recycling_point_closest_id_list)
         serializer = RecyclingPointDistanceSerializer(recycling_point_closest_queryset,
                                                       context={'distance_list': recycling_point_distance_list},
                                                       many=True)
