@@ -1,5 +1,5 @@
 import operator
-from datetime import datetime
+from datetime import datetime, timedelta
 from functools import wraps
 
 # Django imports
@@ -78,10 +78,10 @@ class HeaderAuthentication(authentication.BaseAuthentication):
 
 #@method_decorator(retrieve_user_id, name='dispatch')
 class RecyclingAPIView(APIView):
-    pass
-    #authentication_classes = (JWTAuthentication, HeaderAuthentication, )
+    #pass
+    authentication_classes = (JWTAuthentication, HeaderAuthentication, )
     # authentication_classes = (JWTAuthentication, )
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
 
     def recycling_point_by_distance(self, user_location, recycling_point_queryset):
         """
@@ -184,14 +184,42 @@ class StatsView(RecyclingAPIView):
         start_time = datetime.strptime(request.query_params.get('startdate'), '%Y-%m-%d')
         end_time = datetime.strptime(request.query_params.get('enddate'), '%Y-%m-%d')
 
+        # Get Recycling History
         recycling_history = RecyclingHistory.objects.filter(user=request.user)
 
+        # Get Ranking
+        ranking = -1
+        with connection.cursor() as cursor:
+            cursor.execute('Select auth_user.id as id, auth_user.username as username, count(api_recyclinghistory.created_at) as count ' +
+                            'from auth_user ' +
+                            'left join api_recyclinghistory ' +
+                            'on auth_user.id = api_recyclinghistory.user_id ' +
+                            'where auth_user.is_superuser=0 ' +
+                            'group by auth_user.id ' +
+                            'order by -count ')
+            result = cursor.fetchall()
+
+            # Generate User_List
+            for index, user in enumerate(result):
+                if request.user.id == user[0]:
+                    ranking = (index + 1)
+                #user_list.append({'id': user[0], 'username': user[1], 'count': user[2], 'ranking': (index+1)})
+
+        now = datetime.now()
+        week_before =  now - timedelta(days=7)
+        month_before = now - timedelta(days=30)
+        year_before = now - timedelta(days=365)
+        weekly_count = recycling_history.filter(created_at__range=(week_before, now)).count()
+        monthly_count = recycling_history.filter(created_at__range=(month_before, now)).count()
+        yearly_count = recycling_history.filter(created_at__range=(year_before, now)).count()
+
+
         response = {
-            'n_scan': 876,
-            'ranking': 765,
+            'n_scan': recycling_history.count(),
+            'ranking': ranking,
             'green_impact': 81.8,
             'weekly': {
-                'n_scan': 103,
+                'n_scan': weekly_count,
                 'material_set' : {
                     'cardboard': 50,
                     'paper': 30,
@@ -199,7 +227,7 @@ class StatsView(RecyclingAPIView):
                 }
             },
             'monthly': {
-                'n_scan': 221,
+                'n_scan': monthly_count,
                 'material_set' : {
                     'cardboard': 50,
                     'paper': 30,
@@ -207,7 +235,7 @@ class StatsView(RecyclingAPIView):
                 }
             },
             'yearly': {
-                'n_scan': 456,
+                'n_scan': yearly_count,
                 'material_set' : {
                     'cardboard': 50,
                     'paper': 30,
