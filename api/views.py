@@ -205,6 +205,7 @@ class StatsView(RecyclingAPIView):
                     ranking = (index + 1)
                 #user_list.append({'id': user[0], 'username': user[1], 'count': user[2], 'ranking': (index+1)})
 
+        # Getting scans
         now = datetime.now()
         week_before =  now - timedelta(days=7)
         month_before = now - timedelta(days=30)
@@ -212,6 +213,15 @@ class StatsView(RecyclingAPIView):
         weekly_count = recycling_history.filter(created_at__range=(week_before, now)).count()
         monthly_count = recycling_history.filter(created_at__range=(month_before, now)).count()
         yearly_count = recycling_history.filter(created_at__range=(year_before, now)).count()
+
+        # SELECT history.user_id, recycling_material.id, count(recycling_material.id) as recycling_material 
+        # from api_recyclinghistory as history
+        # inner join api_product as product on product.barcode = history.product_id
+        # inner join api_product_material_set as material_set on product.barcode = material_set.product_id
+        # inner join api_material as material on material_set.material_id = material.id
+        # inner join api_recyclingmaterial as recycling_material on material.recycling_material_id = recycling_material.id
+        # WHERE history.user_id = 2
+        # group by (recycling_material.id);
 
 
         response = {
